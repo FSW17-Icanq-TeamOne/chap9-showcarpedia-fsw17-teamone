@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     grade: DataTypes.STRING,
     category: DataTypes.STRING,
     description: DataTypes.STRING,
+    photoProduct: DataTypes.STRING,
     delete: DataTypes.BOOLEAN
   }, {
     sequelize,
