@@ -12,7 +12,7 @@ function App() {
 
       <Navbar2 />
       <RegisUser />
-      <RegisProfile />
+      {/* <RegisProfile /> */}
     </div>
   );
 }
