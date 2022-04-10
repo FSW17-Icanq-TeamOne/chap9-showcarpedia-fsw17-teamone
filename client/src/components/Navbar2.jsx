@@ -6,9 +6,9 @@ import { Grid, Typography } from "@mui/material";
              <Grid 
                 display={'flex'} 
                 alignItems={'baseline'} 
-                marginLeft={'165px'}
+                marginLeft={'200px'}
             >
-                <Typography mr={'auto'} variant={'h5'} marginTop={'40px'}>Logo</Typography>
+                <Typography mr={'auto'} variant={'h5'} marginTop={'30px'}>Logo</Typography>
 
                 <Grid display={'flex'} gap={'40px'} marginRight={'165px'}>
                     <Typography>Wishlist</Typography>

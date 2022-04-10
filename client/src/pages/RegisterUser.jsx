@@ -1,5 +1,7 @@
 import { Button, Grid, TextField, Typography, } from "@mui/material";
+import { borderColor } from "@mui/system";
 import { useFormik } from "formik";
+import '../App.css'
 
 export default function RegisUser() {
     const formik = useFormik({
@@ -15,12 +17,18 @@ export default function RegisUser() {
 
     
     return (
-        <Grid display={'flex'} flexDirection={'column'}>
-            <Grid container justifyContent={'center'}> 
-                <Typography variant="h3" marginTop={'50px'}>Create Account</Typography>
+        <Grid container display={'flex'} direction={'column'} sx={{
+            alignItems: 'center',
+
+            margin: 'auto',
+
+            maxWidth: 345,
+        }}>
+            <Grid container justifyContent={'flex-start'}> 
+                <Typography variant="h4" marginTop={'50px'}>Create Account</Typography>
             </Grid>
 
-            <Grid container justifyContent={'center'} marginTop={'30px'}>
+            <Grid container justifyContent={'center'} marginTop={'10px'}>
                 <form onSubmit={formik.handleSubmit}>
                     <Grid marginTop={'30px'}>
                         <TextField 
@@ -89,14 +97,32 @@ export default function RegisUser() {
                         />
                     </Grid>
 
-                    <Grid container justifyContent={'center'} marginTop={'35px'}>
+                    <Grid container justifyContent={'center'} marginTop={'50px'}>
                         <Button 
                             sx={{ 
                                 width: 345, 
                                 backgroundColor: 'orange',
                                 color: 'white'
                             }}
-                            type="submit">Submit</Button>
+                            href={'/hello'}
+                            type="submit">Next</Button>
+                    </Grid>
+
+                    <Grid marginTop={'25px'}>
+                        <Typography variant="h6">OR</Typography>
+                    </Grid>
+
+                    <Grid container justifyContent={'center'} marginTop={'25px'}>
+                        <Button 
+                            sx={{ 
+                                width: 345,
+                                color: 'black',
+                                
+                                border: 1,
+                                borderColor: 'black'
+                            }}
+                            href={'/login'}
+                            type="submit">Sign In</Button>
                     </Grid>
 
                 </form>

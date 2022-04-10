@@ -2,8 +2,8 @@ import { Grid, Typography } from "@mui/material";
 
 export default function RegisProfile() {
     return (
-        <Grid>
-            <Typography>Hello</Typography>
+        <Grid display={'flex'} justifyContent={'center'}>
+            <Typography variant="h3" marginTop={'40px'}>Create Account</Typography>
         </Grid>
     )
 }
