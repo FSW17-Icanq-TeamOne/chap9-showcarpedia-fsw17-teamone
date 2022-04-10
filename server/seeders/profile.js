@@ -15,9 +15,9 @@ module.exports = {
     */
     await queryInterface.bulkInsert("Profiles", [
       {
-        userId: 2,
+        userId: 1,
         fullname: "Faizal Essa",
-        birthdate: "Essa123",
+        birthdate: "10-03-2022",
         city: "Jakarta",
         country: false,
         mobilePhone: 6281294933210,
