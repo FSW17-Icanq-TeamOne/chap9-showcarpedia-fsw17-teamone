@@ -1,9 +1,5 @@
 import { Autocomplete, Button, Grid, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
-// import { useState } from "react";
-
-// const cityList = ['Madrid', 'Paris', 'Jakarta', "London"];
-// const countryList = ['Spain', 'France', 'Indonesia', 'England']
 
 export default function RegisProfile() {
     const formik = useFormik({
@@ -18,9 +14,6 @@ export default function RegisProfile() {
             console.log(values, 'Profile is created')
         }
     })
-
-    // const [city, setCity] = useState(cityList[''])
-    // const [country, setCountry] = useState(countryList[''])
 
 
     return (
