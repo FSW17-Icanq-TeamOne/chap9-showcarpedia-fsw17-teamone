@@ -10,9 +10,16 @@ Showcarpedia is Car Showroom Website by TeamOne FSW17 Binar Academy
 7. Lalu silahkan isi table tersebut dengan fitur seeders satu per satu dulu karena terdapat relasi antar user dengan profile
 
     a. Isi seed pertama dengan 'npx sequelize-cli db:seed --seed user.js'
+    
     b. Lalu seed kedua dengan 'npx sequelize-cli db:seed --seed profile.js'
+    
     c. Lalu seed ketiga dengan 'npx sequelize-cli db:seed --seed about.js'
+    
     d. Lalu seed kelima dengan 'npx sequelize-cli db:seed --seed category.js'
+    
     e. Lalu seed keenam dengan 'npx sequelize-cli db:seed --seed product.js'
+    
     f. Lalu seed ketujuh dengan 'npx sequelize-cli db:seed --seed wishlist.js'
+    
+    Jangan dulu pake 'db:seed:all' ya
 Nanti akan diupdate kembali. Soon!
