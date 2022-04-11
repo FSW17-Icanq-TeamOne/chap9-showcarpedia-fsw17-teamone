@@ -1,5 +1,4 @@
 import { Button, Grid, TextField, Typography, } from "@mui/material";
-import { borderColor } from "@mui/system";
 import { useFormik } from "formik";
 import '../App.css'
 
@@ -25,7 +24,7 @@ export default function RegisUser() {
             maxWidth: 345,
         }}>
             <Grid container justifyContent={'flex-start'}> 
-                <Typography variant="h4" marginTop={'50px'}>Create Account</Typography>
+                <Typography variant="h4">Create Account</Typography>
             </Grid>
 
             <Grid container justifyContent={'center'} marginTop={'10px'}>
@@ -57,6 +56,7 @@ export default function RegisUser() {
                             id='email'
                             name="email"
                             label='Email Address'
+                            type='email'
                             required
                             focused
 
@@ -101,6 +101,7 @@ export default function RegisUser() {
                         <Button 
                             sx={{ 
                                 width: 345, 
+                                height: 50,
                                 backgroundColor: 'orange',
                                 color: 'white'
                             }}
@@ -116,6 +117,7 @@ export default function RegisUser() {
                         <Button 
                             sx={{ 
                                 width: 345,
+                                height: 50,
                                 color: 'black',
                                 
                                 border: 1,

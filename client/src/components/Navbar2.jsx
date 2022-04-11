@@ -5,10 +5,11 @@ import { Grid, Typography } from "@mui/material";
          <nav>
              <Grid 
                 display={'flex'} 
-                alignItems={'baseline'} 
-                marginLeft={'200px'}
+                alignItems={'baseline'}
+                marginBottom={'45px'}
+                marginTop={'30px'}
             >
-                <Typography mr={'auto'} variant={'h5'} marginTop={'30px'}>Logo</Typography>
+                <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'} >Logo</Typography>
 
                 <Grid display={'flex'} gap={'40px'} marginRight={'165px'}>
                     <Typography>Wishlist</Typography>

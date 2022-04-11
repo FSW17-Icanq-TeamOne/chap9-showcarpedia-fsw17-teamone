@@ -11,8 +11,8 @@ function App() {
       </Routes>
 
       <Navbar2 />
-      <RegisUser />
-      {/* <RegisProfile /> */}
+      {/* <RegisUser /> */}
+      <RegisProfile />
     </div>
   );
 }
