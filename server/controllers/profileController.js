@@ -40,6 +40,12 @@ class ProfileController {
       throw error;
     }
   }
+  static async updateProfile(req,res){
+      // ini tunggu auth jadi dl
+    const userId = req.user.id;
+    const 
+    const payload = {}
+  }
 }
 
 module.exports = ProfileController;
