@@ -1,7 +1,7 @@
 const profileRouter = require("express").Router()
 const {ProfileController} = require("../../controllers")
 
-profileRouter.get("/",)
+profileRouter.post("/",ProfileController.createProfile)
 
 
 module.exports = profileRouter

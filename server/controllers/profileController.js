@@ -15,6 +15,7 @@ class ProfileController {
       mobilePhone,
       profilePicture,
     };
+
     try {
       if (!userId) return res.json("user not found");
       const data = await Profile.create(payload, {
@@ -22,13 +23,14 @@ class ProfileController {
           userId,
         },
       });
+      
       res.status(200).json(data);
     } catch (error) {
       throw error;
     }
   }
 
-  static async readProfile(req,res){}
+
 }
 
 module.exports = ProfileController;
