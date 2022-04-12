@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Chap9 Showcarpedia by TeamOne FSW17 Binar Academy",
   "main": "index.js",
-  "repository": "https://github.com/FSW17-Icanq-TeamOne/chap9-showcarpedia-fsw17-teamone",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FSW17-Icanq-TeamOne/chap9-showcarpedia-fsw17-teamone.git"
+  },
   "author": "TeamOne FSW17 Binar Academy",
   "scripts": {
     "start": "nodemon index.js"
