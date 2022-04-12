@@ -43,8 +43,24 @@ class ProfileController {
   static async updateProfile(req,res){
       // ini tunggu auth jadi dl
     const userId = req.user.id;
-    const 
-    const payload = {}
+
+    const { fullName, birthDate, city, country, mobilePhone, profilePicture} = req.body
+
+    const payload = {
+        fullName,
+        birthDate,
+        city,
+        country,
+        mobilePhone,
+        profilePicture}
+
+    try {
+        if(!userId) return res.json("user not found")
+        const updatedData = Profile.update(payload,{where:{userId}})
+        res.status(200).json(updatedData)
+    } catch (error) {
+        throw error
+    }
   }
 }
 
