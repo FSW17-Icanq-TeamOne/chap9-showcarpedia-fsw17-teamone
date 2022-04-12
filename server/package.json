@@ -20,11 +20,6 @@
     "pg": "^8.7.3",
     "sequelize": "^6.18.0"
   },
-  "bugs": {
-    "url": "https://github.com/FSW17-Icanq-TeamOne/chap9-showcarpedia-fsw17-teamone/issues"
-  },
-  "homepage": "https://github.com/FSW17-Icanq-TeamOne/chap9-showcarpedia-fsw17-teamone#readme",
-  "keywords": [],
   "devDependencies": {
     "sequelize-cli": "^6.4.1"
   }
