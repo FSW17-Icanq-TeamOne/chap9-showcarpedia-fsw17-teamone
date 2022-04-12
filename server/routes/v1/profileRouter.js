@@ -4,5 +4,4 @@ const {ProfileController} = require("../../controllers")
 profileRouter.get("/",)
 
 
-
 module.exports = profileRouter
