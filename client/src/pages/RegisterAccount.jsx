@@ -1,8 +1,9 @@
 import { Button, Grid, TextField, Typography, } from "@mui/material";
 import { useFormik } from "formik";
 import '../App.css'
+import { accountRegistrationScheme } from "../utils/validationScheme";
 
-export default function RegisUser() {
+export default function RegisAccount() {
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -11,7 +12,8 @@ export default function RegisUser() {
         },
         onSubmit: values => {
             console.log(values, 'User is Registered');
-        }
+        },
+        validationSchema: accountRegistrationScheme
     })
 
     

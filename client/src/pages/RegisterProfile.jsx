@@ -1,5 +1,6 @@
 import { Autocomplete, Button, Grid, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
+import { profileRegistrationScheme } from "../utils/validationScheme";
 
 export default function RegisProfile() {
     const formik = useFormik({
@@ -12,7 +13,8 @@ export default function RegisProfile() {
         },
         onSubmit: values => {
             console.log(values, 'Profile is created')
-        }
+        },
+        validationSchema: profileRegistrationScheme
     })
 
 
