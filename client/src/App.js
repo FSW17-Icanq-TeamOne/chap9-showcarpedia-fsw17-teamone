@@ -3,6 +3,7 @@ import './App.css';
 import Navbar2 from './components/Navbar2';
 import RegisProfile from './pages/RegisterProfile';
 import RegisAccount from './pages/RegisterAccount';
+import LoginPage from './pages/login';
 
 function App() {
   return (

@@ -8,7 +8,7 @@ const loginValidationSchema = yup.object({
     password: yup.string().required("Password is required!"),
   })
 
-export function LoginPage(){
+export default function LoginPage(){
     const formik = useFormik({
         initialValues:{
           username: "",
