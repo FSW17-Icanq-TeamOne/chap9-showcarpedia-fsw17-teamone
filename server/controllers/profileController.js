@@ -6,6 +6,7 @@ class ProfileController {
     const userId = req.user.id;
 
     const { fullName, birthDate, city, country, mobilePhone, profilePicture } = req.body;
+    
 
     const payload = {
       fullName,
@@ -19,18 +20,26 @@ class ProfileController {
     try {
       if (!userId) return res.json("user not found");
       const data = await Profile.create(payload, {
-        where: {
-          userId,
-        },
+        where: { userId },
       });
-      
+
       res.status(200).json(data);
     } catch (error) {
       throw error;
     }
   }
 
-
+  static async readProfile(req, res) {
+    // ini tunggu auth jadi dl
+    const userId = req.user.id;
+    try {
+      if (!userId) return res.json("user not found");
+      const data = Profile.findOne({ where: { userId } });
+      res.status(200).json(data);
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = ProfileController;
