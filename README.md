@@ -1,7 +1,8 @@
 # chap9-showcarpedia-fsw17-teamone
 Showcarpedia is Car Showroom Website by TeamOne FSW17 Binar Academy
 
-1. first, install our package 'npm install'
+# Showcarpedia DB Initialization 
+1. First, install our package 'yarn install'
 2. Jangan lupa untuk create database terlebih dahulu di postgre masing-masing
 3. Silahkan login ke masing-masing postgre di cmd dengan cara ' psql -U "postgres" ' lalu sertakan dengan password masing-masing komputer kalian
 4. Bikin database showcarpedia 'CREATE DATABASE "showcarpedia";'
