@@ -3,13 +3,12 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import './login.css'
 
-const createPlayerValidationSchema = yup.object({
+const loginValidationSchema = yup.object({
     username: yup.string().required("Username is required!"),
     password: yup.string().required("Password is required!"),
   })
 
 export function LoginPage(){
-    
     const formik = useFormik({
         initialValues:{
           username: "",
@@ -18,11 +17,11 @@ export function LoginPage(){
         onSubmit: (values) => {
           console.log(values)
         },
-        validationSchema: createPlayerValidationSchema
+        validationSchema: loginValidationSchema
       })
 
     return(
-        <form>
+        <form onSubmit={formik.handleSubmit}>
         <Grid alignItems="center" container direction="column" mt={15}>
            <Card sx={{ minWidth:400 }}>
                 <Grid container direction="row" marginLeft={6}>
@@ -70,7 +69,7 @@ export function LoginPage(){
                 </Grid>
                 <Grid container direction={"column"} mt={3}>
                     <Grid item>
-                        <Button type="submit" variant="contained" sx= {{ minWidth:300, backgroundColor: 'orange' }} href={'/'}> Login</Button>
+                        <Button type="submit" variant="contained" sx= {{ minWidth:300, backgroundColor: 'orange' }}> Login</Button>
                     </Grid>
                 </Grid>
                 <Grid container direction={"row"} mt={2}>
@@ -93,12 +92,11 @@ export function LoginPage(){
                 </Grid>
                 <Grid container direction={"column"} mt={3} mb={4}>
                     <Grid item>
-                        <Button type="submit" variant="contained" sx= {{  minWidth:300, backgroundColor: 'gray'}} href={'/register'}> Create Account</Button>
+                        <Button type="submit" variant="contained" sx= {{  minWidth:300, backgroundColor: 'gray'}}> Create Account</Button>
                     </Grid>
                 </Grid>
             </Card>
         </Grid>
         </form>
-        
     )
 }
