@@ -9,10 +9,11 @@ function App() {
     <div className="App">
       <Navbar2 />
       <Routes>
+        <Route path="/login" element={<LoginPage />} />
+
         <Route path='/registerAccount' element={<RegisAccount />} />
         <Route path='/registerProfile' element={<RegisProfile />} />
       </Routes>
-
     </div>
   );
 }
