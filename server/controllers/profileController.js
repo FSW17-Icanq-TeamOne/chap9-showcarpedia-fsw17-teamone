@@ -24,12 +24,13 @@ class ProfileController {
         city,
         country,
         mobilePhone,
-        profilePicture}
+        profilePicture,
+      updateAt: new Date()}
 
     try {
         if(!userId) return res.json("user not found")
-        const updatedData = await Profile.update(payload,{where:{userId}})
-        res.status(200).json(updatedData)
+        await Profile.update(payload,{where:{userId}})
+        res.status(200).json(`player with id ${userId} successfully updated`)
     } catch (error) {
         throw error
     }
