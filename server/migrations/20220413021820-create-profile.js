@@ -2,38 +2,44 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Profiles', {
-      idProfile: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: "Users",
-          key: "userId",
-          as: "userId"
-        }
+      fullName: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
-      fullname: {
-        type: Sequelize.STRING
-      },
-      birthdate: {
-        type: Sequelize.DATE
+      birthDate: {
+        type: Sequelize.DATEONLY,
+        allowNull: true
       },
       city: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true
       },
       country: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true
       },
       mobilePhone: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true
       },
       profilePicture: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "Users",
+            key: "id"
+          }
+        }
       },
       createdAt: {
         allowNull: false,

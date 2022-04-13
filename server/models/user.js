@@ -10,18 +10,17 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      User.hasOne(models.Profile)
-      User.hasMany(models.Wishlist)
+      User.hasOne(models.Profile, {foreignKey:"userId"})
+      User.hasMany(models.Product)
+      User.belongsToMany(models.Product, { through: models.Wishlist, foreignKey: "userId"})
     }
   }
   User.init({
-    userId: DataTypes.INTEGER,
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    role: DataTypes.ENUM("admin", "superadmin", "user"),
-    delete: DataTypes.BOOLEAN
+    role: DataTypes.ENUM('user', 'admin', 'superAdmin'),
+    delete: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'User',
