@@ -20,9 +20,7 @@ export default function RegisAccount() {
     return (
         <Grid container display={'flex'} direction={'column'} sx={{
             alignItems: 'center',
-
             margin: 'auto',
-
             maxWidth: 345,
         }}>
             <Grid container justifyContent={'flex-start'}> 
@@ -47,7 +45,7 @@ export default function RegisAccount() {
                             value={formik.values.username}
                             onChange={formik.handleChange}
 
-                            // Throw Error:
+                            // Throw Error
                             error={formik.touched.username && Boolean(formik.errors.username)}
                             helperText={formik.touched.username && formik.errors.username}
                         />
@@ -70,7 +68,7 @@ export default function RegisAccount() {
                             value={formik.values.email}
                             onChange={formik.handleChange}
 
-                            // Throw Error:
+                            // Throw Error
                             error={formik.touched.email && Boolean(formik.errors.email)}
                             helperText={formik.touched.email && formik.errors.email}
                         />
@@ -93,7 +91,7 @@ export default function RegisAccount() {
                             value={formik.values.password}
                             onChange={formik.handleChange}
 
-                            // Throw Error:
+                            // Throw Error
                             error={formik.touched.password && Boolean(formik.errors.password)}
                             helperText={formik.touched.password && formik.errors.password}
                         />
