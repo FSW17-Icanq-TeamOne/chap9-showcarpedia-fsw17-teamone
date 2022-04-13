@@ -1,21 +1,24 @@
+import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
 import './App.css';
 import Navbar2 from './components/Navbar2';
-import RegisProfile from './pages/RegisterProfile';
-import RegisAccount from './pages/RegisterAccount';
-import LoginPage from './pages/login';
+import routes from './routes';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar2 />
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-
-        <Route path='/registerAccount' element={<RegisAccount />} />
-        <Route path='/registerProfile' element={<RegisProfile />} />
-      </Routes>
-    </div>
+    <Suspense fallback={<CircularProgress color='primary' />}>
+      <div className="App">
+        <Navbar2 />
+        <Routes>
+          {
+            routes.map((route, index) => (
+              <Route path={route.path} element={route.element} key={index} />
+            ))
+          }
+        </Routes>
+      </div>
+    </Suspense>
   );
 }
 
