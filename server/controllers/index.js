@@ -1,3 +1,4 @@
 module.exports = {
-    ProfileController: require("./profileController")
+    ProfileController: require("./profileController"),
+    AboutController: require("./aboutController")
 }
