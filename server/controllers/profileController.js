@@ -3,7 +3,6 @@ const { Profile } = require("../models");
 class ProfileController {
   
   static async readProfile(req, res) {
-    // ini tunggu auth jadi dl
     const userId = req.user.id;
     try {
       if (!userId) return res.json("user not found");
@@ -14,7 +13,6 @@ class ProfileController {
     }
   }
   static async updateProfile(req,res){
-      // ini tunggu auth jadi dl
     const userId = req.user.id;
     const { fullName, birthDate, city, country, mobilePhone, profilePicture} = req.body
 

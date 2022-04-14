@@ -23,11 +23,11 @@ class AuthController {
                 email: user.email,
                 role: user.role
             })
-            
+
             res.cookie("access_token", access_token, {
                 httpOnly: true
             })
-
+            
             return res.status(200).json( { message: "Login Success"} )
         } catch (error) {
             return res.status(500).json( { message: error.message } )
