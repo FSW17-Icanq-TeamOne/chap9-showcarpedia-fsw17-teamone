@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 import './App.css';
-import Navbar2 from './components/Navbar2';
 import routes from './routes/routes';
 
 function App() {
