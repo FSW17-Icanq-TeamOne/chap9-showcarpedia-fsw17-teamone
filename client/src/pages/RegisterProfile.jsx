@@ -1,8 +1,9 @@
 import { Autocomplete, Button, Grid, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
+import Navbar2 from "../components/Navbar2";
 import { profileRegistrationScheme } from "../utils/validationScheme";
 
-export default function RegisProfile() {
+export default function RegisterProfile() {
     const formik = useFormik({
         initialValues: {
             selectCountry: ['Spain', 'France', 'Indonesia', 'England'],
@@ -19,6 +20,9 @@ export default function RegisProfile() {
 
 
     return (
+        <>
+        <Navbar2 />
+
         <Grid container display={'flex'} direction={'column'} sx={{
             alignItems: 'center',
             margin: 'auto',
@@ -163,5 +167,6 @@ export default function RegisProfile() {
                 </form>
             </Grid>
         </Grid>
+        </>
     )
 }
