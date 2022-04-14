@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login = React.lazy(() => import('../pages/login')) 
+const Login = React.lazy(() => import('../pages/Login')) 
 const RegisterAccount = React.lazy(() => import('../pages/RegisterAccount')) 
 const RegisterProfile = React.lazy(() => import('../pages/RegisterProfile')) 
 

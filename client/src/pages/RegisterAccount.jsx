@@ -1,9 +1,10 @@
 import { Button, Grid, TextField, Typography, } from "@mui/material";
 import { useFormik } from "formik";
 import '../App.css'
+import Navbar2 from "../components/Navbar2";
 import { accountRegistrationScheme } from "../utils/validationScheme";
 
-export default function RegisAccount() {
+export default function RegisterAccount() {
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -18,6 +19,9 @@ export default function RegisAccount() {
 
     
     return (
+        <>
+        <Navbar2 />
+
         <Grid container display={'flex'} direction={'column'} sx={{
             alignItems: 'center',
             margin: 'auto',
@@ -130,5 +134,6 @@ export default function RegisAccount() {
                 </form>
             </Grid>
         </Grid>
+        </>
     )
 }

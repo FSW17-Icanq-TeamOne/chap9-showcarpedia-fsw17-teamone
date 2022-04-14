@@ -1,5 +1,6 @@
 import { Button, TextField, Grid, Typography } from "@mui/material";
 import { useFormik } from 'formik';
+import Navbar2 from "../components/Navbar2";
 import { loginValidationScheme } from '../utils/validationScheme'
 
 export default function LoginPage(){
@@ -15,6 +16,9 @@ export default function LoginPage(){
       })
 
     return(
+        <>
+        <Navbar2 />
+        
         <Grid container display={'flex'} direction={'column'} sx={{
             alignItems: 'center',
             margin: 'auto',
@@ -115,5 +119,6 @@ export default function LoginPage(){
             </Grid>
             
         </Grid>
+        </>
     )
 }

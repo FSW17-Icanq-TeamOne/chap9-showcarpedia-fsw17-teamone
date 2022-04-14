@@ -9,7 +9,6 @@ function App() {
   return (
     <Suspense fallback={<CircularProgress color='primary' />}>
       <div className="App">
-        <Navbar2 />
         <Routes>
           {
             routes.map((route, index) => (
