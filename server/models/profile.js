@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
       validate:{
         notEmpty: true
       }
-    }
+    },
+    delete: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Profile',

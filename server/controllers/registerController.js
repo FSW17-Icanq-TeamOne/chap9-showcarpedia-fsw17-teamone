@@ -18,7 +18,7 @@ class RegisterController {
              if (user) {
  
                const payloadProfile = {
-                 userId: user.id
+                 userId: user.id, delete: false
                }
  
                const profile = await Profile.create(payloadProfile)
