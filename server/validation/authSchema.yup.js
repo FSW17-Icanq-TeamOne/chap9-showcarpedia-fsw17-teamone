@@ -14,5 +14,13 @@ const registerUserSchema = yup.object({
         password: yup.string().min(5).required()
     })
   })
-  
-module.exports = { registerUserSchema, loginUserSchema }  
+  const profileSchema = yup.object({
+    body: yup.object({
+      fullName: yup.string().min(5).max(20).required(),
+      birthDate:yup.date().required(),
+      city:yup.string().required(),
+      country: yup.string().required(),
+      mobilePhone: yup.string().required()
+    })
+  })
+module.exports = { registerUserSchema, loginUserSchema, profileSchema }  
