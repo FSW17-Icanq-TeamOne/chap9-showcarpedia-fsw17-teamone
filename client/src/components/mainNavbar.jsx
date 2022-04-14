@@ -7,7 +7,7 @@ export default function MainNavbar() {
                 display={'flex'}
                 alignItems={'baseline'}
                 marginBottom={'45px'}
-                marginTop={'30px'}
+                paddingTop={'30px'}
                 justifyContent={''}
             >
                 <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'}>Logo</Typography>
