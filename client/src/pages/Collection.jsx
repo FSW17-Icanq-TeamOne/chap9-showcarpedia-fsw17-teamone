@@ -13,6 +13,7 @@ export default function Collection() {
             console.log(values, 'Filter')
         }
     })
+    
     return (
         <>
         <MainNavbar />
