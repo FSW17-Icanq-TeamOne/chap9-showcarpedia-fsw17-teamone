@@ -23,7 +23,7 @@ class AuthController {
                 email: user.email,
                 role: user.role
             })
-
+            
             res.cookie("access_token", access_token, {
                 httpOnly: true
             })
