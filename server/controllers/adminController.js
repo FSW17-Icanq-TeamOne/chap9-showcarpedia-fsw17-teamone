@@ -2,14 +2,38 @@ const { User, Profile } = require("../models")
 const { hashPassword } = require("../helpers/passwordHandler")
 
 class AdminController {
-     static register = async (req, res) => {
+
+  static getAdminlists = async (req, res) => {
+
+    const userRole = req.user.role
+
+    try {
+      if ( userRole === "superAdmin" || userRolte === "admin" ){
+        const user = await User.findAll({
+          where: {
+            role: "admin",
+            delete: false
+            }
+        })
+        res.status(201).json(user)
+      }else{
+        res.status(401).json({
+          message: "You Not Allowed to Access This!"
+        })
+      }
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  }
+
+    static register = async (req, res) => {
          try {
              const { username, email, password } = req.body
              const isEmailExist = await User.findOne({ where: { email } })
              if (isEmailExist) return res.status(409).json({ message: "Email is already taken" })
              const isUsernameExist = await User.findOne({ where: { username } })
              if (isUsernameExist) return res.status(409).json({ message: "Username is already exists" })
- 
+             
              const payloadUser = {
                  username, email, password: hashPassword(password), role: "admin", delete: false
              }
@@ -18,7 +42,8 @@ class AdminController {
              if (user) {
  
                const payloadProfile = {
-                 userId: user.id
+                 userId: user.id,
+                 delete: false
                }
  
                const profile = await Profile.create(payloadProfile)
@@ -74,8 +99,33 @@ class AdminController {
         })
     }
 
-    static async updateAdmin(req,res){
-
+    static async delete(req, res) {
+      const adminId = req.params.id
+      let deletedAdmin = {
+        delete: true
+      }
+      User.update(deletedAdmin, {
+        where: {
+          id: adminId
+        }
+      })
+        .then(() => {
+          res.status(201).json({message: `success to delete admin id ${adminId}`})
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      Profile.update(deletedAdmin, {
+          where: {
+            id: adminId
+          }
+        })
+          .then(() => {
+            res.status(201).json({message: `success to delete profile id ${adminId}`})
+          })
+          .catch((err) => {
+            console.log(err)
+          })
     }
  }
  module.exports = AdminController

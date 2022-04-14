@@ -2,16 +2,16 @@ const yup = require("yup")
 
 const registerUserSchema = yup.object({
     body: yup.object({
-        email: yup.string(),
-        username: yup.string().min(5).max(20),
+        email: yup.string().required(),
+        username: yup.string().min(5).max(20).required(),
         password: yup.string().min(5)
     })
 })
   
   const loginUserSchema = yup.object({
     body: yup.object({
-        username: yup.string(),
-        password: yup.string().min(5)
+        username: yup.string().required(),
+        password: yup.string().min(5).required()
     })
   })
   
