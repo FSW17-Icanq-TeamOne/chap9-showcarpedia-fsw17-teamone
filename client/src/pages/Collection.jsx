@@ -1,4 +1,4 @@
-import { Autocomplete, Button, Card, CardContent, CardMedia, Grid, TextField, Typography } from '@mui/material'
+import { Autocomplete, Button, Card, CardActionArea, CardContent, CardMedia, Grid, TextField, Typography } from '@mui/material'
 import { useFormik } from 'formik'
 import MainNavbar from '../components/MainNavbar'
 
@@ -105,59 +105,61 @@ export default function Collection() {
                     border: 1,
                     borderRadius: 2
                 }}>
-                    <CardMedia
-                        component={'img'}
-                        image={'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*'}
-                        alt={'Image'}
+                    <CardActionArea>
+                        <CardMedia
+                            component={'img'}
+                            image={'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*'}
+                            alt={'Image'}
 
-                        sx={{
-                            height: 235,
-                            width: 345,
-
-                            display: 'flex',
-                            justifyContent: 'center',
-
-                            marginLeft: 2.5,
-                            marginTop: 2.5,
-
-                            borderRadius: 2
-                        }}
-                    />
-                    <CardContent>
-                        <Grid container display={'flex'} justifyContent={'flex-end'}>
-                            <Typography marginBottom={'20px'}
                             sx={{
-                                border: 1,
-                                borderRadius: '50%',
-
-                                width: 40,
-                                height: 40,
+                                height: 235,
+                                width: 345,
 
                                 display: 'flex',
                                 justifyContent: 'center',
-                                alignItems: 'center'
-                            }}>W</Typography>
-                        </Grid>
 
-                        <Grid container display={'flex'} justifyContent={'center'} alignItems={'center'}>
-                            <Typography>Description</Typography>
-                        </Grid>
+                                marginLeft: 2.5,
+                                marginTop: 2.5,
 
-                        <Grid container display={'flex'} justifyContent={'center'} marginTop={'50px'}>
-                            <Button
+                                borderRadius: 2
+                            }}
+                        />
+                        <CardContent>
+                            <Grid container display={'flex'} justifyContent={'flex-end'}>
+                                <Typography marginBottom={'20px'}
                                 sx={{
-                                    width: 120,
+                                    border: 1,
+                                    borderRadius: '50%',
+
+                                    width: 40,
                                     height: 40,
 
-                                    borderRadius: 24,
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}>W</Typography>
+                            </Grid>
 
-                                    color: 'white',
+                            <Grid container display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                                <Typography>Description</Typography>
+                            </Grid>
 
-                                    backgroundColor: 'orange'
-                                }}
-                            >View Detail</Button>
-                        </Grid>
-                    </CardContent>
+                            <Grid container display={'flex'} justifyContent={'center'} marginTop={'50px'}>
+                                <Button
+                                    sx={{
+                                        width: 120,
+                                        height: 40,
+
+                                        borderRadius: 24,
+
+                                        color: 'white',
+
+                                        backgroundColor: 'orange'
+                                    }}
+                                >View Detail</Button>
+                            </Grid>
+                        </CardContent>
+                    </CardActionArea>
                 </Card>
             </Grid>
 
@@ -169,62 +171,65 @@ export default function Collection() {
                     border: 1,
                     borderRadius: 2
                 }}>
-                    <CardMedia
-                        component={'img'}
-                        image={'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*'}
-                        alt={'Image'}
+                    <CardActionArea>
+                        <CardMedia
+                            component={'img'}
+                            image={'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*'}
+                            alt={'Image'}
 
-                        sx={{
-                            height: 235,
-                            width: 345,
-
-                            display: 'flex',
-                            justifyContent: 'center',
-
-                            marginLeft: 2.5,
-                            marginTop: 2.5,
-
-                            borderRadius: 2
-                        }}
-                    />
-                    <CardContent>
-                        <Grid container display={'flex'} justifyContent={'flex-end'}>
-                            <Typography marginBottom={'20px'}
                             sx={{
-                                border: 1,
-                                borderRadius: '50%',
-
-                                width: 40,
-                                height: 40,
+                                height: 235,
+                                width: 345,
 
                                 display: 'flex',
                                 justifyContent: 'center',
-                                alignItems: 'center'
-                            }}>W</Typography>
-                        </Grid>
 
-                        <Grid container display={'flex'} justifyContent={'center'} alignItems={'center'}>
-                            <Typography>Description</Typography>
-                        </Grid>
+                                marginLeft: 2.5,
+                                marginTop: 2.5,
 
-                        <Grid container display={'flex'} justifyContent={'center'} marginTop={'50px'}>
-                            <Button
+                                borderRadius: 2
+                            }}
+                        />
+                        <CardContent>
+                            <Grid container display={'flex'} justifyContent={'flex-end'}>
+                                <Typography marginBottom={'20px'}
                                 sx={{
-                                    width: 120,
+                                    border: 1,
+                                    borderRadius: '50%',
+
+                                    width: 40,
                                     height: 40,
 
-                                    borderRadius: 24,
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}>W</Typography>
+                            </Grid>
 
-                                    color: 'white',
+                            <Grid container display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                                <Typography>Description</Typography>
+                            </Grid>
 
-                                    backgroundColor: 'orange'
-                                }}
-                            >View Detail</Button>
-                        </Grid>
-                    </CardContent>
+                            <Grid container display={'flex'} justifyContent={'center'} marginTop={'50px'}>
+                                <Button
+                                    sx={{
+                                        width: 120,
+                                        height: 40,
+
+                                        borderRadius: 24,
+
+                                        color: 'white',
+
+                                        backgroundColor: 'orange'
+                                    }}
+                                >View Detail</Button>
+                            </Grid>
+                        </CardContent>
+                    </CardActionArea>
                 </Card>
-            </Grid>
 
+            </Grid>
+            
             <Grid>
                 <Card sx={{
                     width: 390,
@@ -233,61 +238,65 @@ export default function Collection() {
                     border: 1,
                     borderRadius: 2
                 }}>
-                    <CardMedia
-                        component={'img'}
-                        image={'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*'}
-                        alt={'Image'}
+                    <CardActionArea>
+                        <CardMedia
+                            component={'img'}
+                            image={'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*'}
+                            alt={'Image'}
 
-                        sx={{
-                            height: 235,
-                            width: 345,
-
-                            display: 'flex',
-                            justifyContent: 'center',
-
-                            marginLeft: 2.5,
-                            marginTop: 2.5,
-
-                            borderRadius: 2
-                        }}
-                    />
-                    <CardContent>
-                        <Grid container display={'flex'} justifyContent={'flex-end'}>
-                            <Typography marginBottom={'20px'}
                             sx={{
-                                border: 1,
-                                borderRadius: '50%',
-
-                                width: 40,
-                                height: 40,
+                                height: 235,
+                                width: 345,
 
                                 display: 'flex',
                                 justifyContent: 'center',
-                                alignItems: 'center'
-                            }}>W</Typography>
-                        </Grid>
 
-                        <Grid container display={'flex'} justifyContent={'center'} alignItems={'center'}>
-                            <Typography>Description</Typography>
-                        </Grid>
+                                marginLeft: 2.5,
+                                marginTop: 2.5,
 
-                        <Grid container display={'flex'} justifyContent={'center'} marginTop={'50px'}>
-                            <Button
+                                borderRadius: 2
+                            }}
+                        />
+                        <CardContent>
+                            <Grid container display={'flex'} justifyContent={'flex-end'}>
+                                <Typography marginBottom={'20px'}
                                 sx={{
-                                    width: 120,
+                                    border: 1,
+                                    borderRadius: '50%',
+
+                                    width: 40,
                                     height: 40,
 
-                                    borderRadius: 24,
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}>W</Typography>
+                            </Grid>
 
-                                    color: 'white',
+                            <Grid container display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                                <Typography>Description</Typography>
+                            </Grid>
 
-                                    backgroundColor: 'orange'
-                                }}
-                            >View Detail</Button>
-                        </Grid>
-                    </CardContent>
+                            <Grid container display={'flex'} justifyContent={'center'} marginTop={'50px'}>
+                                <Button
+                                    sx={{
+                                        width: 120,
+                                        height: 40,
+
+                                        borderRadius: 24,
+
+                                        color: 'white',
+
+                                        backgroundColor: 'orange'
+                                    }}
+                                >View Detail</Button>
+                            </Grid>
+                        </CardContent>
+                    </CardActionArea>
                 </Card>
+
             </Grid>
+
         </Grid>
 
         </>
