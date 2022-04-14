@@ -7,4 +7,12 @@ adminRouter.post("/register", validatorHandler(registerUserSchema), AdminControl
     return res.json({ body: req.body });
   });
 
+adminRouter.put("/edit/:id", validatorHandler(registerUserSchema), AdminController.edit, (req, res) => {
+    return res.json({ body: req.body });
+  });
+
+adminRouter.get("/edit/:id", validatorHandler(registerUserSchema), AdminController.getEditForm, (req, res) => {
+    return res.json({ body: req.body });
+  });
+
   module.exports = adminRouter

@@ -37,7 +37,45 @@ class AdminController {
              }
          } catch (error) {
              return res.status(500).json({ message: error.message })
-         }
-     }
+        }
+    }
+
+    static async getEditForm(req, res) {
+      const adminId = req.params.id
+      User.findByPk(adminId)
+        .then((data) => {
+          return res.status(201).json({
+            username: data.username,
+            email: data.email,
+          })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+
+    static async edit(req, res) {
+      const adminId = req.params.id
+      let updatedAdmin = {
+        username: req.body.username,
+        email: req.body.email,
+        password: hashPassword(req.body.password)
+      }
+      User.update(updatedAdmin, {
+        where: {
+          id: adminId
+        }
+      })
+        .then(() => {
+          res.status(201).json({message: "success to edit"})
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+
+    static async updateAdmin(req,res){
+
+    }
  }
  module.exports = AdminController

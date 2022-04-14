@@ -13,6 +13,7 @@ class ProfileController {
     }
   }
   static async updateProfile(req,res){
+    console.log("Hi")
     const userId = req.user.id;
     const { fullName, birthDate, city, country, mobilePhone, profilePicture} = req.body
 
