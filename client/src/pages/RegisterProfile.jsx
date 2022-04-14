@@ -22,7 +22,7 @@ export default function RegisProfile() {
         <Grid container display={'flex'} direction={'column'} sx={{
             alignItems: 'center',
             margin: 'auto',
-            maxWidth: 354
+            maxWidth: 345
         }}>
             <Grid container justifyContent={'flex-start'}>
                 <Typography variant="h4">Create Profile</Typography>

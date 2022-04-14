@@ -11,3 +11,8 @@ export const profileRegistrationScheme = Yup.object({
     mobilePhone: Yup.number().required('Please Input Your Mobile Phone'),
     birthDate: Yup.date().required('Please Input Your Birth Date'),
 })
+
+export const loginValidationScheme = Yup.object({
+    username: Yup.string().min(4).max(25).required('Please Input Your Username'),
+    password: Yup.string().min(4).required('Please Input Your Password')
+})
