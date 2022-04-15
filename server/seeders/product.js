@@ -19,10 +19,10 @@ module.exports = {
         brand: "Toyota",
         year: "2021",
         kiloMeter: "10000",
-        grade: "A",
+        grade: "5",
         category: "Avanza",
         description: "Murah toyota avanza",
-        photoProduct: "toyota.jpg",
+        photoProducts: ["toyota.jpg"],
         delete: false,
         createdAt: new Date(),
         updatedAt: new Date()

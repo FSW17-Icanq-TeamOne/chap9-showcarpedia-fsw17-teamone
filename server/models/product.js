@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     kiloMeter: DataTypes.STRING,
     grade: DataTypes.ENUM('5', '4', '3', '2', '1'),
     category: DataTypes.STRING,
+    photoProducts: DataTypes.ARRAY(DataTypes.STRING),
     description: DataTypes.STRING,
     delete: DataTypes.BOOLEAN,
   }, {
