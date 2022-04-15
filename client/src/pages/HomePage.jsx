@@ -120,8 +120,8 @@ export default function Home() {
                             backgroundColor: 'orange',
                             borderRadius: '50%',
                             
-                            width: 100,
-                            height: 100
+                            width: 90,
+                            height: 90
                         }} />
                         <Typography variant={'h5'} sx={{
                             marginRight: 10,
