@@ -1,3 +1,4 @@
+const carsController = require("../../controllers/carsController");
 const CarsController = require("../../controllers/carsController")
 const { validatorHandler } = require("../../middleware/validatorYup")
 const { createCarsSchema } = require("../../validation/authSchema.yup")
@@ -14,11 +15,10 @@ carsRouter.post("/", validatorHandler(createCarsSchema), CarsController.create, 
 carsRouter.get("/:idProduct", validatorHandler(createCarsSchema), CarsController.create, (req, res) => {
     return res.json({ body: req.body });
 });
-
 carsRouter.post("/update/:id", validatorHandler(createCarsSchema), CarsController.updateProductById, (req, res) => {
   return res.json({ body: req.body });
 });
-carsRouter.get("/asal", (req, res) => {
-    res.send("ini dari asal")
+carsRouter.post("/delete/:id", carsController.deleteProduct, (req, res) => {
+  return res.json({ data: "deleted" })
 })
 module.exports = carsRouter

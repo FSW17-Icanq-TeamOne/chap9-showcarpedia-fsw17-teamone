@@ -87,5 +87,21 @@ class carsController {
             throw error
         }
     }
+    static async deleteProduct (req, res){
+        try {
+            const { id } = req.params
+            const deleteData = {
+                delete: true
+            }
+            const data = await Product.update(deleteData, { where: { id: id } } )
+            if(data == 1){
+                return res.status(200).json({
+                    data: "deleted"
+                })
+            }
+        } catch (error) {
+            throw error
+        }
+    }
 }
 module.exports = carsController
