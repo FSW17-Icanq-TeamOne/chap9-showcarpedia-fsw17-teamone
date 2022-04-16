@@ -1,6 +1,6 @@
 import { Autocomplete, Button, Card, CardContent, CardMedia, Grid, TextField, Typography } from '@mui/material'
 import { useFormik } from 'formik'
-import MainNavbar from '../components/MainNavbar'
+import MainNavbar from '../components/mainNavbar'
 
 export default function Collection() {
     const filterFormik = useFormik({
