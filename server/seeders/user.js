@@ -18,7 +18,7 @@ module.exports = {
         username: "essafaizal2",
         email: "essafaizal29@gmailll.com",
         password: "Essa123",
-        role: "superadmin",
+        role: "user",
         delete: false,
         createdAt: new Date(),
         updatedAt: new Date()
