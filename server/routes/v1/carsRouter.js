@@ -5,6 +5,9 @@ const carsRouter = require('express').Router()
 
 //registerRouter.post("/", validatorHandler(registerUserSchema), RegisterController.register)
 
+carsRouter.get("/", CarsController.getAllProduct, (req, res) => {
+  return res.json({ body: req.body });
+});
 carsRouter.post("/", validatorHandler(createCarsSchema), CarsController.create, (req, res) => {
     return res.json({ body: req.body });
   });
