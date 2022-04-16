@@ -10,6 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+
+      //Product.belongsTo(models.User)
       Product.belongsToMany(models.User, { through: models.Wishlist, foreignKey: "productId"})
     }
   }
@@ -23,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     photoProducts: DataTypes.ARRAY(DataTypes.STRING),
     description: DataTypes.STRING,
     delete: DataTypes.BOOLEAN,
+    photoProduct: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Product',
