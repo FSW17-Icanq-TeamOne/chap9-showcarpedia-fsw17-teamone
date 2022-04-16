@@ -36,5 +36,20 @@ class carsController {
             throw error
         }
     }
+
+    static async getProductById(req, res){
+        try{
+            const { idProduct } = req.params
+            const data = await Product.findByPk(idProduct)
+            if (data){
+                return res.status(200).json({
+                    result: "Success",
+                    data: data
+                });
+            }    
+        } catch (error){
+            throw error
+        }
+    }
 }
 module.exports = carsController

@@ -11,6 +11,9 @@ carsRouter.get("/", CarsController.getAllProduct, (req, res) => {
 carsRouter.post("/", validatorHandler(createCarsSchema), CarsController.create, (req, res) => {
     return res.json({ body: req.body });
   });
+carsRouter.get("/:idProduct", validatorHandler(createCarsSchema), CarsController.create, (req, res) => {
+    return res.json({ body: req.body });
+  });
 carsRouter.get("/asal", (req, res) => {
     res.send("ini dari asal")
 })
