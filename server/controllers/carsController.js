@@ -51,5 +51,41 @@ class carsController {
             throw error
         }
     }
+
+    static async updateProductById(req, res){
+        try{
+            const { id } = req.params
+            const {
+                title,
+                brand,
+                year,
+                kiloMeter,
+                grade,
+                category,
+                description,
+                photoProduct
+            } = req.body
+            const updateDataCars = {
+                title,
+                brand,
+                year,
+                kiloMeter,
+                grade,
+                category,
+                description,
+                delete: false,
+                photoProduct
+            }
+            const data = await Product.update(updateDataCars, { where: { id: id } })
+            if (data == 1){
+                return res.status(200).json({
+                    message: "updated!", 
+                    data: req.body
+                })
+            }
+        } catch (error){
+            throw error
+        }
+    }
 }
 module.exports = carsController
