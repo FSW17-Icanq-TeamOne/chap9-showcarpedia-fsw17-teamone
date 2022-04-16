@@ -14,5 +14,18 @@ const registerUserSchema = yup.object({
         password: yup.string().min(5).required()
     })
   })
+
+  const createCarsSchema = yup.object({
+    body: yup.object({
+        title: yup.string().required(),
+        brand: yup.string().min(2).required(),
+        year: yup.string().min(4).required(),
+        kiloMeter: yup.string().required(),
+        grade: yup.string().min(1).required(),
+        category: yup.string().required(),
+        description: yup.string().min(10).required(),
+        year: yup.string().min(4).required(),
+    })
+  })
   
-module.exports = { registerUserSchema, loginUserSchema }  
+module.exports = { registerUserSchema, loginUserSchema, createCarsSchema }  
