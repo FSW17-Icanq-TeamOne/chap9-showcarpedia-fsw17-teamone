@@ -12,7 +12,7 @@ export default function DetailProduct() {
           <Typography variant="h3">Car Name</Typography>
         </Grid>
         <Grid container justifyContent={"center"} marginBottom={"20px"}>
-          <img src="https://akcdn.detik.net.id/visual/2018/08/09/74d69c6a-18a4-4c16-8565-1c98f9f4388e_169.jpeg?w=650" alt="car"></img>
+          <img src="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/16:9/w_2000,h_1125,c_limit/Transpo_G70_TA-518126.jpg" alt="car"></img>
         </Grid>
         <Grid container justifyContent={'center'}>
           <Grid
