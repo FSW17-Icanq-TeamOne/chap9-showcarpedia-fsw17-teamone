@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login = React.lazy(() => import('../pages/login')) 
+const Login = React.lazy(() => import('../pages/Login')) 
 const RegisterAccount = React.lazy(() => import('../pages/RegisterAccount')) 
 const RegisterProfile = React.lazy(() => import('../pages/RegisterProfile')) 
 
@@ -11,6 +11,8 @@ const CollectionDetail = React.lazy(() => import('../pages/CollectionDetail'))
 
 const Profile = React.lazy(() => import('../pages/Profile'))
 const ProfileEdit = React.lazy(() => import('../pages/ProfileEdit'))
+
+const SuperAdminDashboard = React.lazy(() => import('../pages/SuperAdminDashboard'))
 
 const routes = [
     { path: '/', element: <Home />},
@@ -25,7 +27,9 @@ const routes = [
     { path: '/collectiondetail',element: <CollectionDetail /> },
     
     { path: '/profile', element: <Profile />},
-    { path: '/edit/profile', element: <ProfileEdit />}
+    { path: '/edit/profile', element: <ProfileEdit />},
+
+    { path: '/superadmindashboard', element: <SuperAdminDashboard />}
 ]
 
 
