@@ -1,4 +1,4 @@
-import MainNavbar from "../components/mainNavbar";
+import MainNavbar from "../components/MainNavbar";
 import { Grid, Typography, Box } from "@mui/material";
 
 export default function DetailProduct() {
