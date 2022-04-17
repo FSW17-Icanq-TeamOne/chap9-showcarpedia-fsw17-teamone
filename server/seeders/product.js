@@ -17,9 +17,9 @@ module.exports = {
       {
         title: "Jual toyota avanza",
         brand: "Toyota",
-        year: "2021",
-        kiloMeter: "10000",
-        grade: "5",
+        year: 2021,
+        kiloMeter: 10000,
+        grade: 5,
         category: "Avanza",
         description: "Murah toyota avanza",
         photoProducts: ["toyota.jpg"],

@@ -12,7 +12,7 @@ carsRouter.get("/", CarsController.getAllProduct, (req, res) => {
 carsRouter.post("/", validatorHandler(createCarsSchema), CarsController.create, (req, res) => {
     return res.json({ body: req.body });
 });
-carsRouter.get("/:idProduct", validatorHandler(createCarsSchema), CarsController.create, (req, res) => {
+carsRouter.get("/details/:idProduct", CarsController.getProductById, (req, res) => {
     return res.json({ body: req.body });
 });
 carsRouter.post("/update/:id", validatorHandler(createCarsSchema), CarsController.updateProductById, (req, res) => {
@@ -21,4 +21,5 @@ carsRouter.post("/update/:id", validatorHandler(createCarsSchema), CarsControlle
 carsRouter.post("/delete/:id", carsController.deleteProduct, (req, res) => {
   return res.json({ data: "deleted" })
 })
+carsRouter.get("/search",CarsController.findFilteredCar)
 module.exports = carsRouter
