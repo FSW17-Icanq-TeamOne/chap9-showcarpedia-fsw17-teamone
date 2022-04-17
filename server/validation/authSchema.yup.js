@@ -14,5 +14,27 @@ const registerUserSchema = yup.object({
         password: yup.string().min(5).required()
     })
   })
+
+  const createCarsSchema = yup.object({
+    body: yup.object({
+        title: yup.string().required(),
+        brand: yup.string().min(2).required(),
+        year: yup.string().min(4).required(),
+        kiloMeter: yup.string().required(),
+        grade: yup.string().min(1).required(),
+        category: yup.string().required(),
+        description: yup.string().min(10).required(),
+        year: yup.string().min(4).required(),
+    })
+  })
   
-module.exports = { registerUserSchema, loginUserSchema }  
+  const profileSchema = yup.object({
+    body: yup.object({
+      fullName: yup.string().min(5).max(20).required(),
+      birthDate:yup.date().required(),
+      city:yup.string().required(),
+      country: yup.string().required(),
+      mobilePhone: yup.string().required()
+    })
+  })
+module.exports = { registerUserSchema, loginUserSchema, profileSchema, createCarsSchema }  

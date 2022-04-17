@@ -1,4 +1,5 @@
 module.exports = {
     ProfileController: require("./profileController"),
-    AboutController: require("./aboutController")
+    AboutController: require("./aboutController"),
+    ProductController: require("./productController")
 }

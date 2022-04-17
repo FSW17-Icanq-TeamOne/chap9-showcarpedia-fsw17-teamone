@@ -10,17 +10,18 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Product.belongsTo(models.User);
+      //Product.belongsTo(models.User)
       Product.belongsToMany(models.User, { through: models.Wishlist, foreignKey: "productId"})
     }
   }
   Product.init({
     title: DataTypes.STRING,
     brand: DataTypes.STRING,
-    year: DataTypes.STRING,
-    kiloMeter: DataTypes.STRING,
-    grade: DataTypes.ENUM('5', '4', '3', '2', '1'),
+    year: DataTypes.INTEGER,
+    kiloMeter: DataTypes.INTEGER,
+    grade: DataTypes.INTEGER,
     category: DataTypes.STRING,
+    photoProducts: DataTypes.ARRAY(DataTypes.STRING),
     description: DataTypes.STRING,
     delete: DataTypes.BOOLEAN,
   }, {

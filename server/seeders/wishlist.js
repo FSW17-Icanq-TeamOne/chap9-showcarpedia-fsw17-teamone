@@ -15,7 +15,7 @@ module.exports = {
     */
     await queryInterface.bulkInsert("Wishlists", [
       {
-        idUser: 1,
+        userId: 1,
         productId: 1,
         createdAt: new Date(),
         updatedAt: new Date()

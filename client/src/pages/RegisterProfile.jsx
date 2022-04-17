@@ -6,8 +6,8 @@ import { profileRegistrationScheme } from "../utils/validationScheme";
 export default function RegisterProfile() {
     const formik = useFormik({
         initialValues: {
-            selectCountry: ['Spain', 'France', 'Indonesia', 'England'],
-            selectCity: ['Madrid', 'Paris', 'Jakarta', "London"],
+            country: ['Spain', 'France', 'Indonesia', 'England'],
+            city: ['Madrid', 'Paris', 'Jakarta', "London"],
             fullName: '',
             mobilePhone: '',
             birthDate : '' 
@@ -37,13 +37,13 @@ export default function RegisterProfile() {
                     <Grid marginTop={'30px'}>
                         <Autocomplete 
                             disablePortal
-                            id='selectCountry'
-                            name='selectCountry'
+                            id='country'
+                            name='country'
 
-                            value={formik.values.selectCountry['']}
+                            value={formik.values.country['']}
                             onChange={formik.handleChange}
 
-                            options={formik.values.selectCountry}
+                            options={formik.values.country}
                             renderInput={(params) => <TextField {...params} label='Country' required focused />}
 
                             sx={{
@@ -55,13 +55,13 @@ export default function RegisterProfile() {
                     <Grid marginTop={'30px'}>
                         <Autocomplete 
                             disablePortal
-                            id='selectCity'
-                            name='selectCity'
+                            id='city'
+                            name='city'
 
-                            value={formik.values.selectCity['']}
+                            value={formik.values.city['']}
                             onChange={formik.handleChange}
 
-                            options={formik.values.selectCity}
+                            options={formik.values.city}
                             renderInput={(params) => <TextField {...params} label='City' required focused />}
 
                             sx={{

@@ -17,15 +17,19 @@ module.exports = {
         allowNull: false,
       },
       year: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       kiloMeter: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       grade: {
-        type: Sequelize.ENUM('5', '4', '3', '2', '1'),
+        type: Sequelize.INTEGER,
+        validate: {
+          min: 0,
+          max: 5
+      },
         allowNull: false,
       },
       category: {

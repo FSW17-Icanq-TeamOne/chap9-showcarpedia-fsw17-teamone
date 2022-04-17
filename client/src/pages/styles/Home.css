@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    color: azure;
+}
+
+.Home {
+    background-image: url(https://media.gq-magazine.co.uk/photos/600fea2c3cc0378ecd860823/master/pass/20200127-Car-Awards-08HP.jpg);
+    background-size: 100% 100%;
+    
+    height: 100vh;
+
+    background-repeat: no-repeat;
+}
+
+.AboutUs {
+    height: 650px;
+
+    align-content: center;
+}
+
+.OurBrands {
+    height: 450px;
+
+    align-content: center;
+
+    /* background-color: aliceblue; */
+}
+
+.Footer {
+    height: 400px;
+
+    background-color: rgb(37, 37, 37);
+
+    color: rgb(221, 221, 221);
+}
+
+hr {
+    color: aliceblue;
+
+    width: 96%;
+}
