@@ -14,7 +14,7 @@ const routes = [
     { path: '/registerProfile', element: <RegisterProfile /> },
 
     { path: '/collection', element: <Collection /> },
-    { path: '/detailproduct',element: <DetailProduct /> }
+    { path: '/collectiondetail',element: <CollectionDetail /> }
 ]
 
 
