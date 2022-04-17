@@ -8,6 +8,7 @@ const Home = React.lazy(() => import('../pages/HomePage'))
 const Collection = React.lazy(() => import('../pages/Collection'))
 
 const Profile = React.lazy(() => import('../pages/Profile'))
+const ProfileEdit = React.lazy(() => import('../pages/ProfileEdit'))
 
 const routes = [
     { path: '/', element: <Home />},
@@ -17,7 +18,8 @@ const routes = [
     { path: '/registerAccount', element: <RegisterAccount /> },
     { path: '/registerProfile', element: <RegisterProfile /> },
 
-    { path: '/profile', element: <Profile />}
+    { path: '/profile', element: <Profile />},
+    { path: '/edit/profile', element: <ProfileEdit />}
 ]
 
 
