@@ -15,8 +15,8 @@ module.exports = {
     */
     await queryInterface.bulkInsert("Abouts", [
       {
-        title: "Judul konten",
-        content: "Isi kontennya",
+        title: "Showcarpedia",
+        content: "Showcarpedia is Car Showroom Website by TeamOne FSW17 Binar Academy",
         createdAt: new Date(),
         updatedAt: new Date()
       },

@@ -16,12 +16,12 @@ module.exports = {
     await queryInterface.bulkInsert("Profiles", [
       {
         userId: 1,
-        fullName: "Faizal Essa",
+        fullName: "Administrator",
         birthDate: "10-03-2022",
-        city: "Jakarta",
+        city: "Binar Academy",
         country: false,
-        mobilePhone: 6281294933210,
-        profilePicture: "essa.png",
+        mobilePhone: "628103011999",
+        profilePicture: "https://cdn.discordapp.com/attachments/960564590574456852/965225077069193326/jhondoe.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       },

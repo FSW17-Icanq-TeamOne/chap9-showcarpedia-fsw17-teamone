@@ -15,10 +15,10 @@ module.exports = {
     */
     await queryInterface.bulkInsert("Users", [
       {
-        username: "essafaizal2",
-        email: "essafaizal29@gmailll.com",
-        password: "Essa123",
-        role: "user",
+        username: "administrator",
+        email: "admin@showcarpedia.com",
+        password: "administrator",
+        role: "superAdmin",
         delete: false,
         createdAt: new Date(),
         updatedAt: new Date()

@@ -15,14 +15,14 @@ module.exports = {
     */
     await queryInterface.bulkInsert("Products", [
       {
-        title: "Jual toyota avanza",
+        title: "MobilAvanza",
         brand: "Toyota",
         year: 2021,
         kiloMeter: 10000,
         grade: 5,
         category: "Avanza",
-        description: "Murah toyota avanza",
-        photoProducts: ["toyota.jpg"],
+        description: "Murah Toyota Avanza",
+        photoProducts: ["https://cloud.jpnn.com/photo/arsip/normal/2021/11/10/toyota-avanza-2021-foto-dok-toyota-indonesia-a5wvl-buyl.jpg"],
         delete: false,
         createdAt: new Date(),
         updatedAt: new Date()
