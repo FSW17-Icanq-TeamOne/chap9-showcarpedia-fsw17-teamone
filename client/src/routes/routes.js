@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login = React.lazy(() => import('../pages/Login')) 
+const Login = React.lazy(() => import('../pages/login')) 
 const RegisterAccount = React.lazy(() => import('../pages/RegisterAccount')) 
 const RegisterProfile = React.lazy(() => import('../pages/RegisterProfile')) 
 
@@ -21,6 +21,9 @@ const routes = [
     { path: '/registerAccount', element: <RegisterAccount /> },
     { path: '/registerProfile', element: <RegisterProfile /> },
 
+    { path: '/collection', element: <Collection /> },
+    { path: '/collectiondetail',element: <CollectionDetail /> }
+    
     { path: '/profile', element: <Profile />},
     { path: '/edit/profile', element: <ProfileEdit />}
 ]
