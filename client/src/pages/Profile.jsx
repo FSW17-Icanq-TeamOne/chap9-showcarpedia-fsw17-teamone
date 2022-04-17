@@ -14,9 +14,6 @@ export default function Profile() {
             birthDate: '2022-04-17',
             country: 'Indonesia',
             city: 'Jakarta'
-        },
-        onSubmit: values => {
-            console.log(values, 'UserUpdated')
         }
     })
 
@@ -72,116 +69,113 @@ export default function Profile() {
                         </Grid>
 
                         <Grid display={'flex'} justifyContent={'center'} marginTop={'40px'}>
-                            <form onSubmit={formik.handleSubmit}>
-                                <Grid>
-                                    <TextField 
-                                        id='username'
-                                        name='username'
-                                        label='Username'
-                                        focused
+                            <Grid>
+                                <TextField 
+                                    id='username'
+                                    name='username'
+                                    label='Username'
+                                    focused
 
-                                        sx={{ width: '300px'}}
+                                    sx={{ width: '300px'}}
 
-                                        value={formik.values.username}
-                                    />
-                                </Grid>
+                                    value={formik.values.username}
+                                />
+                            </Grid>
 
-                                <Grid marginTop={'20px'}>
-                                    <TextField 
-                                        id='password'
-                                        name='password'
-                                        label='Password'
-                                        type='password'
-                                        focused
+                            <Grid marginTop={'20px'}>
+                                <TextField 
+                                    id='password'
+                                    name='password'
+                                    label='Password'
+                                    type='password'
+                                    focused
 
-                                        sx={{ width: '300px'}}
+                                    sx={{ width: '300px'}}
 
-                                        value={formik.values.password}
-                                    />
-                                </Grid>
+                                    value={formik.values.password}
+                                />
+                            </Grid>
 
-                                <Grid marginTop={'20px'}>
-                                    <TextField 
-                                        id='email'
-                                        name='email'
-                                        label='Email Address'
-                                        type='email'
-                                        focused
+                            <Grid marginTop={'20px'}>
+                                <TextField 
+                                    id='email'
+                                    name='email'
+                                    label='Email Address'
+                                    type='email'
+                                    focused
 
-                                        sx={{ width: '300px'}}
+                                    sx={{ width: '300px'}}
 
-                                        value={formik.values.email}
-                                    />
-                                </Grid>
+                                    value={formik.values.email}
+                                />
+                            </Grid>
 
-                                <Grid marginTop={'20px'}>
-                                    <TextField 
-                                        id='fullName'
-                                        name='fullName'
-                                        label='Full Name'
-                                        focused
+                            <Grid marginTop={'20px'}>
+                                <TextField 
+                                    id='fullName'
+                                    name='fullName'
+                                    label='Full Name'
+                                    focused
 
-                                        sx={{ width: '300px'}}
+                                    sx={{ width: '300px'}}
 
-                                        value={formik.values.fullName}
-                                    />
-                                </Grid>
+                                    value={formik.values.fullName}
+                                />
+                            </Grid>
 
-                                <Grid marginTop={'20px'}>
-                                    <TextField 
-                                        id='mobilePhone'
-                                        name='mobilePhone'
-                                        label='Mobile Phone'
-                                        type='tel'
-                                        focused
+                            <Grid marginTop={'20px'}>
+                                <TextField 
+                                    id='mobilePhone'
+                                    name='mobilePhone'
+                                    label='Mobile Phone'
+                                    type='tel'
+                                    focused
 
-                                        sx={{ width: '300px'}}
+                                    sx={{ width: '300px'}}
 
-                                        value={formik.values.mobilePhone}
-                                    />
-                                </Grid>
+                                    value={formik.values.mobilePhone}
+                                />
+                            </Grid>
 
-                                <Grid marginTop={'20px'}>
-                                    <TextField 
-                                        id='birthDate'
-                                        name='birthDate'
-                                        label='Birth Date'
-                                        type='date'
-                                        focused
+                            <Grid marginTop={'20px'}>
+                                <TextField 
+                                    id='birthDate'
+                                    name='birthDate'
+                                    label='Birth Date'
+                                    type='date'
+                                    focused
 
-                                        sx={{ width: '300px'}}
+                                    sx={{ width: '300px'}}
 
-                                        value={formik.values.birthDate}
-                                    />
-                                </Grid>
+                                    value={formik.values.birthDate}
+                                />
+                            </Grid>
 
-                                <Grid marginTop={'20px'}>
-                                    <TextField 
-                                        id='country'
-                                        name='country'
-                                        label='Country'
-                                        focused
+                            <Grid marginTop={'20px'}>
+                                <TextField 
+                                    id='country'
+                                    name='country'
+                                    label='Country'
+                                    focused
 
-                                        sx={{ width: '300px'}}
+                                    sx={{ width: '300px'}}
 
-                                        value={formik.values.country}
-                                    />
-                                </Grid>
+                                    value={formik.values.country}
+                                />
+                            </Grid>
 
-                                <Grid marginTop={'20px'}>
-                                    <TextField 
-                                        id='city'
-                                        name='city'
-                                        label='City'
-                                        focused
+                            <Grid marginTop={'20px'}>
+                                <TextField 
+                                    id='city'
+                                    name='city'
+                                    label='City'
+                                    focused
 
-                                        sx={{ width: '300px'}}
+                                    sx={{ width: '300px'}}
 
-                                        value={formik.values.city}
-                                    />
-                                </Grid>
-
-                            </form>
+                                    value={formik.values.city}
+                                />
+                            </Grid>
 
                         </Grid>
                     </CardContent>
