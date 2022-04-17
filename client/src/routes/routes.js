@@ -6,6 +6,7 @@ const RegisterProfile = React.lazy(() => import('../pages/RegisterProfile'))
 
 const Home = React.lazy(() => import('../pages/HomePage'))
 const Collection = React.lazy(() => import('../pages/Collection'))
+//const DetailProduct = React.lazy(() => import('../pages/DetailProduct'))
 const CollectionDetail = React.lazy(() => import('../pages/CollectionDetail'))
 
 const Profile = React.lazy(() => import('../pages/Profile'))
