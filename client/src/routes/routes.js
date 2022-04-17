@@ -7,6 +7,8 @@ const RegisterProfile = React.lazy(() => import('../pages/RegisterProfile'))
 const Collection = React.lazy(() => import('../pages/Collection'))
 //const DetailProduct = React.lazy(() => import('../pages/DetailProduct'))
 const CollectionDetail = React.lazy(() => import('../pages/CollectionDetail'))
+const Profile = React.lazy(() => import('../pages/Profile'))
+const ProfileEdit = React.lazy(() => import('../pages/ProfileEdit'))
 
 const routes = [
     { path: '/login', element: <Login /> },
