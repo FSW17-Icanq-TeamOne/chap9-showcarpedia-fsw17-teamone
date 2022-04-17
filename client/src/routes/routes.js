@@ -22,7 +22,7 @@ const routes = [
     { path: '/registerProfile', element: <RegisterProfile /> },
 
     { path: '/collection', element: <Collection /> },
-    { path: '/collectiondetail',element: <CollectionDetail /> }
+    { path: '/collectiondetail',element: <CollectionDetail /> },
     
     { path: '/profile', element: <Profile />},
     { path: '/edit/profile', element: <ProfileEdit />}
