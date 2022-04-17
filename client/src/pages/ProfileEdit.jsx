@@ -28,7 +28,7 @@ export default function Profile() {
             </Grid>
             <Grid container display={'flex'} alignItems={'center'}>
                 <Grid marginLeft={'120px'} paddingTop={'30px'} >
-                    <Typography variant={'h5'}>Profile</Typography>
+                    <Typography variant={'h5'} marginLeft={'200px'}>Profile</Typography>
                 </Grid>
 
                 <Grid ml={'auto'} >
@@ -71,7 +71,7 @@ export default function Profile() {
                             </Grid>
                         </Grid>
 
-                        <Grid display={'flex'} justifyContent={'center'} marginTop={'40px'}>
+                        <Grid container display={'flex'} justifyContent={'center'} marginTop={'40px'}>
                             <form onSubmit={formik.handleSubmit}>
                                 <Grid>
                                     <TextField 
