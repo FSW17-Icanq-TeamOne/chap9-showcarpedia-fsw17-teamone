@@ -4,6 +4,7 @@ import './styles/Home.css'
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 
+
 export default function Home() {
     return (
         <>
@@ -33,12 +34,12 @@ export default function Home() {
 
         {/* Second Page */}
         <Grid className='AboutUs' container display={'flex'} direction={'row'} justifyContent={'center'} gap={'7.5%'}>
-            <Grid display={'flex'} ml={'auto'} gap={'40px'}>
+            <Grid>
                 <Stack direction="row" spacing={2}>
-                  <Avatar
-                    src="/broken-image.jpg"
-                    sx={{ width: 230, height: 230 }}
-                  />
+                    <Avatar
+                        src="/broken-image.jpg"
+                        sx={{ width: 230, height: 230 }}
+                    />
                 </Stack>
             </Grid>
 
