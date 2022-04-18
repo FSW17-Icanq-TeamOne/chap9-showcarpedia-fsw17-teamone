@@ -1,6 +1,8 @@
 import { Button, Grid, Typography } from "@mui/material";
 import MainNavbar from "../components/MainNavbar";
 import './styles/Home.css'
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
 
 export default function Home() {
     return (
@@ -31,13 +33,14 @@ export default function Home() {
 
         {/* Second Page */}
         <Grid className='AboutUs' container display={'flex'} direction={'row'} justifyContent={'center'} gap={'7.5%'}>
-            <Grid sx={{
-                border: 1,
-                borderRadius: '50%',
-
-                height: 230,
-                width: 230
-            }}/>
+            <Grid display={'flex'} ml={'auto'} gap={'40px'}>
+                <Stack direction="row" spacing={2}>
+                  <Avatar
+                    src="/broken-image.jpg"
+                    sx={{ width: 230, height: 230 }}
+                  />
+                </Stack>
+            </Grid>
 
             <Grid display={'flex'} flexDirection={'column'} gap={'35px'}>
                 <Typography variant={'h4'}>About Us</Typography>
