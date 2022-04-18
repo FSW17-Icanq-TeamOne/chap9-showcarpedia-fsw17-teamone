@@ -1,4 +1,4 @@
-import { alpha, Box, Checkbox, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel, Toolbar, Typography, Paper, Tooltip, Grid } from '@mui/material'
+import { alpha, Box, Checkbox, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel, Toolbar, Typography, Paper, Tooltip, Grid, Button } from '@mui/material'
 import { useState } from 'react'
 import { visuallyHidden } from '@mui/utils'
 import PropTypes from 'prop-types'
@@ -6,8 +6,8 @@ import PropTypes from 'prop-types'
 
 const createData = (brand, title, year, grade, kilometer, category) => {
     return{
-        title,
         brand,
+        title,
         year,
         grade,
         kilometer,
@@ -58,16 +58,16 @@ const stableSort = (array, comparator) => {
 
 const headCells = [
     {
-        id: 'brand',
-        numeric: false,
-        disablePadding: true,
-        label: 'Brand',
-    },
-    {
         id: 'title',
         numeric: false,
         disablePadding: true,
         label: 'Title',
+    },
+    {
+        id: 'brand',
+        numeric: false,
+        disablePadding: true,
+        label: 'Brand',
     },
     {
         id: 'year',
@@ -191,12 +191,12 @@ const EnhancedTableToolbar = (props) => {
                 <Grid display='flex' gap='10px'>
                 <Tooltip title='Delete'>
                     {/* This Should Be Link to Delete API */}
-                    <Typography>Delete</Typography>
+                    <Button>Delete</Button>
                 </Tooltip>
 
                 <Tooltip title='Edit'>
                     {/* This Should Be Link To Edit API */}
-                    <Typography>Edit</Typography>
+                    <Button>Edit</Button>
                 </Tooltip>
                 </Grid>
             )}
@@ -317,11 +317,11 @@ export default function ProductTable() {
                                             >
                                                 {row.title}
                                             </TableCell>
-                                            <TableCell align='right'>{row.brand}</TableCell>
-                                            <TableCell align='right'>{row.year}</TableCell>
-                                            <TableCell align='right'>{row.grade}</TableCell>
-                                            <TableCell align='right'>{row.kilometer}</TableCell>
-                                            <TableCell align='right'>{row.category}</TableCell>
+                                            <TableCell align=''>{row.brand}</TableCell>
+                                            <TableCell align=''>{row.year}</TableCell>
+                                            <TableCell align=''>{row.grade}</TableCell>
+                                            <TableCell align=''>{row.kilometer}</TableCell>
+                                            <TableCell align=''>{row.category}</TableCell>
                                         </TableRow>
                                     )
                                 })
