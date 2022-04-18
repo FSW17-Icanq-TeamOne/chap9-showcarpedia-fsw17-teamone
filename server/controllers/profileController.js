@@ -3,10 +3,10 @@ const { Profile } = require("../models");
 class ProfileController {
   
   static async readProfile(req, res) {
-    const userId = req.user.id;
+    const UserId = req.user.id;
     try {
-      if (!userId) return res.json("user not found");
-      const data = await Profile.findOne({ where: { userId } });
+      if (!UserId) return res.json("user not found");
+      const data = await Profile.findOne({ where: { UserId } });
       res.status(200).json(data);
     } catch (error) {
       throw error;
@@ -14,7 +14,7 @@ class ProfileController {
   }
   static async updateProfile(req,res){
     console.log("Hi")
-    const userId = req.user.id;
+    const UserId = req.user.id;
     const { fullName, birthDate, city, country, mobilePhone, profilePicture} = req.body
 
     const payload = {
@@ -27,9 +27,9 @@ class ProfileController {
       updateAt: new Date()}
 
     try {
-        if(!userId) return res.json("user not found")
-        await Profile.update(payload,{where:{userId}})
-        res.status(200).json(`player with id ${userId} successfully updated`)
+        if(!UserId) return res.json("user not found")
+        await Profile.update(payload,{where:{UserId}})
+        res.status(200).json(`player with id ${UserId} successfully updated`)
     } catch (error) {
         throw error
     }

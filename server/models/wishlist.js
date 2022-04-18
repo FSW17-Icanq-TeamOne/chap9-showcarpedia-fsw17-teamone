@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Wishlist.belongsTo(models.User, { foreignKey: 'userId' })
-      Wishlist.belongsTo(models.Product, { foreignKey: 'productId' })
+      Wishlist.belongsTo(models.User, { foreignKey: 'UserId' })
+      Wishlist.belongsTo(models.Product, { foreignKey: 'ProductId' })
     }
   }
   Wishlist.init({
-    userId: DataTypes.INTEGER,
-    productId: DataTypes.INTEGER
+    UserId: DataTypes.INTEGER,
+    ProductId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Wishlist',
