@@ -3,8 +3,11 @@ import { useFormik } from "formik";
 import '../App.css'
 import Navbar2 from "../components/Navbar2";
 import { accountRegistrationScheme } from "../utils/validationScheme";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterAccount() {
+    const navigate = useNavigate()
+
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -12,7 +15,24 @@ export default function RegisterAccount() {
             password: ''
         },
         onSubmit: values => {
-            console.log(values, 'User is Registered');
+            //console.log(values, 'User is Registered');
+            fetch('http://localhost:4000/v1/register', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json' },
+                credentials: "include",
+                body: JSON.stringify(values),
+            })
+            .then((response) => {
+            return response.json();
+            })
+            .then((data) => {
+            //console.log(data, 'This is the Data')
+            navigate("/login");
+            })
+            .catch((err) => {
+            console.log(err);
+            });
         },
         validationSchema: accountRegistrationScheme
     })
@@ -109,8 +129,8 @@ export default function RegisterAccount() {
                                 backgroundColor: 'orange',
                                 color: 'white'
                             }}
-                            href={'/registerProfile'}
-                            type="submit">Next</Button>
+                            
+                            type="submit">Create Account</Button>
                     </Grid>
 
                     <Grid marginTop={'25px'}>

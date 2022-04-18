@@ -104,18 +104,18 @@ export default function LoginPage(){
                     <Grid marginTop={'25px'}>
                         <Typography variant="h6">OR</Typography>
                     </Grid>
-                    <Grid container direction={"column"} mt={3} mb={4}>
+                </form>
+                <Grid container direction={"column"} mt={3} mb={4}>
                         <Grid item>
                             <Button type="submit" sx= {{
                                 width:345, 
                                 height: 50,
-
                                 border: 1, 
-                                borderColor: 'black'
-                            }}> Create Account</Button>
+                                borderColor: 'black',
+                                
+                            }} href={'/registerAccount'}> Create Account</Button>
                         </Grid>
-                    </Grid>
-                </form>
+                </Grid>
             </Grid>
             
         </Grid>
