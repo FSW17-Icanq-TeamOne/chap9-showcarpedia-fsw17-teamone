@@ -5,7 +5,9 @@ const PORT = 4000 | process.env.PORT
 const router = require("./routes")
 
 var corsOpts = {
-    origin: "http://localhost:3000"
+    origin: "http://localhost:3000",
+    credentials: true,
+    optionsSuccessStatus: 200
 }
 
 //Utilities

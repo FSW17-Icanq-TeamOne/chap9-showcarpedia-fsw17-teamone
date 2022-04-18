@@ -9,7 +9,7 @@ class wishlistController {
         }
         try {
             const wishlist = await Wishlist.create(payloadWishlist)
-            if (wishlist == 1){
+            if (wishlist){
                 return res.status(200).json({
                     message: "wishlist created"
                 })
