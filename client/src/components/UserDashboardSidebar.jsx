@@ -10,7 +10,7 @@ export default function UserDashboardSidebar() {
 
             position: 'fixed'
         }} >
-            <Grid container display={'flex'} direction={'column'} alignItems={'flex-start'} marginLeft={'80px'} marginTop={'75px'} gap={'40px'}>
+            <Grid container display={'flex'} direction={'column'} alignItems={'flex-start'} marginLeft={'50px'} marginTop={'75px'} gap={'40px'}>
                 <Typography>Home</Typography>
                 <Typography>Wishlist</Typography>
             </Grid>

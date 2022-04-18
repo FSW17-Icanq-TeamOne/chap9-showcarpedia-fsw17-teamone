@@ -209,7 +209,7 @@ EnhancedTableToolbar.propTypes = {
 }
 
 
-export default function ProductTable() {
+export default function ProductListTable() {
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('brand');
     const [selected, setSelected] = useState([]);
