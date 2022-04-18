@@ -1,6 +1,7 @@
 import { Grid, Typography, Card, CardContent } from "@mui/material";
 import DashboardNavbar from "../components/DashboardNavbar";
-import SuperAdminDashboardSidebar from "../components/SuperAdminDashboardSidebar"
+import SuperAdminDashboardSidebar from "../components/AdminDashboardSidebar"
+import ProductTable from "../components/ProductTable2.jsx";
 export default function SuperAdminDashboard() {
     return(
         <>
@@ -22,10 +23,13 @@ export default function SuperAdminDashboard() {
 
             <Grid>
                 <Card>
-                    <CardContent>
-                        <Grid />
+                    <CardContent >
                     </CardContent>
                 </Card>
+            </Grid>
+            
+            <Grid marginLeft={'325px'} marginTop={'25px'}>
+                <ProductTable />
             </Grid>
         </>
     )

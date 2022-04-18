@@ -10,7 +10,25 @@ export default function LoginPage(){
           password: ""
         },
         onSubmit: (values) => {
-          console.log(values, 'User is Logged In')
+          //console.log(values, 'User is Logged In')
+          fetch('http://localhost:4000/v1/login', {
+                method: 'POST',
+                headers: { 
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json' },
+                credentials: "include",
+                body: JSON.stringify(values),
+            })
+          .then((response) => {
+            return response.json();
+            })
+            .then((data) => {
+            console.log(data, 'This is the Data')
+            localStorage.setItem('access_token', data.access_token);
+            })
+            .catch((err) => {
+            console.log(err);
+            });
         },
         validationSchema: loginValidationScheme
       })
