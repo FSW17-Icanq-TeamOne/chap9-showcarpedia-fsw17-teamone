@@ -12,7 +12,8 @@ const CollectionDetail = React.lazy(() => import('../pages/CollectionDetail'))
 const Profile = React.lazy(() => import('../pages/Profile'))
 const ProfileEdit = React.lazy(() => import('../pages/ProfileEdit'))
 
-const SuperAdminDashboard = React.lazy(() => import('../pages/SuperAdminDashboard'))
+const ProductList = React.lazy(() => import('../pages/ProductList'))
+const AdminList = React.lazy(() => import('../pages/AdminList'))
 
 const routes = [
     { path: '/', element: <Home />},
@@ -29,7 +30,8 @@ const routes = [
     { path: '/profile', element: <Profile />},
     { path: '/edit/profile', element: <ProfileEdit />},
 
-    { path: '/superadmindashboard', element: <SuperAdminDashboard />}
+    { path: '/productList', element: <ProductList />},
+    { path: '/adminList', element: <AdminList />}
 ]
 
 
