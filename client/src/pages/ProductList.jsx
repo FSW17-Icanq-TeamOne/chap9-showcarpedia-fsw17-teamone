@@ -1,14 +1,14 @@
 import { Grid, Typography, Card, CardContent } from "@mui/material";
 import DashboardNavbar from "../components/DashboardNavbar";
-import SuperAdminDashboardSidebar from '../components/AdminDashboardSidebar'
+import AdminDashboardSidebar from '../components/AdminDashboardSidebar'
 import ProductTable from "../components/ProductTable";
 
-export default function SuperAdminDashboard() {
+export default function ProductList() {
     return(
         <>
             <Grid container display={'flex'}>
                 <Grid marginRight={'220px'}>
-                    <SuperAdminDashboardSidebar />
+                    <AdminDashboardSidebar />
                 </Grid>
 
                 <Grid container displa={'flex'} alignItems={'center'}>
