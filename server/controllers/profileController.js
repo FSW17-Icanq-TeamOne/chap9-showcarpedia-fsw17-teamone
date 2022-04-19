@@ -13,7 +13,7 @@ class ProfileController {
     }
   }
   static async updateProfile(req,res){
-    console.log("Hi")
+    //console.log("Hi")
     const UserId = req.user.id;
     const { fullName, birthDate, city, country, mobilePhone, profilePicture} = req.body
 
@@ -29,7 +29,11 @@ class ProfileController {
     try {
         if(!UserId) return res.json("user not found")
         await Profile.update(payload,{where:{UserId}})
-        res.status(200).json(`player with id ${UserId} successfully updated`)
+        res.status(200).json(
+          {
+            message: "Success"
+          }
+        )
     } catch (error) {
         throw error
     }
