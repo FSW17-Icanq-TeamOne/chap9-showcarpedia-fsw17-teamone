@@ -1,90 +1,158 @@
-import { Button, Grid } from "@mui/material"
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useFormik } from "formik"
-import { useEffect, useState } from "react"
-import { storage } from "../config/firebase";
+import { Autocomplete, Button, Grid, TextField } from "@mui/material";
+import { useFormik } from "formik";
+import MultipleImageUploader from "./MultipleImageUploader";
 
 export default function ProductCreationForm() {
-    const [image, setImage] = useState();
-    const [preview, setPreview] = useState();
-    const [dwnldUrl, setDwnldUrl] = useState();
-
-    useEffect(() => {
-        if (!image) {
-            setPreview('https://via.placeholder.com/600x400/ff0000/ffffff?text=Hello+MF')
-            return;
-        }
-        const objURL = URL.createObjectURL(image)
-        setPreview(objURL)
-        return () => URL.revokeObjectURL(objURL)
-    }, [image])
-
-    const handleChange = (event) => {
-        if (!event.target.file || event.target.files.length === 0) {
-            setImage(undefined)
-
-        }
-        setImage(event.target.files[0])
-    }
-
-    const handleUpload = (event) => {
-        const storageRef = ref(storage, `images/${image.name}`);
-
-        const uploadTask = uploadBytesResumable(storageRef);
-
-        uploadTask.on('state_changed', (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            
-            console.log(`File upload is ` + progress + ` % done`);
-
-            switch (snapshot.state) {
-                case 'paused':
-                    console.log('Upload is Paused')
-                    break;
-                case 'running':
-                    console.log('Upload is Running')
-                    break;
-                case 'error':
-                    console.log('Upload is Error');
-                    break;
-                case 'canceled':
-                    console.log('Upload is Cancelled');
-                    break;
-                default:
-                    break;
-            }
-        }, (error) => {
-            console.log(error)
-        }, () => {
-            getDownloadURL(uploadTask.snapshot.ref)
-                .then((downloadUrl) => {
-                    console.log('file available at', downloadUrl)
-                    setDwnldUrl(dwnldUrl);
-                })
-        })
-    }
-    
     const formik = useFormik({
         initialValues: {
             title: '',
-            brand: ['Porsche', 'BMW', 'Toyota', 'Ford'],
+            brand: ['Porsche', 'BMW', 'Ford', 'Toyota', 'Honda'],
             grade: [1, 2, 3, 4, 5],
-            category: ['SUV', 'Sport', 'Pickup', 'Coupe'],
-            year: '',
-            kiloMeter: ''
+            category: ['Sport', 'SUV', 'Pickup', 'Coupe',],
+            year: Number(),
+            kiloMeter: Number(),
+            description: ''
         },
-        onSubmit: values => {
-            console.log(values)
+        onSubmit: value => {
+            console.log(value, `Product is Created`)
         }
     })
 
     return (
         <>
-            <Grid>
-                <img src={preview} alt='image' style={{ width: 300 }}/>
-                <input type='file' onChange={handleChange} />
-                <Button onClick={handleUpload}>Upload</Button>
-            </Grid>
+        {/* Form */}
+        <Grid display={'flex'} gap={'30px'}>
+            <MultipleImageUploader />
+
+            <form onSubmit={formik.onSubmit}>
+                <Grid container display={'flex'} direction={'column'} gap={'30px'}>
+
+                    <Grid>
+                        <TextField 
+                            id="title"
+                            name='title'
+                            label="Add Product's Name"
+                            
+                            value={formik.values.title}
+                            onChange={formik.handleChange}
+                            variant='standard'
+
+                            sx={{
+                                width: 400
+                            }}
+                        />
+                    </Grid>
+
+                    <Grid display={'flex'} gap={'20px'}>
+                        <Autocomplete 
+                            disablePortal
+                            id="brand"
+                            name='brand'
+                            
+                            onChange={formik.handleChange}
+
+                            options={formik.values.brand}
+                            renderInput={params => <TextField {...params} label='Select Brand' required />}
+
+                            sx={{
+                                width: 345
+                            }}
+                        />
+
+                        <Autocomplete 
+                            disablePortal
+                            id="grade"
+                            name='grade'
+                            
+                            onChange={formik.handleChange}
+
+                            options={formik.values.grade}
+                            renderInput={params => <TextField {...params} label='Grade' required />}
+
+                            sx={{
+                                width: 95
+                            }}
+                        />
+                    </Grid>
+
+                    <Grid>
+                        <Autocomplete 
+                            disablePortal
+                            id="category"
+                            name='category'
+                            
+                            onChange={formik.handleChange}
+
+                            options={formik.values.category}
+                            renderInput={params => <TextField {...params} label='Category' required />}
+
+                            sx={{
+                                width: 345
+                            }}
+                        />
+                    </Grid>
+
+                    <Grid>
+                        <TextField 
+                            id="year"
+                            name='year'
+                            label="Input Product's Year"
+                            
+                            value={formik.values.year}
+                            onChange={formik.handleChange}
+
+                            sx={{
+                                width: 345
+                            }}
+                        />
+                    </Grid>
+
+                    <Grid>
+                        <TextField 
+                            id="kiloMeter"
+                            name='kiloMeter'
+                            label="Input Kilometer"
+                            
+                            value={formik.values.kiloMeter}
+                            onChange={formik.handleChange}
+
+                            sx={{
+                                width: 345
+                            }}
+                        />
+                    </Grid>
+
+                    <Grid>
+                        <TextField 
+                            id="description"
+                            name='description'
+                            label="Description"
+                            multiline
+                            
+                            value={formik.values.description}
+                            onChange={formik.onChange}
+
+                            sx={{
+                                width: 460
+                            }}
+                        />
+                    </Grid>
+
+                    <Grid>
+                        <Button sx={{
+                            width: 460,
+
+                            borderRadius: 20,
+
+                            backgroundColor: 'orange',
+                            color: 'white'
+                        }} type='submit'>Submit</Button>
+                    </Grid>
+
+                </Grid>
+            </form>
+            
+        </Grid>
         </>
-    )
+    ) 
 }
