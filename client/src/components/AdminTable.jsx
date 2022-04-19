@@ -51,11 +51,11 @@ const ProductTable2 = () => {
     const [tableData, setTableData] = useState([])
 
     return(
-        <Grid sx={{height: 500, width: 605}}>
+        <Grid sx={{height: 400, width: 605}}>
             <DataGrid 
                 rows={rows}
                 columns={columns}
-                pageSize={10}
+                pageSize={5}
                 rowsPerPageOptions={[5]}
                 checkboxSelection
             />

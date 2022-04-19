@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 
-export default function SuperAdminDashboardSidebar() {
+export default function AdminDashboardSidebar() {
     return(
         <Grid sx={{
             width: 200,

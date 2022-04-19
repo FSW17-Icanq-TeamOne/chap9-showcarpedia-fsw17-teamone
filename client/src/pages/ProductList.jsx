@@ -4,14 +4,14 @@ import AdminDashboardSidebar from '../components/AdminDashboardSidebar'
 import ProductTable from "../components/ProductTable";
 
 export default function ProductList() {
-    return(
+    return (
         <>
             <Grid container display={'flex'}>
                 <Grid marginRight={'220px'}>
                     <AdminDashboardSidebar />
                 </Grid>
 
-                <Grid container displa={'flex'} alignItems={'center'}>
+                <Grid container display={'flex'} alignItems={'center'}>
                     <Grid marginLeft={'120px'} paddingTop={'30px'}>
                         <Typography variant={'h5'} marginLeft={'200px'}>Product List</Typography>
                     </Grid>
