@@ -6,11 +6,9 @@ import {
 import Show from "../components/card";
 import Filter from "../components/Filter";
 import MainNavbar from "../components/MainNavbar";
-import Upload from "../components/uploadFile";
 
 export default function Collection() {
  
-  const getData = data => console.log(data)
 
   return (
     <>
@@ -43,9 +41,7 @@ export default function Collection() {
         <Grid item xs={4} sm={4} md={4}>
           <Show />
         </Grid>
-        <Grid item xs={4} sm={4} md={4}>
-          <Upload data={getData} />
-        </Grid>
+        
 
         
         

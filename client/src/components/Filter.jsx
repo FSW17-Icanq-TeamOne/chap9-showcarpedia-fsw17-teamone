@@ -2,21 +2,17 @@ import { Select } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import { FormControl } from "@mui/material";
 import { MenuItem } from "@mui/material";
-import {
-  Grid,
-  Typography,
-  Autocomplete,
-  TextField,
-  Container,
-  Button,
-} from "@mui/material";
-import {  useFormik } from "formik";
+import { Grid, Typography, Container, Button } from "@mui/material";
+import { useFormik } from "formik";
 import { useState, useEffect } from "react";
 
 export default function Filter() {
   const [brands, setBrands] = useState([]);
   const [category, setCategory] = useState([]);
-  const [year, setYear] = useState([])
+  const [year, setYear] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const mileages = ["1000", "5000", "10000", "20000", "50000"];
+  const grades = ["1", "2", "3", "4", "5"];
 
   const fetchData = async () => {
     const response = await fetch("http://localhost:4000/v1/cars/make/", {
@@ -28,12 +24,10 @@ export default function Filter() {
       credentials: "include",
     });
     const data = await response.json();
-    setYear(data.year.map(e=>e.year))
+    setYear(data.year.map((e) => e.year));
     setBrands(data.brand.sort());
     setCategory(data.category.sort());
   };
-
-
 
   useEffect(() => {
     fetchData();
@@ -43,11 +37,28 @@ export default function Filter() {
     enableReinitialize: true,
     initialValues: {
       brand: "",
-      category:"",
-      year:""
+      category: "",
+      minYear: "",
+      maxMileages: "",
+      grades: "",
     },
-    onSubmit: (values) => {
-      console.log(values, "Filter");
+    onSubmit: async (values) => {
+      const year = Number(values.minYear);
+      const grade = Number(values.grades);
+      const mileages = Number(values.maxMileages);
+      const response = await fetch(
+        `http://localhost:4000/v1/cars/search?maxMileages=${mileages}&minYear=${year}&grade=${grade}&brand=${values.brand}&category=${values.category}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
+      const data = await response.json();
+      console.log(data);
     },
   });
   return (
@@ -65,14 +76,14 @@ export default function Filter() {
             <FormControl fullWidth>
               <InputLabel id="brand">brand</InputLabel>
               <Select
-                id="brand"
+                label="brand"
                 name="brand"
                 value={formik.values.brand}
                 onBlur={formik.handleBlur}
-                onChange={(e) => formik.setFieldValue("brand",e.target.value)}
+                onChange={(e) => formik.setFieldValue("brand", e.target.value)}
               >
                 {brands.map((e, i) => (
-                  <MenuItem value={e} key={i} >
+                  <MenuItem value={e} key={i}>
                     {e}
                   </MenuItem>
                 ))}
@@ -80,28 +91,107 @@ export default function Filter() {
             </FormControl>
           </Grid>
 
-            <Grid item xs={4} sm={4} md={4}>
+          <Grid item xs={4} sm={4} md={4}>
             <FormControl fullWidth>
               <InputLabel id="category">category</InputLabel>
               <Select
-                id="category"
+                label="category"
                 name="category"
                 value={formik.values.category}
                 onBlur={formik.handleBlur}
-                onChange={(e) => formik.setFieldValue("category",e.target.value)}
+                onChange={(e) =>
+                  formik.setFieldValue("category", e.target.value)
+                }
               >
                 {category.map((e, i) => (
-                  <MenuItem value={e} key={i} >
+                  <MenuItem value={e} key={i}>
                     {e}
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
-          </Grid>       
-          
+          </Grid>
+
+          <Grid item xs={4} sm={4} md={4}>
+            <FormControl fullWidth>
+              <InputLabel id="minYear">minYear</InputLabel>
+              <Select
+                label="minYear"
+                name="minYear"
+                value={formik.values.minYear}
+                onBlur={formik.handleBlur}
+                onChange={(e) =>
+                  formik.setFieldValue("minYear", e.target.value)
+                }
+              >
+                {year.map((e, i) => (
+                  <MenuItem value={e} key={i}>
+                    {e}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={4} sm={4} md={4}>
+            <FormControl fullWidth>
+              <InputLabel id="maxMileages">maxMileages</InputLabel>
+              <Select
+                label="maxMileages"
+                name="maxMileages"
+                value={formik.values.maxMileages}
+                onBlur={formik.handleBlur}
+                onChange={(e) =>
+                  formik.setFieldValue("maxMileages", e.target.value)
+                }
+              >
+                {mileages.map((e, i) => (
+                  <MenuItem value={e} key={i}>
+                    {e}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={4} sm={4} md={4}>
+            <FormControl fullWidth>
+              <InputLabel id="grades">grades</InputLabel>
+              <Select
+                label="grades"
+                name="grades"
+                value={formik.values.grades}
+                onBlur={formik.handleBlur}
+                onChange={(e) => formik.setFieldValue("grades", e.target.value)}
+              >
+                {grades.map((e, i) => (
+                  <MenuItem value={e} key={i}>
+                    {e}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
         </Grid>
 
         <Grid display={"flex"} marginTop={"15px"} justifyContent="center">
+          <Grid>
+            <Button
+              onClick={formik.resetForm}
+              sx={{
+                borderRadius: 30,
+                borderColor: "#2871CC",
+                "&:hover": {
+                  transition: ".5s",
+                  bgcolor: "#FF0000",
+                  color: "white",
+                },
+              }}
+            >
+              Reset
+            </Button>
+          </Grid>
+
           <Grid>
             <Button
               type="submit"

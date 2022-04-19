@@ -1,7 +1,6 @@
 import {
   Button,
   Card,
-  CardActionArea,
   CardContent,
   CardMedia,
   Grid,
@@ -11,7 +10,6 @@ import {
 
 import { FavoriteOutlined } from "@mui/icons-material";
 import { useState } from "react";
-import { borderColor } from "@mui/system";
 export default function Show() {
   const [wishlist, setWishlist] = useState(false);
 

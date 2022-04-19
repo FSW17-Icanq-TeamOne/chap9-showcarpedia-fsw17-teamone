@@ -130,7 +130,7 @@ class carsController {
     }
   }
   static async findFilteredCar(req, res) {
-    const { kilometer, brand, title, minYear, grade, category } = req.query;
+    const { maxMileages, brand, title, minYear, grade, category } = req.query;
     const query = {
       brand,
       title,
@@ -144,7 +144,7 @@ class carsController {
         where:{
           ...filteredQuery,
           kiloMeter: {
-            [Op.gt]: kilometer ?? 0,
+            [Op.gt]: maxMileages ?? 0,
           },
           year: {
             [Op.gt]: minYear ?? 0,
