@@ -28,7 +28,12 @@ class AuthController {
                 httpOnly: true
             })
             
-            return res.status(200).json( { message: "Login Success"} )
+            return res.status(200).json( { 
+                id: user.id,
+                role: user.role,
+                access_token: access_token,
+                message: "Success"
+            } )
         } catch (error) {
             return res.status(500).json( { message: error.message } )
         }
