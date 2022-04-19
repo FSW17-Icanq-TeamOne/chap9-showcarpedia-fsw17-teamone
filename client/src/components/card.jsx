@@ -1,68 +1,97 @@
-import { Button,Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+  IconButton,
+} from "@mui/material";
 
-export default function Show(){
-    return(
-        <Card sx={{
-            height: 490,
-            border: 1,
-            borderRadius: 2
-            
-        }} >
-            <CardActionArea>
-                <CardMedia
-                    component={'img'}
-                    image={'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*'}
-                    alt={'Image'}
+import { FavoriteOutlined } from "@mui/icons-material";
+import { useState } from "react";
+import { borderColor } from "@mui/system";
+export default function Show() {
+  const [wishlist, setWishlist] = useState(false);
 
-                    sx={{
-                        height: 235,
-                        width: 345,
+  const handleWishlist = () => {
+    setWishlist((prev) => !prev);
+  };
 
-                        display: 'flex',
-                        justifyContent: 'center',
+  return (
+    <Card
+      sx={{
+        borderRadius: 2,
+        boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+        "&:hover": {
+          boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)",
+        },
+      }}
+    >
+        <CardMedia
+          component={"img"}
+          image={
+            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*"
+          }
+          alt={"Image"}
+          sx={{
+            width: "90%",
+            mx: "auto",
+            mt: "10px",
+            borderRadius: 2,
+          }}
+        />
+        <CardContent>
+          <Grid gridTemplateRows={"repeat(3,1fr)"}>
+            <Grid
+              display={"flex"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+            >
+              <Typography marginLeft={2} fontWeight="bold" fontSize={"2em"} >ini models</Typography>
+              <IconButton onClick={handleWishlist}>
+                {wishlist ? (
+                  <FavoriteOutlined sx={{ color: "red", transition: ".5s" }} />
+                ) : (
+                  <FavoriteOutlined />
+                )}
+              </IconButton>
+            </Grid>
 
-                        marginLeft: 2.5,
-                        marginTop: 2.5,
-
-                        borderRadius: 2
-                    }}
-                />
-                <CardContent>
-                    <Grid container display={'flex'} justifyContent={'flex-end'}>
-                        <Typography marginBottom={'20px'}
-                        sx={{
-                            border: 1,
-                            borderRadius: '50%',
-
-                            width: 40,
-                            height: 40,
-
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>W</Typography>
-                    </Grid>
-
-                    <Grid container display={'flex'} justifyContent={'center'} alignItems={'center'}>
-                        <Typography>Description</Typography>
-                    </Grid>
-
-                    <Grid container display={'flex'} justifyContent={'center'} marginTop={'50px'}>
-                        <Button
-                            sx={{
-                                width: 120,
-                                height: 40,
-
-                                borderRadius: 24,
-
-                                color: 'white',
-
-                                backgroundColor: 'orange'
-                            }}
-                        >View Detail</Button>
-                    </Grid>
-                </CardContent>
-            </CardActionArea>
-        </Card>
-    )
+            <Grid
+              display={"flex"}
+              alignItems={"center"}
+              marginTop={3}
+              justifyContent="space-between"
+            >
+              <div className="model">
+                <Typography marginLeft={2} fontWeight="bold">Model Year</Typography>
+                <Typography marginLeft={2}>2020</Typography>
+              </div>
+              <div className="odometer">
+                <Typography marginRight={5} fontWeight="bold">Odometer</Typography>
+                <Typography marginRight={5}>1000 km</Typography>
+              </div>
+            </Grid>
+            <Grid display={"flex"} justifyContent={"center"} marginTop={5}>
+              <Button
+                sx={{
+                  borderRadius: 30,
+                  border: 2,
+                  borderColor: "#2871CC",
+                  "&:hover": {
+                    transition: ".5s",
+                    bgcolor: "#2871CC",
+                    color: "white",
+                  },
+                }}
+              >
+               <Typography textTransform={"capitalize"} px={2}>view detail</Typography> 
+              </Button>
+            </Grid>
+          </Grid>
+        </CardContent>
+    </Card>
+  );
 }

@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../config/firebase";
 
-export default function Upload({ url }) {
+export default function Upload({data}) {
   const [files, setFiles] = useState([]);
   const [progress, setProgress] = useState(0);
   const [urls, setUrls] = useState([]);
@@ -69,8 +69,7 @@ export default function Upload({ url }) {
       })
       .catch((err) => console.log(err));
   };
-  url(urls);
-  console.log(files);
+  data(urls)
   return (
     <>
       <Box sx={{ width: "80vw", height: "60vh", border: "2px solid black" }}>
