@@ -160,5 +160,23 @@ class carsController {
       throw error;
     }
   }
+
+  static async getFilterData(req,res) {
+    const list = require("list-of-cars")
+    list.getListSync()
+    const brand = list.getCarMakes()
+    const category = list.getCarCategories()
+    try{
+      const year = await Product.findAll({
+        attributes:["year"],
+        group: "year",
+        order:[["year","ASC"]]
+      })
+      if(year) return res.status(200).json({category,brand,year})
+    }
+    catch(err){
+      throw err
+    }
+  }
 }
 module.exports = carsController;
