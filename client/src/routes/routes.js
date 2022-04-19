@@ -12,6 +12,8 @@ const CollectionDetail = React.lazy(() => import('../pages/CollectionDetail'))
 const Profile = React.lazy(() => import('../pages/Profile'))
 const ProfileEdit = React.lazy(() => import('../pages/ProfileEdit'))
 const AccountEdit = React.lazy(() => import('../pages/AccountEdit'))
+const AdminAccountEdit = React.lazy(() => import('../pages/AdminAccountEdit'))
+const AdminRegisterAccount = React.lazy(() => import('../pages/AdminRegisterAccount'))
 
 const ProductList = React.lazy(() => import('../pages/ProductList'))
 const AdminList = React.lazy(() => import('../pages/AdminList'))
@@ -33,8 +35,10 @@ const routes = [
     { path: '/edit/account', element: <AccountEdit /> },
 
     { path: '/productList', element: <ProductList /> },
+    
     { path: '/adminList', element: <AdminList /> },
-
+    { path: '/admin/edit/account/:id', element: <AdminAccountEdit /> },
+    { path: '/admin/create/account/', element: <AdminRegisterAccount /> },
     { path: '/productCreation', element: <ProductCreation /> }
 ]
 
