@@ -1,14 +1,15 @@
-const { Wishlist } = require("../models")
+const { Wishlist, Product, User } = require("../models")
+const user = require("../seeders/user")
 
 class wishlistController {
     static create = async (req,res) => {
-        const { productId, userId } = req.body
+        const { ProductId, UserId } = req.body
         const payloadWishlist = {
-            productId, userId
+            ProductId, UserId
         }
         try {
             const wishlist = await Wishlist.create(payloadWishlist)
-            if (wishlist == 1){
+            if (wishlist){
                 return res.status(200).json({
                     message: "wishlist created"
                 })
@@ -21,15 +22,31 @@ class wishlistController {
         }
     }
 
-    // static async getAllProduct(req,res){
-    //     try {
-    //         const data = await Product.findAll({order:[['id',"ASC"]]})
-    //         if(!data.length) res.json("please add new product")
-    //         res.status(200).json(data)
-    //     } catch (error) {
-    //         throw error
-    //     }
-    // }
+    static async getWishlists(req,res){
+        const UserId = req.params.id
+        try {
+            const data = await Wishlist.findAll({
+                where: {
+                    UserId: UserId
+                },
+                order:[['id',"ASC"]],
+                include: [ 
+                    {
+                        model: User,
+                        attributes: ['username']
+                    }, 
+                    {   
+                        model: Product,
+                        attributes: ['title', 'description']
+                    } 
+                ],
+            })
+            if(!data.length) res.json("please add new product")
+            res.status(200).json(data)
+        } catch (error) {
+            throw error
+        }
+    }
 
     // static async getProductById(req, res){
     //     try{

@@ -10,7 +10,7 @@ class carsController {
       grade,
       category,
       description,
-      photoProduct,
+      photoProducts,
     } = req.body;
     const payloadCars = {
       title,
@@ -21,7 +21,7 @@ class carsController {
       category,
       description,
       delete: false,
-      photoProduct,
+      photoProducts,
     };
     try {
       const cars = await Product.create(payloadCars);
@@ -34,7 +34,7 @@ class carsController {
         grade: cars.grade,
         category: cars.category,
         description: cars.description,
-        photoProduct: cars.photoProduct,
+        photoProducts: cars.photoProducts,
       });
     } catch (error) {
       return res.status(500).json({
@@ -57,8 +57,8 @@ class carsController {
 
   static async getProductById(req, res) {
     try {
-      const { idProduct } = req.params;
-      const data = await Product.findByPk(idProduct);
+      const { id } = req.params;
+      const data = await Product.findByPk(id);
       if (data) {
         return res.status(200).json({
           result: "Success",
@@ -81,7 +81,7 @@ class carsController {
         grade,
         category,
         description,
-        photoProduct,
+        photoProducts,
       } = req.body;
       const updateDataCars = {
         title,
@@ -92,7 +92,7 @@ class carsController {
         category,
         description,
         delete: false,
-        photoProduct,
+        photoProducts,
       };
       const data = await Product.update(updateDataCars, {
         where: {

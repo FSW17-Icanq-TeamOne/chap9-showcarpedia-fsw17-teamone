@@ -20,14 +20,12 @@ const ProductCreation = React.lazy(() => import('../pages/ProductCreation'))
 const routes = [
     { path: '/', element: <Home /> },
     { path: '/collection', element: <Collection /> },
-    { path: '/collection/id', element: <CollectionDetail /> },
+    { path: '/collection/id', element: <CollectionDetail />},
+    { path: '/collectiondetail',element: <CollectionDetail /> },
     
     { path: '/login', element: <Login /> },
     { path: '/registerAccount', element: <RegisterAccount /> },
     { path: '/registerProfile', element: <RegisterProfile /> },
-
-    { path: '/collection', element: <Collection /> },
-    { path: '/collectiondetail',element: <CollectionDetail /> },
     
     { path: '/profile', element: <Profile /> },
     { path: '/edit/profile', element: <ProfileEdit /> },

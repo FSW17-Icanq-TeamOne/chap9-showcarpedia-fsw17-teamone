@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Profile.belongsTo(models.User, {foreignKey:"userId"})
+      Profile.belongsTo(models.User, {foreignKey:"UserId"})
     }
   }
   Profile.init({
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     country: DataTypes.STRING,
     mobilePhone: DataTypes.STRING,
     profilePicture: DataTypes.STRING,
-    userId: {
+    UserId: {
       type: DataTypes.INTEGER,
       validate:{
         notEmpty: true

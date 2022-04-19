@@ -1,6 +1,7 @@
 'use strict';
 
 const { query } = require("express");
+const { hashPassword } = require("../helpers/passwordHandler")
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -15,10 +16,19 @@ module.exports = {
     */
     await queryInterface.bulkInsert("Users", [
       {
-        username: "essafaizal2",
-        email: "essafaizal29@gmailll.com",
-        password: "Essa123",
-        role: "user",
+        username: "administrator",
+        email: "admin@showcarpedia.com",
+        password: hashPassword("administrator"),
+        role: "superAdmin",
+        delete: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        username: "jeremiah",
+        email: "jeremiah@showcarpedia.com",
+        password: hashPassword("jeremiah"),
+        role: "admin",
         delete: false,
         createdAt: new Date(),
         updatedAt: new Date()
