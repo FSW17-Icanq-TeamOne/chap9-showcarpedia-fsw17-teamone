@@ -2,15 +2,40 @@ import { Button, TextField, Grid, Typography } from "@mui/material";
 import { useFormik } from 'formik';
 import Navbar2 from "../components/Navbar2";
 import { loginValidationScheme } from '../utils/validationScheme'
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage(){
+    const navigate = useNavigate()
     const formik = useFormik({
         initialValues:{
           username: "",
           password: ""
         },
         onSubmit: (values) => {
-          console.log(values, 'User is Logged In')
+        //   console.log(values, 'User is Logged In')
+            fetch('http://localhost:4000/v1/login', {
+                method: 'POST',
+                headers: { 
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json' },
+                credentials: "include",
+                body: JSON.stringify(values),
+            })
+            .then((response) => {
+            return response.json();
+            })
+            .then((data) => {
+            console.log(data, 'This is the Data')
+            if (data.message === "Success"){
+                localStorage.setItem('id', data.id);
+                localStorage.setItem('role', data.role);
+                localStorage.setItem('access_token', data.access_token);
+                navigate("/")
+            }
+            })
+            .catch((err) => {
+            console.log(err);
+            });
         },
         validationSchema: loginValidationScheme
       })

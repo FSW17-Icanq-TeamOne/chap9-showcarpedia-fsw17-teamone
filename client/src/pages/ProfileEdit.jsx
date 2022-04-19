@@ -2,21 +2,60 @@ import { Button, Card, CardContent, Grid, TextField, Typography } from "@mui/mat
 import { useFormik } from "formik";
 import DashboardNavbar from "../components/DashboardNavbar";
 import UserDashboardSidebar from "../components/UserDashboardSidebar";
+import React, {useState, useEffect} from 'react'
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
+    const navigate = useNavigate()
+    
+    const [profileData, setprofileData] = useState({
+        fullName:"",
+        mobilePhone:"",
+        birthDate: "",
+        country: "",
+        city: ""
+    })
+
+    useEffect(() => {
+        fetch('http://localhost:4000/v1/user/profile/', {
+            credentials: "include",
+        })
+      .then((data) => data.json())
+      .then((data) => setprofileData(data))
+      .catch((err) => console.log(err));
+    }, [])
+
     const formik = useFormik({
+        enableReinitialize: true,
         initialValues: {
-            username: 'berbinarbinar',
-            password: 'BerbinarBinar',
-            email: 'binar@binar.com',
-            fullName: 'Binar',
-            mobilePhone: '08123456789',
-            birthDate: '2022-04-17',
-            country: 'Indonesia',
-            city: 'Jakarta'
+            fullName: profileData?.fullName,
+            mobilePhone: profileData?.mobilePhone,
+            birthDate:  profileData?.birthDate,
+            country: profileData?.country,
+            city:  profileData?.city
         },
         onSubmit: values => {
-            console.log(values, 'UserUpdated')
+            //console.log(values, 'UserUpdated')
+            fetch('http://localhost:4000/v1/user/profile', {
+                method: 'PUT',
+                headers: { 
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json' },
+                credentials: "include",
+                body: JSON.stringify(values),
+            })
+            .then((response) => {
+            return response.json();
+            })
+            .then((data) => {
+            console.log(data, 'This is the Data')
+            if (data.message === "Success"){
+                navigate("/edit/profile")
+            }
+            })
+            .catch((err) => {
+            console.log(err);
+            });
         }
     })
 
@@ -56,10 +95,10 @@ export default function Profile() {
 
                             <Grid>
                                 <TextField 
-                                    id='username'
-                                    name='username' 
+                                    id='fullName'
+                                    name='fulName' 
 
-                                    value={formik.values.username} 
+                                    value={formik.values.fullName} 
                                     variant='standard' 
 
                                     sx={{
@@ -73,59 +112,7 @@ export default function Profile() {
 
                         <Grid container display={'flex'} justifyContent={'center'} marginTop={'40px'}>
                             <form onSubmit={formik.handleSubmit}>
-                                <Grid>
-                                    <TextField 
-                                        id='username'
-                                        name='username'
-                                        label='Username'
-                                        focused
-
-                                        sx={{ width: '300px'}}
-
-                                        value={formik.values.username}
-                                        onChange={formik.handleChange}
-
-                                        error={formik.touched.username && Boolean(formik.errors.username)}
-                                        helperText={formik.touched.username && formik.errors.username}
-                                    />
-                                </Grid>
-
-                                <Grid marginTop={'20px'}>
-                                    <TextField 
-                                        id='password'
-                                        name='password'
-                                        label='Password'
-                                        type='password'
-                                        focused
-
-                                        sx={{ width: '300px'}}
-
-                                        value={formik.values.password}
-                                        onChange={formik.handleChange}
-
-                                        error={formik.touched.password && Boolean(formik.errors.password)}
-                                        helperText={formik.touched.password && formik.errors.password}
-                                    />
-                                </Grid>
-
-                                <Grid marginTop={'20px'}>
-                                    <TextField 
-                                        id='email'
-                                        name='email'
-                                        label='Email Address'
-                                        type='email'
-                                        focused
-
-                                        sx={{ width: '300px'}}
-
-                                        value={formik.values.email}
-                                        onChange={formik.handleChange}
-
-                                        error={formik.touched.email && Boolean(formik.errors.email)}
-                                        helperText={formik.touched.email && formik.errors.email}
-                                    />
-                                </Grid>
-
+                                    
                                 <Grid marginTop={'20px'}>
                                     <TextField 
                                         id='fullName'
