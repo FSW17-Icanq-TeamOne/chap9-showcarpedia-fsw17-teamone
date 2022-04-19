@@ -50,6 +50,7 @@ class AdminController {
  
                if (profile) {
                  return res.status(201).json({
+                   message: "Success",
                    username: user.username,
                    email: user.email,
                    role: user.role,
@@ -92,7 +93,7 @@ class AdminController {
         }
       })
         .then(() => {
-          res.status(201).json({message: "success to edit"})
+          res.status(201).json({message: "Success"})
         })
         .catch((err) => {
           console.log(err)
@@ -110,18 +111,18 @@ class AdminController {
         }
       })
         .then(() => {
-          res.status(201).json({message: `success to delete admin id ${adminId}`})
+          res.status(201).json({message: `Success`})
         })
         .catch((err) => {
           console.log(err)
         })
       Profile.update(deletedAdmin, {
           where: {
-            id: adminId
+            UserId: adminId
           }
         })
           .then(() => {
-            res.status(201).json({message: `success to delete profile id ${adminId}`})
+            res.status(201).json({message: `Success`})
           })
           .catch((err) => {
             console.log(err)

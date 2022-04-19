@@ -22,7 +22,7 @@ export default function ProductCreation() {
             </Grid>
         </Grid>
 
-        <Grid>
+        <Grid display={'flex'} justifyContent={'center'} marginTop={'50px'} marginLeft={'150px'}>
             <Card>
                 <CardContent>
                     <ProductCreationForm />

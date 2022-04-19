@@ -1,4 +1,4 @@
-import { Grid, Typography, Card, CardContent } from "@mui/material";
+import { Button, Grid, Typography, Card, CardContent } from "@mui/material";
 import DashboardNavbar from "../components/DashboardNavbar";
 import AdminDashboardSidebar from '../components/AdminDashboardSidebar'
 import AdminTable from "../components/AdminTable";
@@ -26,6 +26,9 @@ export default function AdminList() {
                 <Card>
                     <CardContent>
                         <AdminTable />
+                        <Button  variant="contained" href={"/admin/create/account"}>
+                            Create Admin
+                        </Button>
                     </CardContent>
                 </Card>
             </Grid>
