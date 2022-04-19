@@ -4,16 +4,16 @@
 }
 
 nav {
-    color: azure;
+    color: rgb(0, 0, 0);
 }
 
-.Home {
+/* .Home {
     background-image: url(https://media.gq-magazine.co.uk/photos/600fea2c3cc0378ecd860823/master/pass/20200127-Car-Awards-08HP.jpg);
     
     
     height: 100vh;
 
-}
+} */
 
 .img {
     height: 600px!important;

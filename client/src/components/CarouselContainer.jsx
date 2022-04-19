@@ -2,7 +2,7 @@ import { Carousel, Container } from "react-bootstrap"
 
 const CarouselContainer = () => {
     return (
-        <Container style={{ height:"250%"}}>
+        // <Container style={{ height:"250%"}}>
           <Carousel> 
             <Carousel.Item>
               <img
@@ -41,7 +41,7 @@ const CarouselContainer = () => {
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
-        </Container> 
+        // </Container> 
     )
 }
 

@@ -28,8 +28,8 @@ export default function MainNavbar() {
                 <Grid 
                     display={'flex'}
                     alignItems={'baseline'}
-                    marginBottom={'45px'}
                     paddingTop={'30px'}
+                    paddingBottom={'30px'}
                     justifyContent={''}
                 >
                     <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'}>Logo</Typography>

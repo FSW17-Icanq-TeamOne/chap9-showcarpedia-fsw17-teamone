@@ -13,11 +13,9 @@ export default function Home() {
         {/* First Page */}
         <Grid className="Home">
             <MainNavbar />
-
-
-            <Grid>
-                <Carousel />
-            </Grid>
+        </Grid>
+        <Grid>
+            <Carousel />
         </Grid>
 
         {/* Second Page */}
