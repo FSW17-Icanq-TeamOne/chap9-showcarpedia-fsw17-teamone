@@ -12,19 +12,19 @@ const CollectionDetail = React.lazy(() => import('../pages/CollectionDetail'))
 const Profile = React.lazy(() => import('../pages/Profile'))
 const ProfileEdit = React.lazy(() => import('../pages/ProfileEdit'))
 const AccountEdit = React.lazy(() => import('../pages/AccountEdit'))
+
+const AdminList = React.lazy(() => import('../pages/AdminList'))
 const AdminAccountEdit = React.lazy(() => import('../pages/AdminAccountEdit'))
 const AdminRegisterAccount = React.lazy(() => import('../pages/AdminRegisterAccount'))
 
 const ProductList = React.lazy(() => import('../pages/ProductList'))
-const AdminList = React.lazy(() => import('../pages/AdminList'))
-
 const ProductCreation = React.lazy(() => import('../pages/ProductCreation'))
+const ProductUpdate = React.lazy(() => import('../pages/ProductUpdate'))
 
 const routes = [
     { path: '/', element: <Home /> },
     { path: '/collection', element: <Collection /> },
     { path: '/collection/id', element: <CollectionDetail />},
-    { path: '/collectiondetail',element: <CollectionDetail /> },
     
     { path: '/login', element: <Login /> },
     { path: '/registerAccount', element: <RegisterAccount /> },
@@ -35,11 +35,14 @@ const routes = [
     { path: '/edit/account', element: <AccountEdit /> },
 
     { path: '/productList', element: <ProductList /> },
+    { path: '/productCreation', element: <ProductCreation /> },
     
     { path: '/adminList', element: <AdminList /> },
     { path: '/admin/edit/account/:id', element: <AdminAccountEdit /> },
     { path: '/admin/create/account/', element: <AdminRegisterAccount /> },
-    { path: '/productCreation', element: <ProductCreation /> }
+    { path: '/productCreation', element: <ProductCreation /> },
+    { path: '/product/create/', element: <ProductCreation /> },
+    { path: '/productUpdate/:id', element: <ProductUpdate /> }
 ]
 
 
