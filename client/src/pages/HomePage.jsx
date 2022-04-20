@@ -1,6 +1,6 @@
 import { Button, Container, Grid, Typography } from "@mui/material";
 import MainNavbar from "../components/MainNavbar";
-import '../styles/Home.css'
+import "../styles/Home.css"
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import BrandList from "../components/BrandList";
