@@ -1,9 +1,9 @@
 import { Button, Card, CardContent, Grid, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import DashboardNavbar from "../components/DashboardNavbar";
-import UserDashboardSidebar from "../components/UserDashboardSidebar";
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
+import AdminDashboardSidebar from "../components/AdminDashboardSidebar";
 
 export default function AdminRegisterAccount() {
     
@@ -44,7 +44,7 @@ export default function AdminRegisterAccount() {
         <>
         <Grid container={true} display={'flex'}>
             <Grid marginRight={'220px'}>
-                <UserDashboardSidebar />
+                <AdminDashboardSidebar />
             </Grid>
             <Grid container display={'flex'} alignItems={'center'}>
                 <Grid marginLeft={'120px'} paddingTop={'30px'} >

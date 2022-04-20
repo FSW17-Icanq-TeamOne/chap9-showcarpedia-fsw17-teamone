@@ -1,4 +1,4 @@
-import { Grid, Typography, Card, CardContent } from "@mui/material";
+import { Button, Grid, Typography, Card, CardContent } from "@mui/material";
 import DashboardNavbar from "../components/DashboardNavbar";
 import AdminDashboardSidebar from '../components/AdminDashboardSidebar'
 import ProductTable from "../components/ProductTable";
@@ -26,6 +26,9 @@ export default function ProductList() {
                 <Card>
                     <CardContent>
                         <ProductTable />
+                        <Button  variant="contained" href={"/product/create"}>
+                            Create Product
+                        </Button>
                     </CardContent>
                 </Card>
             </Grid>
