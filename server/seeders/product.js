@@ -35,7 +35,11 @@ module.exports = {
         grade: 5,
         category: "Porsche",
         description: "Murah Mobil itu",
-        photoProducts: ["https://cloud.jpnn.com/photo/arsip/normal/2021/11/10/toyota-avanza-2021-foto-dok-toyota-indonesia-a5wvl-buyl.jpg"],
+        photoProducts: [
+          "https://firebasestorage.googleapis.com/v0/b/react-upload-f84bf.appspot.com/o/multipleImages%2FWed%20Apr%2020%202022%2015%3A59%3A23%20GMT%2B0700%20(Western%20Indonesia%20Time)Proxmox-tunning-jepra.png?alt=media&token=f61ffe79-7b3b-4895-abe5-78d76c5ea3da",
+          "https://firebasestorage.googleapis.com/v0/b/react-upload-f84bf.appspot.com/o/multipleImages%2FWed%20Apr%2020%202022%2015%3A59%3A23%20GMT%2B0700%20(Western%20Indonesia%20Time)Proxmox-tunning-jepra-3.png?alt=media&token=17481d8c-4433-41a0-9aff-8463fb1c9109",
+          "https://firebasestorage.googleapis.com/v0/b/react-upload-f84bf.appspot.com/o/multipleImages%2FWed%20Apr%2020%202022%2015%3A59%3A23%20GMT%2B0700%20(Western%20Indonesia%20Time)Proxmox-tunning-jepra-2.png?alt=media&token=aa147b5f-c799-4544-be2c-5edaf960b852"
+      ],
         delete: false,
         createdAt: new Date(),
         updatedAt: new Date()
