@@ -1,6 +1,11 @@
 import { Button, Grid, Typography } from "@mui/material";
 import MainNavbar from "../components/MainNavbar";
 import './styles/Home.css'
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import BrandList from "../components/BrandList";
+import Carousel from "../components/CarouselContainer"
+
 
 export default function Home() {
     return (
@@ -8,36 +13,21 @@ export default function Home() {
         {/* First Page */}
         <Grid className="Home">
             <MainNavbar />
-
-            <Grid>
-                <Typography>Flicking</Typography>
-            </Grid>
-
-            <Grid display={'flex'} sx={{
-                marginTop: 25,
-                marginRight: 5,
-                marginLeft: 5
-            }}>
-                <Button sx={{
-                    mr: 'auto',
-
-                    color: 'white'
-                }}>prev</Button>
-                <Button sx={{
-                    color: 'white'
-                }}>next</Button>
-            </Grid>
+        </Grid>
+        <Grid>
+            <Carousel />
         </Grid>
 
         {/* Second Page */}
         <Grid className='AboutUs' container display={'flex'} direction={'row'} justifyContent={'center'} gap={'7.5%'}>
-            <Grid sx={{
-                border: 1,
-                borderRadius: '50%',
-
-                height: 230,
-                width: 230
-            }}/>
+            <Grid>
+                <Stack direction="row" spacing={2}>
+                    <Avatar
+                        src="/broken-image.jpg"
+                        sx={{ width: 230, height: 230 }}
+                    />
+                </Stack>
+            </Grid>
 
             <Grid display={'flex'} flexDirection={'column'} gap={'35px'}>
                 <Typography variant={'h4'}>About Us</Typography>
@@ -59,53 +49,8 @@ export default function Home() {
         </Grid>
 
         {/* Third Page */}
-        <Grid className='OurBrands' container display={'flex'} direction={'column'} alignItems={'center'} justifyContent={'center'}>
-            <Typography variant="h4">Our Brands</Typography>
-            
-            <Grid container display={'flex'} gap={'5%'} justifyContent={'center'} marginTop={'60px'}>
-                <Grid sx={{
-                    width: 80,
-                    height: 80,
-                    
-                    backgroundColor: 'orange'
-                }} />
-                <Grid sx={{
-                    width: 80,
-                    height: 80,
-                    
-                    backgroundColor: 'orange'
-                }} />
-                <Grid sx={{
-                    width: 80,
-                    height: 80,
-                    
-                    backgroundColor: 'orange'
-                }} />
-                <Grid sx={{
-                    width: 80,
-                    height: 80,
-                    
-                    backgroundColor: 'orange'
-                }} />
-                <Grid sx={{
-                    width: 80,
-                    height: 80,
-                    
-                    backgroundColor: 'orange'
-                }} />
-                <Grid sx={{
-                    width: 80,
-                    height: 80,
-                    
-                    backgroundColor: 'orange'
-                }} />
-                <Grid sx={{
-                    width: 80,
-                    height: 80,
-                    
-                    backgroundColor: 'orange'
-                }} />
-            </Grid>
+        <Grid>
+            <BrandList />
         </Grid>
 
         {/* Fourth Page */}
