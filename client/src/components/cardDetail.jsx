@@ -22,6 +22,7 @@ import {
             <Card  sx={{
               borderRadius: 2,
               boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+              height:"100%"
             }}>
               <CardContent>
                 <Typography variant="h4" fontStyle="bold">
