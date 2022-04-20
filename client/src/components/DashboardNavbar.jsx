@@ -1,14 +1,6 @@
 import { Button, Grid, Typography } from "@mui/material";
-import { useCookies } from 'react-cookie';
 
 export default function DashboardNavbar() {
-    const [cookie, setCookie, removeCookie] = useCookies(['access_token'])
-
-    const removeAccessToken = () => {
-        window.localStorage.clear();
-        removeCookie('access_token')
-    } 
-
     return(
         <nav>
             <Grid display={'flex'} justifyContent={'flex-end'} gap={'30px'} paddingTop={'30px'} marginRight={'120px'}>
@@ -25,10 +17,7 @@ export default function DashboardNavbar() {
                    justifyContent: 'center',
                    alignItems: 'center'
                }} ><Typography>P</Typography></Grid> 
-               <Button onClick={() => {
-                   removeAccessToken()
-                   window.location.assign('/login')
-                }} sx={{
+               <Button sx={{
                    borderRadius: '16px',
 
                    width: 110,

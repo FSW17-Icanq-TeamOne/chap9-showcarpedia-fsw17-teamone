@@ -1,6 +1,6 @@
 import { Button, Grid, Typography } from "@mui/material";
 import MainNavbar from "../components/MainNavbar";
-import '../styles/Home.css'
+import './styles/Home.css'
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import BrandList from "../components/BrandList";
@@ -23,7 +23,7 @@ export default function Home() {
             <Grid>
                 <Stack direction="row" spacing={2}>
                     <Avatar
-                        src="https://cdn.discordapp.com/attachments/960564590574456852/966305346257838130/103054527.jpeg"
+                        src="/broken-image.jpg"
                         sx={{ width: 230, height: 230 }}
                     />
                 </Stack>

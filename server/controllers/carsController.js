@@ -1,5 +1,5 @@
 const { Product } = require("../models");
-const { Op } = require("sequelize");
+const { Op, NUMBER } = require("sequelize");
 class carsController {
   static create = async (req, res) => {
     const {
@@ -27,7 +27,6 @@ class carsController {
       const cars = await Product.create(payloadCars);
 
       return res.status(201).json({
-        message: "Success",
         title: cars.title,
         brand: cars.brand,
         year: cars.year,
@@ -48,9 +47,6 @@ class carsController {
     try {
       const data = await Product.findAll({
         order: [["id", "ASC"]],
-        where:{
-          delete: false
-        }
       });
       if (!data.length) res.json("please add new product");
       res.status(200).json(data);
@@ -65,14 +61,8 @@ class carsController {
       const data = await Product.findByPk(id);
       if (data) {
         return res.status(200).json({
-          title: data.title,
-          brand: data.brand,
-          year: data.year,
-          kiloMeter: data.kiloMeter,
-          grade: data.grade,
-          category: data.category,
-          description: data.description,
-          photoProducts: data.photoProducts,
+          result: "Success",
+          data: data,
         });
       }
     } catch (error) {
@@ -111,7 +101,7 @@ class carsController {
       });
       if (data == 1) {
         return res.status(200).json({
-          message: "Success",
+          message: "updated!",
           data: req.body,
         });
       }
@@ -132,7 +122,7 @@ class carsController {
       });
       if (data == 1) {
         return res.status(200).json({
-          message: `Success`,
+          data: "deleted",
         });
       }
     } catch (error) {
@@ -147,7 +137,7 @@ class carsController {
       category,
     };
 
-    const filteredQuery = Object.fromEntries(Object.entries(query).filter(([_, v]) => v != null));
+    const filteredQuery = Object.fromEntries(Object.entries(query).filter(([_, v]) => Boolean(v)));
     try {
         console.log(filteredQuery)
       const data = await Product.findAll({

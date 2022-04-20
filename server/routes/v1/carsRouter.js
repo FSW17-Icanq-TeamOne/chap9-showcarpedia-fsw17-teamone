@@ -15,10 +15,10 @@ carsRouter.post("/", validatorHandler(createCarsSchema), CarsController.create, 
 carsRouter.get("/details/:id", CarsController.getProductById, (req, res) => {
     return res.json({ body: req.body });
 });
-carsRouter.put("/update/:id", validatorHandler(createCarsSchema), CarsController.updateProductById, (req, res) => {
+carsRouter.post("/update/:id", validatorHandler(createCarsSchema), CarsController.updateProductById, (req, res) => {
   return res.json({ body: req.body });
 });
-carsRouter.delete("/delete/:id", carsController.deleteProduct, (req, res) => {
+carsRouter.post("/delete/:id", carsController.deleteProduct, (req, res) => {
   return res.json({ data: "deleted" })
 })
 carsRouter.get("/search",CarsController.findFilteredCar)

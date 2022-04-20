@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import { Button, Grid } from '@mui/material';
 
@@ -11,14 +11,14 @@ const columns = [
     {field: 'kiloMeter', headerName: 'Kilometer', width: 100},
     {field: 'category', headerName: 'Category', width: 100},
     {
-        field: '#edit', 
+        field: '', 
         headerName: '',
         renderCell: (cellValues) => {
             return (
               <Button
                 variant="contained"
                 color="primary"
-                href={`/productUpdate/${cellValues.getValue(cellValues.id, 'id')}`}
+                // href={`/product/edit/${cellValues.getValue(cellValues.id, 'id')}`}
               >
                 Edit
               </Button>
@@ -27,31 +27,12 @@ const columns = [
         width: 75
     },
     {
-        field: '#delete', 
-        headerName: '',
         renderCell: (cellValues) => {
             return (
               <Button
                 variant="contained"
                 color="error"
-                onClick={function(){
-                  fetch(`http://localhost:4000/v1/cars/delete/${cellValues.getValue(cellValues.id, 'id')}`, {
-                    method: 'DELETE',
-                    credentials: "include",
-                    })
-                    .then((response) => {
-                    return response.json();
-                    })
-                    .then((data) => {
-                    console.log(data, 'This is the Data')
-                    if (data.message === "Success"){
-                        window.location.reload();
-                    }
-                    })
-                    .catch((err) => {
-                    console.log(err);
-                    });
-                  }}
+                // href={`/product/delete/${cellValues.getValue(cellValues.id, 'id')}`}
               >
                 Delete
               </Button>
@@ -75,24 +56,14 @@ const ProductTable2 = () => {
 
     const [tableData, setTableData] = useState([])
 
-    useEffect(() => {
-          fetch('http://localhost:4000/v1/cars', {
-              
-              credentials: "include",
-              
-          })
-        .then((data) => data.json())
-        .then((data) => setTableData(data))
-        .catch((err) => console.log(err));
-      }, [])
     return(
         <Grid sx={{height: 400, width: 875}}>
             <DataGrid 
-              rows={tableData}
+              rows={rows}
               columns={columns}
               pageSize={5}
               rowsPerPageOptions={[5]}
-              //checkboxSelection
+              checkboxSelection
             />
         </Grid>
     )
