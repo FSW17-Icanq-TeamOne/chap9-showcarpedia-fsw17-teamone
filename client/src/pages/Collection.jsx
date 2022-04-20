@@ -10,7 +10,7 @@ import MainNavbar from "../components/MainNavbar";
 
 export default function Collection() {
  const [data,setData] = useState([])
- 
+
  const fetchData = async () => {
   const response = await fetch("http://localhost:4000/v1/cars", {
       method: "GET",
@@ -20,20 +20,25 @@ export default function Collection() {
       },
       credentials: "include",
     });
-  const data = await response.json()
+  if(response.ok){
+    const data = await response.json()
   setData(data)
+  }
  }
 
  useEffect(()=> {
    fetchData()
- },[data])
+ },[])
 
+ const getFilterData = (datas) => {
+  setData(datas)
+}
   return (
     <>
       <MainNavbar />
 
       {/* Filter */}
-      <Filter />
+      <Filter filtered={getFilterData} />
 
      {/* divider  */}
 

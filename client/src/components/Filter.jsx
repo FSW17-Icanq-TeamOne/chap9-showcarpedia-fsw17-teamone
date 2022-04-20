@@ -6,13 +6,13 @@ import { Grid, Typography, Container, Button } from "@mui/material";
 import { useFormik } from "formik";
 import { useState, useEffect } from "react";
 
-export default function Filter() {
+export default function Filter({filtered}) {
   const [brands, setBrands] = useState([]);
   const [category, setCategory] = useState([]);
   const [year, setYear] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const mileages = ["1000", "5000", "10000", "20000", "50000"];
-  const grades = ["1", "2", "3", "4", "5"];
+  const mileages = [1000, 5000, 10000, 20000, 50000];
+  const grades = [1, 2, 3,4, 5];
 
   const fetchData = async () => {
     const response = await fetch("http://localhost:4000/v1/cars/make/", {
@@ -43,11 +43,8 @@ export default function Filter() {
       grades: "",
     },
     onSubmit: async (values) => {
-      const year = Number(values.minYear);
-      const grade = Number(values.grades);
-      const mileages = Number(values.maxMileages);
       const response = await fetch(
-        `http://localhost:4000/v1/cars/search?maxMileages=${mileages}&minYear=${year}&grade=${grade}&brand=${values.brand}&category=${values.category}`,
+        `http://localhost:4000/v1/cars/search?maxMileages=1000`,
         {
           method: "GET",
           headers: {
@@ -57,8 +54,11 @@ export default function Filter() {
           credentials: "include",
         }
       );
-      const data = await response.json();
-      console.log(data);
+      if(response.ok){
+        const data = await response.json()
+        setFilteredData(data)
+        filtered(filteredData)
+      }
     },
   });
   return (

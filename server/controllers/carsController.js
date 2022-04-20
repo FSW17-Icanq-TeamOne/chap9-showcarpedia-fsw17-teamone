@@ -1,5 +1,5 @@
 const { Product } = require("../models");
-const { Op } = require("sequelize");
+const { Op, NUMBER } = require("sequelize");
 class carsController {
   static create = async (req, res) => {
     const {
@@ -137,7 +137,7 @@ class carsController {
       category,
     };
 
-    const filteredQuery = Object.fromEntries(Object.entries(query).filter(([_, v]) => v != null));
+    const filteredQuery = Object.fromEntries(Object.entries(query).filter(([_, v]) => Boolean(v)));
     try {
         console.log(filteredQuery)
       const data = await Product.findAll({
