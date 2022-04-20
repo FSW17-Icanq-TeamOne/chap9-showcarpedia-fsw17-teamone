@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     icon: {
       marginRight: theme.spacing(1),
       [theme.breakpoints.up("sm")]: {
-        fontSize: "18px",
+        fontSize: "25px",
       },
     },
   }));
@@ -34,13 +34,12 @@ export default function MainNavbar() {
                 >
                     <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'}>Logo</Typography>
 
-                    <Grid display={'flex'} gap={'40px'}>
-                        <Typography>About Us</Typography>
-                        <Typography>Collection</Typography>
-                        <Typography>Contact Us</Typography>
+                    <Grid display={'flex'} gap={'60px'}>
+                        <Typography>HOME</Typography>
+                        <Typography>COLLECTION</Typography>
                     </Grid>
 
-                    <Grid display={'flex'} ml={'auto'} marginRight={'165px'} gap={'40px'}>
+                    <Grid display={'flex'} ml={'auto'} marginRight={'165px'} gap={'60px'}>
                         <div className={classes.item}>
                             <PersonIcon className={classes.icon} />
                         </div>
