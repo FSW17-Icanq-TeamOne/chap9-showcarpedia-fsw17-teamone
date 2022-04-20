@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-
+import { Link } from "react-router-dom";
  export default function Navbar2 () {
      return (
          <nav>
@@ -12,8 +12,8 @@ import { Grid, Typography } from "@mui/material";
                 <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'} >Logo</Typography>
 
                 <Grid display={'flex'} gap={'40px'} marginRight={'165px'}>
-                    <Typography>Wishlist</Typography>
-                    <Typography>Account</Typography>
+                         <Link to='/'><Typography>Home</Typography></Link>
+                        <Link to='/collection'><Typography>Collection</Typography></Link>
                 </Grid>
              </Grid>
              

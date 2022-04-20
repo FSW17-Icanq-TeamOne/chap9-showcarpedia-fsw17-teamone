@@ -1,4 +1,4 @@
-import { IconButton, Grid, Typography } from "@mui/material";
+import { Button, IconButton, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import PersonIcon from '@mui/icons-material/Person';
@@ -37,22 +37,30 @@ export default function MainNavbar() {
                     <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'}>Logo</Typography>
 
                     <Grid display={'flex'} gap={'40px'}>
-                        <Link to='#'><Typography>About Us</Typography></Link>
+                        <Link to='/'><Typography>Home</Typography></Link>
                         <Link to='/collection'><Typography>Collection</Typography></Link>
-                        <Link to='#'><Typography>Contact Us</Typography></Link>
+                        {/* <Link to='#'><Typography>Contact Us</Typography></Link> */}
                     </Grid>
 
                     <Grid display={'flex'} ml={'auto'} marginRight={'165px'} gap={'40px'}>
+                        
                         <Grid className={classes.item}>
-                            <IconButton aria-label="Account" onClick={() => window.location.assign('/login')}>
+                        {localStorage.getItem('role') === null &&
+                             <Link to='/login'><Typography>Login</Typography></Link>
+                        }
+                        {((localStorage.getItem("role") === "user") || (localStorage.getItem("role") === "admin") || (localStorage.getItem("role") === "superAdmin")) &&
+                            <IconButton aria-label="Account" onClick={() => window.location.assign('/edit/profile')}>
                               <PersonIcon className={classes.icon} />
                             </IconButton>
+                        }
                         </Grid>
                         <Grid className={classes.item}>
-                          <IconButton aria-label="Account" onClick={() => window.location.assign('/wishlist')}>
+                          {((localStorage.getItem("role") === "user") || (localStorage.getItem("role") === "admin") || (localStorage.getItem("role") === "superAdmin")) &&
+                          <IconButton aria-label="Account" onClick={() => window.location.assign('/#')}>
                             <FavoriteBorderRoundedIcon className={classes.icon} 
                             />
                           </IconButton>
+                          } 
                         </Grid>
                     </Grid>
                 </Grid>

@@ -27,6 +27,7 @@ export default function DashboardNavbar() {
                }} ><Typography>P</Typography></Grid> 
                <Button onClick={() => {
                    removeAccessToken()
+                   window.location.assign('/login')
                 }} sx={{
                    borderRadius: '16px',
 
