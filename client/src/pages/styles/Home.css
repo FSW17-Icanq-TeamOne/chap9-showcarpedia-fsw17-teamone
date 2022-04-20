@@ -12,27 +12,23 @@ nav {
 }
 
 .AboutUs {
-    height: 50vh;
+    height: 70vh;
     background-color: #eeeeee;
     align-content: center;
 }
 
 .BrandList {
-    height: 50vh;
-    position: relative;
+    height: 90vh;
     background-color: #eeeeee;
 }
 
 .Footer {
-    height: 400px;
-
+    height: 40vh;
     background-color: rgb(37, 37, 37);
-
     color: rgb(221, 221, 221);
 }
 
 hr {
     color: aliceblue;
-
     width: 96%;
 }
