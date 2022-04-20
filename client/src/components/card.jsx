@@ -10,7 +10,7 @@ import {
 
 import { FavoriteOutlined } from "@mui/icons-material";
 import { useState } from "react";
-export default function Show() {
+export default function Show({data}) {
   const [wishlist, setWishlist] = useState(false);
 
   const handleWishlist = () => {
@@ -29,10 +29,8 @@ export default function Show() {
     >
         <CardMedia
           component={"img"}
-          image={
-            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*"
-          }
-          alt={"Image"}
+          image={data.photoProducts[0]} 
+          alt={data.title}
           sx={{
             width: "90%",
             mx: "auto",
@@ -47,7 +45,7 @@ export default function Show() {
               justifyContent={"space-between"}
               alignItems={"center"}
             >
-              <Typography marginLeft={2} fontWeight="bold" fontSize={"2em"} >ini models</Typography>
+              <Typography marginLeft={2} fontWeight="bold" fontSize={"2em"} >{data.title}</Typography>
               <IconButton onClick={handleWishlist}>
                 {wishlist ? (
                   <FavoriteOutlined sx={{ color: "red", transition: ".5s" }} />
@@ -65,11 +63,11 @@ export default function Show() {
             >
               <div className="model">
                 <Typography marginLeft={2} fontWeight="bold">Model Year</Typography>
-                <Typography marginLeft={2}>2020</Typography>
+                <Typography marginLeft={2}>{data.year}</Typography>
               </div>
               <div className="odometer">
                 <Typography marginRight={5} fontWeight="bold">Odometer</Typography>
-                <Typography marginRight={5}>1000 km</Typography>
+                <Typography marginRight={5}>{data.kiloMeter} km</Typography>
               </div>
             </Grid>
             <Grid display={"flex"} justifyContent={"center"} marginTop={5}>
