@@ -27,6 +27,7 @@ class carsController {
       const cars = await Product.create(payloadCars);
 
       return res.status(201).json({
+        message: "Success",
         title: cars.title,
         brand: cars.brand,
         year: cars.year,
@@ -47,6 +48,9 @@ class carsController {
     try {
       const data = await Product.findAll({
         order: [["id", "ASC"]],
+        where:{
+          delete: false
+        }
       });
       if (!data.length) res.json("please add new product");
       res.status(200).json(data);
@@ -61,8 +65,14 @@ class carsController {
       const data = await Product.findByPk(id);
       if (data) {
         return res.status(200).json({
-          result: "Success",
-          data: data,
+          title: data.title,
+          brand: data.brand,
+          year: data.year,
+          kiloMeter: data.kiloMeter,
+          grade: data.grade,
+          category: data.category,
+          description: data.description,
+          photoProducts: data.photoProducts,
         });
       }
     } catch (error) {
@@ -101,7 +111,7 @@ class carsController {
       });
       if (data == 1) {
         return res.status(200).json({
-          message: "updated!",
+          message: "Success",
           data: req.body,
         });
       }
@@ -122,7 +132,7 @@ class carsController {
       });
       if (data == 1) {
         return res.status(200).json({
-          data: "deleted",
+          message: `Success`,
         });
       }
     } catch (error) {
