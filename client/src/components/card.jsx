@@ -7,7 +7,7 @@ import {
   Typography,
   IconButton,
 } from "@mui/material";
-
+import {Link} from "react-router-dom"
 import { FavoriteOutlined } from "@mui/icons-material";
 import { useState } from "react";
 export default function Show({data}) {
@@ -72,6 +72,8 @@ export default function Show({data}) {
             </Grid>
             <Grid display={"flex"} justifyContent={"center"} marginTop={5}>
               <Button
+              component={Link}
+              to={`/collection/${data.id}`}
                 sx={{
                   borderRadius: 30,
                   border: 2,

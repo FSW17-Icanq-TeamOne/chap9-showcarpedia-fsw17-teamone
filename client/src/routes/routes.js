@@ -24,7 +24,7 @@ const ProductUpdate = React.lazy(() => import('../pages/ProductUpdate'))
 const routes = [
     { path: '/', element: <Home /> },
     { path: '/collection', element: <Collection /> },
-    { path: '/collection/id', element: <CollectionDetail />},
+    { path: '/collection/:id', element: <CollectionDetail />},
     
     { path: '/login', element: <Login /> },
     { path: '/registerAccount', element: <RegisterAccount /> },
