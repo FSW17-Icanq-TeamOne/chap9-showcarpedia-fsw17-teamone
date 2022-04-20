@@ -15,13 +15,14 @@ module.exports = {
     */
     await queryInterface.bulkInsert("Profiles", [
       {
-        userId: 1,
+        UserId: 1,
         fullName: "Administrator",
         birthDate: "10-03-2022",
         city: "Binar Academy",
-        country: false,
+        country: "Berbinaria",
         mobilePhone: "628103011999",
         profilePicture: "https://cdn.discordapp.com/attachments/960564590574456852/965225077069193326/jhondoe.jpg",
+        delete: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -30,9 +31,10 @@ module.exports = {
         fullName: "Jeremiah",
         birthDate: "10-03-2022",
         city: "Binar Academy",
-        country: false,
+        country: "Berbinaria",
         mobilePhone: "628103011999",
         profilePicture: "https://cdn.discordapp.com/attachments/960564590574456852/965225077069193326/jhondoe.jpg",
+        delete: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },

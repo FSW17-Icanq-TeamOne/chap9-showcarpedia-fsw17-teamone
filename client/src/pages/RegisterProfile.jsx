@@ -40,7 +40,6 @@ export default function RegisterProfile() {
                             id='country'
                             name='country'
 
-                            value={formik.values.country['']}
                             onChange={formik.handleChange}
 
                             options={formik.values.country}
@@ -58,7 +57,6 @@ export default function RegisterProfile() {
                             id='city'
                             name='city'
 
-                            value={formik.values.city['']}
                             onChange={formik.handleChange}
 
                             options={formik.values.city}
