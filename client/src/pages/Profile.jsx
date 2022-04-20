@@ -23,6 +23,7 @@ export default function Profile() {
             <Grid marginRight={'220px'}>
                 <UserDashboardSidebar />
             </Grid>
+            
             <Grid container display={'flex'} alignItems={'center'}>
                 <Grid marginLeft={'120px'} paddingTop={'30px'} >
                     <Typography variant={'h5'} marginLeft={'200px'}>Profile</Typography>
