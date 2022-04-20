@@ -1,7 +1,10 @@
-import { Grid, Typography } from "@mui/material";
+import { IconButton, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import PersonIcon from '@mui/icons-material/Person';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { Link } from "react-router-dom";
+import '../styles/Dashboard.css'
 
 const useStyles = makeStyles((theme) => ({
     item: {
@@ -16,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     icon: {
       marginRight: theme.spacing(1),
       [theme.breakpoints.up("sm")]: {
-        fontSize: "25px",
+        fontSize: "18px",
       },
     },
   }));
@@ -34,18 +37,40 @@ export default function MainNavbar() {
                 >
                     <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'}>Logo</Typography>
 
-                    <Grid display={'flex'} gap={'60px'}>
-                        <Typography>HOME</Typography>
-                        <Typography>COLLECTION</Typography>
+                    <Grid display={'flex'} gap={'40px'}>
+                        <Link to='/'><Typography>Home</Typography></Link>
+                        <Link to='/collection'><Typography>Collection</Typography></Link>
+                        {/* <Link to='#'><Typography>Contact Us</Typography></Link> */}
                     </Grid>
 
-                    <Grid display={'flex'} ml={'auto'} marginRight={'165px'} gap={'60px'}>
-                        <div className={classes.item}>
-                            <PersonIcon className={classes.icon} />
-                        </div>
-                        <div className={classes.item}>
-                            <FavoriteBorderRoundedIcon className={classes.icon} />
-                        </div>
+                    <Grid display={'flex'} ml={'auto'} marginRight={'165px'} gap={'40px'}>
+                        
+                        <Grid className={classes.item}>
+                        {((localStorage.getItem("role") === "admin") || (localStorage.getItem("role") === "superAdmin")) &&
+                            <IconButton aria-label="Account" onClick={() => window.location.assign('/adminList')}>
+                              <SettingsIcon className={classes.icon} />
+                            </IconButton>
+                        }
+                        </Grid>
+
+                        <Grid className={classes.item}>
+                        {localStorage.getItem('role') === null &&
+                             <Link to='/login'><Typography>Login</Typography></Link>
+                        }
+                        {((localStorage.getItem("role") === "user") || (localStorage.getItem("role") === "admin") || (localStorage.getItem("role") === "superAdmin")) &&
+                            <IconButton aria-label="Account" onClick={() => window.location.assign('/edit/profile')}>
+                              <PersonIcon className={classes.icon} />
+                            </IconButton>
+                        }
+                        </Grid>
+                        <Grid className={classes.item}>
+                          {((localStorage.getItem("role") === "user") || (localStorage.getItem("role") === "admin") || (localStorage.getItem("role") === "superAdmin")) &&
+                          <IconButton aria-label="Account" onClick={() => window.location.assign('/#')}>
+                            <FavoriteBorderRoundedIcon className={classes.icon} 
+                            />
+                          </IconButton>
+                          } 
+                        </Grid>
                     </Grid>
                 </Grid>
             </nav>
