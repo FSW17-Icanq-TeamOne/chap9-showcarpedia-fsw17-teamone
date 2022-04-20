@@ -1,30 +1,26 @@
 import MainNavbar from "../components/MainNavbar";
 import { Grid, Typography, Card } from "@mui/material";
+import CarouselDetail from "../components/CarouselDetail";
 
 export default function DetailProduct() {
   return (
     <>
-      <MainNavbar />
+      <Grid>
+        <MainNavbar />
+      </Grid>
+      <Grid container justifyContent={"center"} marginBottom={"50px"}>
+        <Typography variant="h3">Toyota Alphard 350 V6 Fontansicht</Typography>
+      </Grid>
+      <Grid display={"flex"} justifyContent={"center"} marginBottom={5} >
+        <CarouselDetail/>
+      </Grid>
 
-      {/* Carousel/Image Slider */}
       <Grid container display={"flex"} direction={"column"} marginTop={"10px"} marginBottom={"30px"}>
-        <Grid container justifyContent={"center"} marginBottom={"30px"}>
-          <Typography variant="h3">Toyota Alphard 350 V6 Fontansicht</Typography>
-        </Grid>
-        <Grid container display={"flex"} justifyContent={"center"} marginBottom={3}>
-          <Card marginBottom={"20px"} sx={{
-          width: 1080,
-          height: 590
-          }}>
-            <img width={1080} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Toyota_Alphard_350_V6_%28III%29_%E2%80%93_Frontansicht%2C_2._April_2018%2C_Hongkong.jpg/1920px-Toyota_Alphard_350_V6_%28III%29_%E2%80%93_Frontansicht%2C_2._April_2018%2C_Hongkong.jpg" alt="car"></img>
-          </Card>
-        </Grid>
         <Grid container justifyContent={'center'}>
           <Grid
             display={"flex"}
             direction={"row"}
             justifyContent={"center"}
-            // alignItems={"center"}
           >
             <Grid container direction={"column"} >
               <Grid display={"flex"} marginBottom={"20px"} direction={"column"} width={'760px'}>
