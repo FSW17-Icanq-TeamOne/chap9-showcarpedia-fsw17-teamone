@@ -19,6 +19,7 @@ const ProductList = React.lazy(() => import('../pages/ProductList'))
 const AdminList = React.lazy(() => import('../pages/AdminList'))
 
 const ProductCreation = React.lazy(() => import('../pages/ProductCreation'))
+const ProductUpdate = React.lazy(() => import('../pages/ProductUpdate'))
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -39,7 +40,8 @@ const routes = [
     { path: '/adminList', element: <AdminList /> },
     { path: '/admin/edit/account/:id', element: <AdminAccountEdit /> },
     { path: '/admin/create/account/', element: <AdminRegisterAccount /> },
-    { path: '/productCreation', element: <ProductCreation /> }
+    { path: '/productCreation', element: <ProductCreation /> },
+    { path: '/productUpdate/:id', element: <ProductUpdate /> }
 ]
 
 

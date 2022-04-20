@@ -23,7 +23,7 @@ export default function Home() {
             <Grid>
                 <Stack direction="row" spacing={2}>
                     <Avatar
-                        src="/broken-image.jpg"
+                        src="https://cdn.discordapp.com/attachments/960564590574456852/966305346257838130/103054527.jpeg"
                         sx={{ width: 230, height: 230 }}
                     />
                 </Stack>
