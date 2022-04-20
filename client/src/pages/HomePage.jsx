@@ -58,19 +58,15 @@ export default function Home() {
             <Grid container display={'flex'} direction={'column'}>
                 <Grid container display={'flex'} direction={'row'} alignItems={'center'}>
                     <Grid container display={'flex'} alignItems={'center'} direction={'row'} marginBottom={'25px'} >
-                        <Grid sx={{
-                            marginRight: 5,
-                            marginLeft: 5,
-                            
-                            backgroundColor: 'orange',
-                            borderRadius: '50%',
-                            
-                            width: 90,
-                            height: 90
-                        }} />
+                        <Grid marginLeft={'10px'}>
+                            <Avatar
+                                src="https://cdn.discordapp.com/attachments/960564590574456852/966305346257838130/103054527.jpeg"
+                                sx={{ width: 150, height: 150 }}
+                            />  
+                        </Grid>
                         <Typography variant={'h5'} sx={{
                             marginRight: 10,
-                        }}>Company's Name</Typography>
+                        }}>ShowcarPedia</Typography>
 
                     <Typography variant='h4' sx={{
                         ml: 'auto',
