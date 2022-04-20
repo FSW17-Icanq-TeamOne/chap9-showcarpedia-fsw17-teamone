@@ -4,12 +4,12 @@ import { Container } from 'react-bootstrap';
 
 const BrandList = () => {
   return (
-    <div style={{marginTop: 100}}>
+    <div mt="5">
       <Grid>
-        <Typography>Our Brand</Typography>
+        <Typography textAlign='center' variant={'h4'}>OUR BRAND</Typography>
 
-        <Grid container display={'flex'} gap={'5%'} justifyContent={'center'} marginTop={'60px'}>
-            <GridList sx={{ width: 400, height: 400 }} cols={7} rowHeight={164}>
+        <Grid container display={'flex'} marginTop={'60px'} marginRight={'50px'} marginLeft={'auto'} paddingRight={'100px'} paddingLeft={'100px'}>
+            <GridList cols={5} display={'flex'} paddingRight={'100px'} paddingLeft={'100px'} >
             {itemData.map((item) => (
                 <GridListTile key={item.img}>
                 <img
@@ -25,33 +25,25 @@ const BrandList = () => {
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+    img: 'audi.jpg',
     cols: 1,
   },
   {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+    img: 'toyota.jpg',
     cols: 2,
   },
   {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+    img: 'nissan.jpg',
     cols: 3,
   },
   {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+    img: 'volkswagen.jpg',
     cols: 4,
   },
   {
-    img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
+    img: 'mini.jpg',
     cols: 5,
   },
-  {
-    img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-    cols: 6,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
-    cols: 7,
-  }
 ];
 
 export default BrandList;

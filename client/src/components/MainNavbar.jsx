@@ -37,12 +37,6 @@ export default function MainNavbar() {
                 >
                     <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'}>Logo</Typography>
 
-                    <Grid display={'flex'} gap={'40px'}>
-                        <Link to='/'><Typography>Home</Typography></Link>
-                        <Link to='/collection'><Typography>Collection</Typography></Link>
-                        {/* <Link to='#'><Typography>Contact Us</Typography></Link> */}
-                    </Grid>
-
                     <Grid display={'flex'} ml={'auto'} marginRight={'165px'} gap={'40px'}>
                         
                         <Grid className={classes.item}>
@@ -52,7 +46,6 @@ export default function MainNavbar() {
                             </IconButton>
                         }
                         </Grid>
-
                         <Grid className={classes.item}>
                         {localStorage.getItem('role') === null &&
                              <Link to='/login'><Typography>Login</Typography></Link>
