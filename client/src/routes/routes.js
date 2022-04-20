@@ -40,7 +40,7 @@ const routes = [
     { path: '/adminList', element: <AdminList /> },
     { path: '/admin/edit/account/:id', element: <AdminAccountEdit /> },
     { path: '/admin/create/account/', element: <AdminRegisterAccount /> },
-    { path: '/productCreation', element: <ProductCreation /> },
+    { path: '/product/create/', element: <ProductCreation /> },
     { path: '/productUpdate/:id', element: <ProductUpdate /> }
 ]
 
