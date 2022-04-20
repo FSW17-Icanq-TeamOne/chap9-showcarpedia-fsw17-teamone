@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     icon: {
       marginRight: theme.spacing(1),
       [theme.breakpoints.up("sm")]: {
-        fontSize: "25px",
+        fontSize: "18px",
       },
     },
   }));
@@ -46,7 +46,6 @@ export default function MainNavbar() {
                             </IconButton>
                         }
                         </Grid>
-
                         <Grid className={classes.item}>
                         {localStorage.getItem('role') === null &&
                              <Link to='/login'><Typography>Login</Typography></Link>
