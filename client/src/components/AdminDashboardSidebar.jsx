@@ -15,7 +15,9 @@ export default function AdminDashboardSidebar() {
             <Grid container display={'flex'} direction={'column'} alignItems={'flex-start'} marginLeft={'50px'} marginTop={'75px'} gap={'40px'}>
                 <Link to='/'><Typography>Home</Typography></Link>
                 <Link to='#'><Typography>Insight</Typography></Link>
+                {((localStorage.getItem("role") === "superAdmin")) &&
                 <Link to='/adminList'><Typography>Admin list</Typography></Link>
+                }
                 <Link to='/productList'><Typography>Product List</Typography></Link>
             </Grid>
         </Grid>

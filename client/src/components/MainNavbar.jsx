@@ -3,10 +3,13 @@ import { makeStyles } from "@material-ui/core";
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from "react-router-dom";
 import '../styles/Dashboard.css'
+import { useCookies } from 'react-cookie';
 
 const useStyles = makeStyles((theme) => ({
+
     item: {
       display: "flex",
       alignItems: "center",
@@ -24,7 +27,17 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+
+
 export default function MainNavbar() {
+
+  const [cookie, setCookie, removeCookie] = useCookies(['access_token'])
+
+  const removeAccessToken = () => {
+      window.localStorage.clear();
+      removeCookie('access_token')
+  } 
+
     const classes = useStyles();
         return(
             <nav>
@@ -35,7 +48,7 @@ export default function MainNavbar() {
                     paddingBottom={'30px'}
                     justifyContent={''}
                 >
-                    <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'}>Logo</Typography>
+                    <Typography marginLeft={'200px'} mr={'auto'} variant={'h5'}>Showcarpedia</Typography>
 
                     <Grid display={'flex'} gap={'40px'}>
                         <Link to='/'><Typography>Home</Typography></Link>
@@ -46,8 +59,13 @@ export default function MainNavbar() {
                     <Grid display={'flex'} ml={'auto'} marginRight={'165px'} gap={'40px'}>
                         
                         <Grid className={classes.item}>
-                        {((localStorage.getItem("role") === "admin") || (localStorage.getItem("role") === "superAdmin")) &&
+                        {((localStorage.getItem("role") === "superAdmin")) &&
                             <IconButton aria-label="Account" onClick={() => window.location.assign('/adminList')}>
+                              <SettingsIcon className={classes.icon} />
+                            </IconButton>
+                        }
+                         {((localStorage.getItem("role") === "admin")) &&
+                            <IconButton aria-label="Account" onClick={() => window.location.assign('/productList')}>
                               <SettingsIcon className={classes.icon} />
                             </IconButton>
                         }
@@ -62,6 +80,7 @@ export default function MainNavbar() {
                             </IconButton>
                         }
                         </Grid>
+
                         <Grid className={classes.item}>
                           {((localStorage.getItem("role") === "user") || (localStorage.getItem("role") === "admin") || (localStorage.getItem("role") === "superAdmin")) &&
                           <IconButton aria-label="Account" onClick={() => window.location.assign('/#')}>
@@ -70,6 +89,15 @@ export default function MainNavbar() {
                           </IconButton>
                           } 
                         </Grid>
+
+                        <Grid className={classes.item}>
+                        {((localStorage.getItem("role") === "user") || (localStorage.getItem("role") === "admin") || (localStorage.getItem("role") === "superAdmin")) &&
+                            <IconButton aria-label="Account" onClick={() => {removeAccessToken(); window.location.assign('/login')}}>
+                              <LogoutIcon className={classes.icon} />
+                            </IconButton>
+                        }
+                        </Grid>
+                        
                     </Grid>
                 </Grid>
             </nav>

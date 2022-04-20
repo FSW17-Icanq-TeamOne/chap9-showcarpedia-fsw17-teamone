@@ -26,7 +26,7 @@ export default function Collection() {
 
  useEffect(()=> {
    fetchData()
- },[data])
+ },[])
 
   return (
     <>
