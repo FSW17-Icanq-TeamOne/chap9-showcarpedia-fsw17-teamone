@@ -1,7 +1,8 @@
-import { Button, IconButton, Grid, Typography } from "@mui/material";
+import { IconButton, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import PersonIcon from '@mui/icons-material/Person';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { Link } from "react-router-dom";
 import '../styles/Dashboard.css'
 
@@ -44,6 +45,14 @@ export default function MainNavbar() {
 
                     <Grid display={'flex'} ml={'auto'} marginRight={'165px'} gap={'40px'}>
                         
+                        <Grid className={classes.item}>
+                        {((localStorage.getItem("role") === "admin") || (localStorage.getItem("role") === "superAdmin")) &&
+                            <IconButton aria-label="Account" onClick={() => window.location.assign('/adminList')}>
+                              <SettingsIcon className={classes.icon} />
+                            </IconButton>
+                        }
+                        </Grid>
+
                         <Grid className={classes.item}>
                         {localStorage.getItem('role') === null &&
                              <Link to='/login'><Typography>Login</Typography></Link>
