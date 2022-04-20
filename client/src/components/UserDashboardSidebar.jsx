@@ -14,7 +14,7 @@ export default function UserDashboardSidebar() {
         }} >
             <Grid container display={'flex'} direction={'column'} alignItems={'flex-start'} marginLeft={'50px'} marginTop={'75px'} gap={'40px'}>
                 <Link to='/'><Typography>Home</Typography></Link>
-                <Link><Typography>Wishlist</Typography></Link>
+                <Link to='#'><Typography>Wishlist</Typography></Link>
             </Grid>
         </Grid>
     )
