@@ -19,6 +19,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
+    "list-of-cars": "^0.0.142",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3",
     "sequelize": "^6.18.0",

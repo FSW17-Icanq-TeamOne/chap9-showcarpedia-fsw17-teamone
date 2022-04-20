@@ -130,7 +130,7 @@ class carsController {
     }
   }
   static async findFilteredCar(req, res) {
-    const { kilometer, brand, title, minYear, grade, category } = req.query;
+    const { maxMileages, brand, title, minYear, grade, category } = req.query;
     const query = {
       brand,
       title,
@@ -144,7 +144,7 @@ class carsController {
         where:{
           ...filteredQuery,
           kiloMeter: {
-            [Op.gt]: kilometer ?? 0,
+            [Op.gt]: maxMileages ?? 0,
           },
           year: {
             [Op.gt]: minYear ?? 0,
@@ -158,6 +158,24 @@ class carsController {
      return  res.status(200).json(data);
     } catch (error) {
       throw error;
+    }
+  }
+
+  static async getFilterData(req,res) {
+    const list = require("list-of-cars")
+    list.getListSync()
+    const brand = list.getCarMakes()
+    const category = list.getCarCategories()
+    try{
+      const year = await Product.findAll({
+        attributes:["year"],
+        group: "year",
+        order:[["year","ASC"]]
+      })
+      if(year) return res.status(200).json({category,brand,year})
+    }
+    catch(err){
+      throw err
     }
   }
 }

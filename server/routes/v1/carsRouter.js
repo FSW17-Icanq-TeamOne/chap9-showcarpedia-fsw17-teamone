@@ -22,4 +22,6 @@ carsRouter.post("/delete/:id", carsController.deleteProduct, (req, res) => {
   return res.json({ data: "deleted" })
 })
 carsRouter.get("/search",CarsController.findFilteredCar)
+
+carsRouter.get("/make",carsController.getFilterData)
 module.exports = carsRouter
