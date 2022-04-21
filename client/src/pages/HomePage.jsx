@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <>
         {/* First Page */}
-        <Grid className="Home">
+        <Grid>
             <MainNavbar />
         </Grid>
         <Grid>

@@ -8,12 +8,13 @@ const BrandList = () => {
       <Grid>
         <Typography textAlign='center' variant={'h4'}>OUR BRAND</Typography>
 
-        <Grid container display={'flex'} marginTop={'60px'} marginRight={'50px'} marginLeft={'auto'} paddingRight={'100px'} paddingLeft={'100px'}>
-            <GridList cols={5} display={'flex'} paddingRight={'100px'} paddingLeft={'100px'} >
+        <Grid container display={'flex'} marginTop={'60px'} marginRight={'50px'} marginLeft={'auto'} paddingright={'100px'} paddingleft={'100px'}>
+            <GridList cols={5} display={'flex'} paddingright={'100px'} paddingleft={'100px'} >
             {itemData.map((item) => (
                 <GridListTile key={item.img}>
                 <img
                     src={`${item.img}`} />
+                    alt={item.img}
                 </GridListTile>
             ))},
             </GridList>
