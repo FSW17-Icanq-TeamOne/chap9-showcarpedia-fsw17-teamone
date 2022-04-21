@@ -1,5 +1,4 @@
 import { IconButton, Grid, Typography } from "@mui/material";
-import { makeStyles } from "@material-ui/core";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";

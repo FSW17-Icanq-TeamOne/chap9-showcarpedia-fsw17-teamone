@@ -63,10 +63,45 @@
     align-content: center;
 }
 
-.BrandList {
-    height: 90vh;
-    background-color: #eeeeee;
+
+
+.Slider{
+  background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 120px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
 }
+.Slider .Track{
+  animation: infiniteScroll 20s linear infinite;
+  display: flex;
+  width: calc(250px * 16)
+}
+
+.Slider .slide{
+  width:250px;
+}
+
+.Slider::before,.Slider::after{
+  content: "";
+  background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  position: absolute;
+  width: 200px;
+  height: 120px;
+  z-index: 2
+}
+.Slider::after{
+    right: 0;
+		top: 0;
+		transform: rotateZ(180deg);
+}
+.Slider::before{
+  left: 0;
+  top: 0;
+}
+
 
 .Footer {
     height: 40vh;
@@ -77,4 +112,9 @@
 hr {
     color: aliceblue;
     width: 96%;
+}
+
+@keyframes infiniteScroll{
+  0%{transform: translateX(0);}
+  100%{transform: translateX(calc(-250px * 8)) ;}
 }

@@ -1,50 +1,44 @@
-import { GridList, GridListTile } from '@material-ui/core';
-import { Typography, Grid } from '@mui/material';
-import { Container } from 'react-bootstrap';
+import { Box } from "@mui/material";
+import { Typography, } from "@mui/material";
 
 const BrandList = () => {
   return (
     <div mt="5">
-      <Grid>
-        <Typography textAlign='center' variant={'h4'}>OUR BRAND</Typography>
-
-        <Grid container display={'flex'} marginTop={'60px'} marginRight={'50px'} marginLeft={'auto'} paddingright={'100px'} paddingleft={'100px'}>
-            <GridList cols={5} display={'flex'} paddingright={'100px'} paddingleft={'100px'} >
-            {itemData.map((item) => (
-                <GridListTile key={item.img}>
-                <img
-                    src={`${item.img}`} />
-                    alt={item.img}
-                </GridListTile>
-            ))},
-            </GridList>
-        </Grid>
-      </Grid>
+        <Typography textAlign="center" variant={"h4"}>
+          OUR BRAND
+        </Typography>
+        <Box display="flex" justifyContent="center" mt={2} mb={2} overflow="hidden"  >
+          <div className="Slider">
+            <div className="Track">
+          {itemData.map((item, idx) => (
+            <div className="slide">
+              <img src={item} alt={item} key={idx} height="100px"  style={{backgroundColor:"white",margin:"20px"}} />
+            </div>
+          ))}
+          </div>
+          </div>
+        </Box>
     </div>
   );
-}
+};
 
 const itemData = [
-  {
-    img: 'audi.jpg',
-    cols: 1,
-  },
-  {
-    img: 'toyota.jpg',
-    cols: 2,
-  },
-  {
-    img: 'nissan.jpg',
-    cols: 3,
-  },
-  {
-    img: 'volkswagen.jpg',
-    cols: 4,
-  },
-  {
-    img: 'mini.jpg',
-    cols: 5,
-  },
+  "audi.png",
+  "toyota.png",
+  "nissan.jpg",
+  "volkswagen.png",
+  "mini.png",
+  "lamborghini.png",
+  "mercedes.png",
+"jaguar.png",
+  "audi.png",
+  "toyota.png",
+  "nissan.jpg",
+  "volkswagen.png",
+  "mini.png",
+  "lamborghini.png",
+  "mercedes.png",
+"jaguar.png",
 ];
 
 export default BrandList;
