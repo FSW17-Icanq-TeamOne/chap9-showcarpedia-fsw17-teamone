@@ -2,7 +2,7 @@ import { Button, Grid, Typography } from "@mui/material";
 import { useCookies } from 'react-cookie';
 
 export default function DashboardNavbar() {
-    const [cookie, setCookie, removeCookie] = useCookies(['access_token'])
+    const [cookie, setCookie, removeCookie] = useCookies('access_token')
 
     const removeAccessToken = () => {
         window.localStorage.clear();

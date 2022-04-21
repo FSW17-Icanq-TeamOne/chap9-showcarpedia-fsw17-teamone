@@ -16,6 +16,8 @@ export default function UserDashboardSidebar() {
                 <Link to='/'><Typography>Home</Typography></Link>
                 <Link to='/edit/profile'><Typography>Profile</Typography></Link>
                 <Link to='#'><Typography>Wishlist</Typography></Link>
+                <Link to='/edit/account'><Typography>Account Setting</Typography></Link>
+                <Link to='#'><Typography>Chat Room</Typography></Link>
             </Grid>
         </Grid>
     )

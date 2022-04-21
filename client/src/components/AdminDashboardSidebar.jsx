@@ -19,6 +19,10 @@ export default function AdminDashboardSidebar() {
                 <Link to='/adminList'><Typography>Admin list</Typography></Link>
                 }
                 <Link to='/productList'><Typography>Product List</Typography></Link>
+                <Link to='#'><Typography>Chat Room</Typography></Link>
+                {((localStorage.getItem("role") === "superAdmin")) &&
+                <Link to='#'><Typography>Web Setting</Typography></Link>
+                }
             </Grid>
         </Grid>
     )
