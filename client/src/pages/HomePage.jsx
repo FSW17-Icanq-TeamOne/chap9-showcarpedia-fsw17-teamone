@@ -1,4 +1,4 @@
-import { Button, Container, Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import MainNavbar from "../components/MainNavbar";
 import "../styles/Home.css"
 import Avatar from '@mui/material/Avatar';
@@ -9,6 +9,7 @@ import HomeFooter from "../components/HomeFooter"
 
 
 export default function Home() {
+
     return (
         <>
         {/* First Page */}

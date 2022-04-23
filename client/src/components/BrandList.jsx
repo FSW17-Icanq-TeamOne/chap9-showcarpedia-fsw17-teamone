@@ -11,8 +11,8 @@ const BrandList = () => {
           <div className="Slider">
             <div className="Track">
           {itemData.map((item, idx) => (
-            <div className="slide">
-              <img src={item} alt={item} key={idx} height="100px"  style={{backgroundColor:"white",margin:"20px"}} />
+            <div className="slide" key={idx}>
+              <img src={item} alt={item}  height="100px"  style={{backgroundColor:"white",margin:"20px"}} />
             </div>
           ))}
           </div>
