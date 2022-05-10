@@ -28,7 +28,8 @@ export default function MainNavbar() {
 
   useEffect(() => {
    isToggle?document.body.style.overflow="hidden":document.body.style.overflow="unset"
- }, [isToggle ]);
+ }, [isToggle]);
+ 
   const handleToggle = () => setIsToggle((prev) => !prev);
 
   return (

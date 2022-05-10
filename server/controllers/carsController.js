@@ -140,27 +140,28 @@ class carsController {
     }
   }
   static async findFilteredCar(req, res) {
-    const { maxMileages, brand, title, minYear, grade, category } = req.query;
+    const { mileages, brand, title, minYear, grade, category } = req.query;
     const query = {
       brand,
       title,
       category,
     };
 
-    const filteredQuery = Object.fromEntries(Object.entries(query).filter(([_, v]) => v != null));
+    const filteredQuery = Object.fromEntries(Object.entries(query).filter(([_, v]) => Boolean(v)));
+    console.log(filteredQuery)
     try {
-        console.log(filteredQuery)
+        
       const data = await Product.findAll({
         where:{
           ...filteredQuery,
           kiloMeter: {
-            [Op.gt]: maxMileages ?? 0,
+            [Op.gte]: Number(mileages) 
           },
           year: {
-            [Op.gt]: minYear ?? 0,
+            [Op.gte]: Number(minYear) 
           },
           grade: {
-            [Op.gt]: grade ?? 0,
+            [Op.gte]: Number(grade) 
           },
        }
       });
