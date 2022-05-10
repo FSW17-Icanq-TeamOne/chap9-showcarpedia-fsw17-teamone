@@ -55,7 +55,7 @@ export default function Filter() {
   });
   return (
     <Container>
-      <Typography variant={"h5"} textAlign="center" marginBottom={3}>
+      <Typography variant={"h4"} color="gray" fontWeight="500" textAlign="center" marginBottom={3}>
         Filter
       </Typography>
       <form onSubmit={formik.handleSubmit}>

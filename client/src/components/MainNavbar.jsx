@@ -43,7 +43,7 @@ export default function MainNavbar() {
         justifyContent={{ xs: "space-between" }}
       >
         <Grid item sm ml={2} >
-          <Typography>Showcarpedia</Typography>
+          <Typography component={Link} color="black" to={"/"} style={{textDecoration:"none"}}>Showcarpedia</Typography>
         </Grid>
         <Grid item md={5} sm={2}>
           <Grid
