@@ -16,6 +16,7 @@ import { DirectionsCar } from "@mui/icons-material";
 import { Favorite } from "@mui/icons-material";
 import { Fade } from "@mui/material";
 import {Link} from "react-router-dom"
+import { useEffect } from "react";
 export default function MainNavbar() {
   const [cookie, setCookie, removeCookie] = useCookies(["access_token"]);
   const [isToggle, setIsToggle] = useState(false);
@@ -25,6 +26,9 @@ export default function MainNavbar() {
     removeCookie("access_token");
   };
 
+  useEffect(() => {
+   isToggle?document.body.style.overflow="hidden":document.body.style.overflow="unset"
+ }, [isToggle ]);
   const handleToggle = () => setIsToggle((prev) => !prev);
 
   return (
@@ -36,9 +40,8 @@ export default function MainNavbar() {
         height={"8vh"}
         maxHeight="64px"
         justifyContent={{ xs: "space-between" }}
-        overflow="hidden"
       >
-        <Grid item sm ml={2}>
+        <Grid item sm ml={2} >
           <Typography>Showcarpedia</Typography>
         </Grid>
         <Grid item md={5} sm={2}>
@@ -162,8 +165,9 @@ export default function MainNavbar() {
           elevation={5}
           sx={{
             zIndex: 2,
-            position: "absolute",
+            position:"absolute",
             width: "100%",
+            height:"100vh"
           }}
         >
           <List>

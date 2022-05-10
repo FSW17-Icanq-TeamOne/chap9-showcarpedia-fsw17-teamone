@@ -3,7 +3,7 @@ import { Typography, } from "@mui/material";
 
 const BrandList = () => {
   return (
-    <div mt="5">
+    <div mt="5" mb="4">
         <Typography textAlign="center" variant={"h4"}>
           OUR BRAND
         </Typography>
