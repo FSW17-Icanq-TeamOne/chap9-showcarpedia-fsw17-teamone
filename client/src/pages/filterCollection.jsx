@@ -22,7 +22,7 @@ export default function FilterCollection() {
   const allQuery = useMemo(() => {
     return Object.fromEntries(query);
   }, [query]);
-  console.log(allQuery);
+
 
   useEffect(() => {
     async function fetchData() {
@@ -39,6 +39,7 @@ export default function FilterCollection() {
           }
         );
         const data = await response.json();
+        console.log(data)
         console.log(Array.isArray(data));
         if (Array.isArray(data)) {
           setIsValid(true);
