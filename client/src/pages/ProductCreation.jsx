@@ -2,6 +2,7 @@ import { Card, CardContent, Grid, Typography } from "@mui/material";
 import AdminDashboardSidebar from "../components/AdminDashboardSidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import ProductCreationForm from "../components/ProductCreationForm";
+import Upload from "../components/PreviewImages";
 
 export default function ProductCreation() {
     return (
