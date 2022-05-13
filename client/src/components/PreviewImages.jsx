@@ -3,8 +3,8 @@ import {
   Button,
   ImageList,
   ImageListItem,
-  Fab,
   ImageListItemBar,
+  Typography,
   IconButton,
 } from "@mui/material";
 import { Clear, Add } from "@mui/icons-material";
@@ -15,18 +15,18 @@ import { LinearProgress } from "@mui/material";
 import { Card } from "@mui/material";
 import { CardActionArea } from "@mui/material";
 import { useRef } from "react";
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 export default function PreviewImages({ data }) {
   const [files, setFiles] = useState([]);
   const [progress, setProgress] = useState(0);
-  const [urls, setUrls] = useState([]);
 
   const inputRef = useRef(null);
 
   const handleInput = () => {
     inputRef.current.click();
   };
+
   useEffect(() => {
     files.map((file) => {
       return () => URL.revokeObjectURL(file.preview);
@@ -47,12 +47,11 @@ export default function PreviewImages({ data }) {
     setFiles(newFiles.filter((file) => file.id !== id));
   };
 
-  const handleUpload = () => {
-    const promises = [];
-    files.map((file) => {
+  const handleUpload = async () => {
+    const promises = []
+ files.forEach((file) => {
       const storageRef = ref(storage, `images/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
-      promises.push(uploadTask);
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -64,35 +63,41 @@ export default function PreviewImages({ data }) {
         },
         (error) => {
           console.log(error);
-        },
-        async () => {
-          await getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-            setUrls((prev) => [...prev, downloadUrl]);
-            console.log(`file available at `, downloadUrl);
-          });
         }
-      );
+      )
+       promises.push(getDownloadURL(uploadTask.snapshot.ref))
+       
     });
-    Promise.all(promises)
-      .then(() => {
-        alert("success");
-      })
-      .catch((err) => console.log(err));
-    console.log(urls);
-
+    try {
+      const urls = await Promise.all(promises)
+      data(urls)
+    } catch (error) {
+      console.log(error)
+    }
+ 
+    
+     
   };
+
   return (
     <>
-      <Card sx={{ border: "2px dashed black",width: 500, height: 450,}}>
+      <Card sx={{ border: "2px dashed black", width: 500, height: 450 }}>
         <LinearProgress variant="determinate" value={progress} max="100" />
         <CardActionArea onClick={handleInput}>
           {!files.length ? (
-            <Box height={450} >
-             <AddPhotoAlternateIcon />
+            <Box
+              height={450}
+              display="flex"
+              alignItems="center"
+              flexDirection="column"
+              justifyContent="center"
+            >
+              <AddPhotoAlternateIcon fontSize="large" />
+              <Typography variant="h4">click here to add images</Typography>
             </Box>
           ) : (
             <ImageList
-              sx={{ width: 500, height: 450 }}
+              sx={{ width: 500, height: 450, padding: 1 }}
               cols={3}
               rowHeight={164}
             >
@@ -103,7 +108,7 @@ export default function PreviewImages({ data }) {
                     sx={{
                       background:
                         "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
-                        "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
+                        "rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 100%)",
                     }}
                     position="top"
                     actionIcon={

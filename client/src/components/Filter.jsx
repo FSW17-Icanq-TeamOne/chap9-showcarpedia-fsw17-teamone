@@ -10,7 +10,6 @@ export default function Filter() {
   const [brands, setBrands] = useState([]);
   const [category, setCategory] = useState([]);
   const [year, setYear] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
   const mileages = ["1000", "5000", "10000", "20000", "50000"];
   const grades = ["1", "2", "3", "4", "5"];
 

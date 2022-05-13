@@ -1,18 +1,24 @@
 import {
-  Box,
   FormControl,
   Select,
   InputLabel,
   MenuItem,
-  Autocomplete,
   Button,
   Grid,
   TextField,
+  TextareaAutosize
 } from "@mui/material";
 import { useFormik } from "formik";
 import PreviewImages from "./PreviewImages";
+import { brands, grades, categories } from "../carMake";
+import { useState } from "react";
 
 export default function ProductCreationForm() {
+  const [urls,setUrls] = useState([])
+
+  const getUrls =(url) => console.log(url)
+  
+  
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -25,24 +31,25 @@ export default function ProductCreationForm() {
       photoProducts: "",
     },
     onSubmit: async (value) => {
-      try {
-        const response = await fetch("http://localhost:4000/v1/cars", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify(value),
-        });
-        if (response.ok) {
-          console.log("ok");
-        } else {
-          console.log("tidak ok");
-        }
-      } catch (error) {
-        console.error(error);
-      }
+      console.log(value);
+      // try {
+      //   const response = await fetch("http://localhost:4000/v1/cars", {
+      //     method: "POST",
+      //     headers: {
+      //       Accept: "application/json",
+      //       "Content-Type": "application/json",
+      //     },
+      //     credentials: "include",
+      //     body: JSON.stringify(value),
+      //   });
+      //   if (response.ok) {
+      //     console.log("ok");
+      //   } else {
+      //     console.log("tidak ok");
+      //   }
+      // } catch (error) {
+      //   console.error(error);
+      // }
     },
   });
 
@@ -51,154 +58,142 @@ export default function ProductCreationForm() {
       {/* Form */}
       <Grid container spacing={3}>
         {/* Picture */}
-        <Grid item xs={6}>
-          <Grid
-            container
-          >
-            {/* Image Viewer */}
-            <PreviewImages />
-          </Grid>
+        <Grid item xs={12} sm={6}>
+          {/* Image Viewer */}
+          <PreviewImages data={getUrls} />
         </Grid>
 
         <Grid item xs={6}>
-        <form onSubmit={formik.handleSubmit}>
-          <Grid container display={"flex"} direction={"column"} gap={"30px"}>
-            <Grid>
-              <TextField
-                id="title"
-                name="title"
-                label="Add Product's Name"
-                value={formik.values.title}
-                onChange={formik.handleChange}
-                variant="standard"
-                sx={{
-                  width: 400,
-                }}
-              />
-            </Grid>
+          <form onSubmit={formik.handleSubmit}>
+            <Grid container direction={"column"} gap={2}>
+              <Grid item xs>
+                <TextField
+                  id="title"
+                  name="title"
+                  label="Add Product's Name"
+                  value={formik.values.title}
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  variant="standard"
+                  fullWidth
+                />
+              </Grid>
 
-            <Grid display={"flex"} gap={"20px"}>
-              <Box sx={{ minWidth: 120 }}>
+              <Grid item xs>
                 <FormControl fullWidth>
-                  <InputLabel>Brand</InputLabel>
+                  <InputLabel id="brand">Brand</InputLabel>
                   <Select
-                    id="brand"
+                    label="brand"
                     name="brand"
-                    sx={{
-                      width: 345,
-                    }}
-                    onChange={formik.handleChange}
+                    value={formik.values.brand}
+                    onBlur={formik.handleBlur}
+                    onChange={(e) =>
+                      formik.setFieldValue("brand", e.target.value)
+                    }
                   >
-                    <MenuItem value={"Porsche"}>Porsche</MenuItem>
-                    <MenuItem value={"BMW"}>BMW</MenuItem>
-                    <MenuItem value={"Ford"}>Ford</MenuItem>
-                    <MenuItem value={"Toyota"}>Toyota</MenuItem>
-                    <MenuItem value={"Honda"}>Honda</MenuItem>
+                    {brands.map((e, i) => (
+                      <MenuItem value={e} key={i}>
+                        {e}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
-              </Box>
-
-              <Box sx={{ minWidth: 120 }}>
+              </Grid>
+              <Grid item xs>
                 <FormControl fullWidth>
-                  <InputLabel>Grade</InputLabel>
+                  <InputLabel id="grade">Grade</InputLabel>
                   <Select
-                    id="grade"
+                    value={formik.values.grade}
+                    onBlur={formik.handleBlur}
                     name="grade"
-                    sx={{
-                      width: 95,
-                    }}
-                    onChange={formik.handleChange}
+                    label="grade"
+                    onChange={(e) =>
+                      formik.setFieldValue("grade", e.target.value)
+                    }
                   >
-                    <MenuItem value={1}>1</MenuItem>
-                    <MenuItem value={2}>2</MenuItem>
-                    <MenuItem value={3}>3</MenuItem>
-                    <MenuItem value={4}>4</MenuItem>
-                    <MenuItem value={5}>5</MenuItem>
+                    {grades.map((e, idx) => (
+                      <MenuItem value={e} key={idx}>
+                        {e}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
-              </Box>
-            </Grid>
-
-            <Grid>
-              <Box sx={{ minWidth: 120 }}>
+              </Grid>
+              <Grid item xs>
                 <FormControl fullWidth>
-                  <InputLabel>Category</InputLabel>
+                  <InputLabel id="categories">Categories</InputLabel>
                   <Select
-                    id="category"
-                    name="category"
-                    sx={{
-                      width: 345,
-                    }}
-                    onChange={formik.handleChange}
+                    label="categories"
+                    name="categories"
+                    value={formik.values.category}
+                    onBlur={formik.handleBlur}
+                    onChange={(e) =>
+                      formik.setFieldValue("category", e.target.value)
+                    }
                   >
-                    <MenuItem value={"Sport"}>Sport</MenuItem>
-                    <MenuItem value={"SUV"}>SUV</MenuItem>
-                    <MenuItem value={"Pickup"}>Pickup</MenuItem>
-                    <MenuItem value={"Coupe"}>Pickup</MenuItem>
+                    {categories.map((e, i) => (
+                      <MenuItem value={e} key={i}>
+                        {e}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
-              </Box>
+              </Grid>
+
+              <Grid item xs>
+              <Grid item xs>
+                <TextField
+                  id="year"
+                  name="year"
+                  label="Add Product's year"
+                  value={formik.values.year}
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  fullWidth
+                />
+              </Grid>
+
+              </Grid>
+
+              <Grid item xs>
+                <TextField
+                  fullWidth
+                  id="kiloMeter"
+                  name="kiloMeter"
+                  label="Input Kilometer"
+                  value={formik.values.kiloMeter}
+                  onChange={formik.handleChange}
+                />
+              </Grid>
+
+              <Grid item xs>
+                <TextareaAutosize
+                  minRows={4}
+                  maxRows={4}
+                  placeholder="input your product's description"
+                  style={{ width: 500 }}
+                />
+              </Grid>
+
+              <Grid>
+                <Button
+                  sx={{
+                    width: 460,
+
+                    borderRadius: 20,
+
+                    backgroundColor: "orange",
+                    color: "white",
+                  }}
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </Grid>
             </Grid>
-
-            <Grid>
-              <TextField
-                id="year"
-                name="year"
-                label="Input Product's Year"
-                value={formik.values.year}
-                onChange={formik.handleChange}
-                sx={{
-                  width: 345,
-                }}
-              />
-            </Grid>
-
-            <Grid>
-              <TextField
-                id="kiloMeter"
-                name="kiloMeter"
-                label="Input Kilometer"
-                value={formik.values.kiloMeter}
-                onChange={formik.handleChange}
-                sx={{
-                  width: 345,
-                }}
-              />
-            </Grid>
-
-            <Grid>
-              <TextField
-                id="description"
-                name="description"
-                label="Description"
-                multiline
-                value={formik.values.description}
-                onChange={formik.handleChange}
-                sx={{
-                  width: 460,
-                }}
-              />
-            </Grid>
-
-            <Grid>
-              <Button
-                sx={{
-                  width: 460,
-
-                  borderRadius: 20,
-
-                  backgroundColor: "orange",
-                  color: "white",
-                }}
-                type="submit"
-              >
-                Submit
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
+          </form>
+          {urls.map((e,idx)=>(<h1 key={idx}>{e}</h1>))}
         </Grid>
-       
       </Grid>
     </>
   );
