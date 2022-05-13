@@ -174,15 +174,15 @@ class carsController {
   static async getFilterData(req,res) {
     const list = require("list-of-cars")
     list.getListSync()
-    const brand = list.getCarMakes()
-    const category = list.getCarCategories()
+    const brands = list.getCarMakes()
+    const categories = list.getCarCategories()
     try{
       const year = await Product.findAll({
         attributes:["year"],
         group: "year",
         order:[["year","ASC"]]
       })
-      if(year) return res.status(200).json({category,brand,year})
+     return res.status(200).json({categories,brands,year})
     }
     catch(err){
       throw err
