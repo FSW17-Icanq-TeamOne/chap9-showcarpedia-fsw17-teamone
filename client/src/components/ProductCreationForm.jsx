@@ -6,19 +6,15 @@ import {
   Button,
   Grid,
   TextField,
-  TextareaAutosize
+  TextareaAutosize,
 } from "@mui/material";
 import { useFormik } from "formik";
 import PreviewImages from "./PreviewImages";
 import { brands, grades, categories } from "../carMake";
-import { useState } from "react";
 
 export default function ProductCreationForm() {
-  const [urls,setUrls] = useState([])
+  const getUrls = (url) => formik.setFieldValue("photoProducts", url);
 
-  const getUrls =(url) => console.log(url)
-  
-  
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -32,41 +28,43 @@ export default function ProductCreationForm() {
     },
     onSubmit: async (value) => {
       console.log(value);
-      // try {
-      //   const response = await fetch("http://localhost:4000/v1/cars", {
-      //     method: "POST",
-      //     headers: {
-      //       Accept: "application/json",
-      //       "Content-Type": "application/json",
-      //     },
-      //     credentials: "include",
-      //     body: JSON.stringify(value),
-      //   });
-      //   if (response.ok) {
-      //     console.log("ok");
-      //   } else {
-      //     console.log("tidak ok");
-      //   }
-      // } catch (error) {
-      //   console.error(error);
-      // }
+      try {
+        const response = await fetch("http://localhost:4000/v1/cars", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify(value),
+        });
+        console.log(response)
+        if (response.ok) {
+          console.log("ok");
+        } else {
+          console.log("tidak ok");
+        }
+      } catch (error) {
+        console.error(error);
+      }
     },
   });
 
   return (
     <>
       {/* Form */}
-      <Grid container spacing={3}>
+      <Grid container  spacing={2}>
         {/* Picture */}
-        <Grid item xs={12} sm={6}>
+        <Grid item sm={1} lg={2}>
+        </Grid>
+        <Grid item xs={12} sm={5} lg={4}>
           {/* Image Viewer */}
           <PreviewImages data={getUrls} />
         </Grid>
-
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={5} lg={4}>
           <form onSubmit={formik.handleSubmit}>
-            <Grid container direction={"column"} gap={2}>
-              <Grid item xs>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
                 <TextField
                   id="title"
                   name="title"
@@ -79,7 +77,7 @@ export default function ProductCreationForm() {
                 />
               </Grid>
 
-              <Grid item xs>
+              <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel id="brand">Brand</InputLabel>
                   <Select
@@ -99,7 +97,7 @@ export default function ProductCreationForm() {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel id="grade">Grade</InputLabel>
                   <Select
@@ -119,7 +117,7 @@ export default function ProductCreationForm() {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel id="categories">Categories</InputLabel>
                   <Select
@@ -141,21 +139,20 @@ export default function ProductCreationForm() {
               </Grid>
 
               <Grid item xs>
-              <Grid item xs>
-                <TextField
-                  id="year"
-                  name="year"
-                  label="Add Product's year"
-                  value={formik.values.year}
-                  onBlur={formik.handleBlur}
-                  onChange={formik.handleChange}
-                  fullWidth
-                />
+                <Grid item xs>
+                  <TextField
+                    id="year"
+                    name="year"
+                    label="Add Product's year"
+                    value={formik.values.year}
+                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    fullWidth
+                  />
+                </Grid>
               </Grid>
 
-              </Grid>
-
-              <Grid item xs>
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   id="kiloMeter"
@@ -166,22 +163,22 @@ export default function ProductCreationForm() {
                 />
               </Grid>
 
-              <Grid item xs>
+              <Grid item xs={12}>
                 <TextareaAutosize
                   minRows={4}
                   maxRows={4}
+                  name="description"
+                  value={formik.values.description}
+                  onChange={formik.handleChange}
                   placeholder="input your product's description"
-                  style={{ width: 500 }}
+                  style={{ width: "100%" }}
                 />
               </Grid>
 
-              <Grid>
+              <Grid item xs={12}>
                 <Button
                   sx={{
-                    width: 460,
-
-                    borderRadius: 20,
-
+                    width: "100%",
                     backgroundColor: "orange",
                     color: "white",
                   }}
@@ -192,7 +189,8 @@ export default function ProductCreationForm() {
               </Grid>
             </Grid>
           </form>
-          {urls.map((e,idx)=>(<h1 key={idx}>{e}</h1>))}
+        </Grid>
+        <Grid item sm={1} lg={2}>
         </Grid>
       </Grid>
     </>
