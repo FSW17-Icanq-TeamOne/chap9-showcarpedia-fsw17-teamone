@@ -12,6 +12,7 @@ class carsController {
       description,
       photoProducts,
     } = req.body;
+
     const payloadCars = {
       title,
       brand,
@@ -21,7 +22,7 @@ class carsController {
       category,
       description,
       delete: false,
-      photoProducts,
+      photoProducts:[...photoProducts]
     };
     try {
       const cars = await Product.create(payloadCars);
@@ -35,7 +36,7 @@ class carsController {
         grade: cars.grade,
         category: cars.category,
         description: cars.description,
-        photoProducts: cars.photoProducts,
+        photoProducts:cars.photoProducts
       });
     } catch (error) {
       return res.status(500).json({
