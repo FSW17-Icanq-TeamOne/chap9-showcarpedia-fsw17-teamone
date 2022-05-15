@@ -9,23 +9,42 @@ import { ListItemIcon } from "@mui/material";
 import { ListItemButton } from "@mui/material";
 import { List } from "@mui/material";
 import { Grid, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import '../styles/Dashboard.css'
-
-export default function AdminDashboardSidebar() {
+import React from "react"
+ function AdminDashboardSidebar() {
 
     return(
 
             <Paper  style={{height:'calc(100vh - 64px)'}}>
                  <List>
+
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <Inbox />
               </ListItemIcon>
-              <ListItemText primary="Inbox" sx={{display:{xs:"none", sm:"unset"}}} />
+              <ListItemText primary="Home" sx={{display:{xs:"none", sm:"unset"}}} />
             </ListItemButton>
           </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <Drafts />
+              </ListItemIcon>
+              <ListItemText primary="Insight" sx={{display:{xs:"none", sm:"unset"}}} />
+            </ListItemButton>
+          </ListItem>
+          
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <Drafts />
+              </ListItemIcon>
+              <ListItemText primary="Admin list" sx={{display:{xs:"none", sm:"unset"}}} />
+            </ListItemButton>
+          </ListItem>
+          
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -34,6 +53,34 @@ export default function AdminDashboardSidebar() {
               <ListItemText primary="Drafts" sx={{display:{xs:"none", sm:"unset"}}} />
             </ListItemButton>
           </ListItem>
+          
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <Drafts />
+              </ListItemIcon>
+              <ListItemText primary="Product List" sx={{display:{xs:"none", sm:"unset"}}} />
+            </ListItemButton>
+          </ListItem>
+          
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <Drafts />
+              </ListItemIcon>
+              <ListItemText primary="Chat Room" sx={{display:{xs:"none", sm:"unset"}}} />
+            </ListItemButton>
+          </ListItem>
+          
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <Drafts />
+              </ListItemIcon>
+              <ListItemText primary="Web Setting" sx={{display:{xs:"none", sm:"unset"}}} />
+            </ListItemButton>
+          </ListItem>
+          
         </List>
             </Paper>
 
@@ -53,3 +100,11 @@ export default function AdminDashboardSidebar() {
   
     )
 }
+
+export const AdminSidebar = React.forwardRef((props, ref) => {
+  return (
+    <div ref={ref} {...props}>
+     < AdminDashboardSidebar />
+    </div>
+  );
+})
