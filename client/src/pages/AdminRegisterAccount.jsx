@@ -147,12 +147,6 @@ export default function AdminRegisterAccount() {
           <Grid item sm={1} lg={2} />
         </Grid>
       </Grid>
-      {/* <Grid container display={'flex'} alignItems={'center'}>
-                <Grid marginLeft={'120px'} paddingTop={'30px'} >
-                    <Typography variant={'h5'} marginLeft={'200px'}>Profile</Typography>
-                </Grid>
-
-            </Grid> */}
     </Grid>
   );
 }
