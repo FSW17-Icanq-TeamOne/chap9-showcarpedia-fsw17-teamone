@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import { Button, Grid } from '@mui/material';
+import { Typography } from '@mui/material';
 
 const columns = [
     {field: 'id', headerName: 'ID', width: 50},
     {field: 'username', headerName: 'Username', width: 150},
-    {field: 'email', headerName: 'Email', width: 200},
+    {field: 'email', headerName: 'Email', width:300},
     {
         field: '#edit', 
         headerName: '',
@@ -81,14 +82,36 @@ const ProductTable2 = () => {
     }, [])
     
     return(
-        <Grid sx={{height: 400, width: 605}}>
-            <DataGrid 
+        <Grid container spacing={2}>
+           <Grid item sm={1} lg={2}>
+        </Grid>
+      <Grid item xs={12} lg={8}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} >
+        <Typography variant={"h4"} textAlign="center">Admin List</Typography>
+          </Grid>
+        <Grid item xs={12}>
+        <DataGrid
+                autoHeight
                 rows={tableData}
                 columns={columns}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
                 //checkboxSelection
             />
+        </Grid>
+        <Grid item xs={12}>
+        <Button variant="contained" href={"/admin/create/account"}>
+              Create Admin
+            </Button>
+        </Grid>
+        </Grid>
+      
+           
+      </Grid>
+            
+             <Grid item sm={1} lg={2}>
+        </Grid>
         </Grid>
     )
 }
