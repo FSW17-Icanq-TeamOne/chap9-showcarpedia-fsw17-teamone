@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import AdminDashboardSidebar from "../components/AdminDashboardSidebar";
 
 export default function AdminAccountEdit() {
-    
-    
     const navigate = useNavigate()
 
     const [accountData, setaccountData] = useState({
@@ -19,7 +17,6 @@ export default function AdminAccountEdit() {
     let locPath = window.location.pathname,
     id = locPath.split('/');
   
-    
     useEffect(() => {
         fetch(`http://localhost:4000/v1/admin/edit/${id[4]}`, {
             credentials: "include",
