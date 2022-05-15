@@ -14,7 +14,6 @@ export default function AdminList() {
         <Grid item xs>
         <Card sx={{ minHeight: "calc(100vh - 64px)" }}>
           <CardContent>
-        
             <AdminTable />
           </CardContent>
         </Card>

@@ -2,11 +2,13 @@ import React, {useState, useEffect} from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import { Button, Grid } from '@mui/material';
 import { Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import { Paper } from '@mui/material';
 
 const columns = [
-    {field: 'id', headerName: 'ID', width: 50},
-    {field: 'username', headerName: 'Username', width: 150},
-    {field: 'email', headerName: 'Email', width:300},
+    {field: 'id', headerName: 'ID', flex: 1},
+    {field: 'username', headerName: 'Username', flex: 1},
+    {field: 'email', headerName: 'Email', flex: 1},
     {
         field: '#edit', 
         headerName: '',
@@ -21,7 +23,7 @@ const columns = [
               </Button>
             );
         },
-        width: 75
+        flex: 1
     },
     {
         field: '#delete', 
@@ -54,7 +56,7 @@ const columns = [
               </Button>
             );
         },
-        width: 75
+        flex: 1
     } 
 ]
 
@@ -87,7 +89,7 @@ const ProductTable2 = () => {
         </Grid>
       <Grid item xs={12} lg={8}>
         <Grid container spacing={2}>
-          <Grid item xs={12} >
+          <Grid item xs>
         <Typography variant={"h4"} textAlign="center">Admin List</Typography>
           </Grid>
         <Grid item xs={12}>
