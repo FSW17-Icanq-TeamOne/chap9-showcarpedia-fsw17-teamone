@@ -8,7 +8,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { Clear} from "@mui/icons-material";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../config/firebase";
 import { LoadingButton } from "@mui/lab"
@@ -17,39 +17,49 @@ import { useRef } from "react";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { CardActions } from "@mui/material";
 import { Send } from "@mui/icons-material";
-import { CircularProgress } from "@mui/material";
 import { LinearProgress } from "@mui/material";
 import { CardContent } from "@mui/material";
 
 
-export default function PreviewImages({ data }) {
+export default function PreviewImages({ data ,images}) {
+  
+  console.log(images)
   const [files, setFiles] = useState([]);
   const [progress, setProgress] = useState(0);
   const [loading,setLoading] = useState(false)
   const inputRef = useRef(null);
 
+  useEffect(()=>{
+    if(images) {  
+      setFiles([...images])
+    }
+  },[images])
+
   const handleInput = () => {
     inputRef.current.click();
   };
 
+ 
+
+
   useEffect(() => {
     files.map((file) => {
-      return () => URL.revokeObjectURL(file.preview);
+     return ()=>URL.revokeObjectURL(file);
     });
   }, [files]);
+  
 
   const handleChange = (e) => {
-    for (let i = 0; i < e.target.files.length; i++) {
-      const newImage = e.target.files[i];
-      newImage.id = Math.random();
-      newImage.preview = URL.createObjectURL(newImage);
-      setFiles((prevState) => [...prevState, newImage]);
-    }
+    [...e.target.files].forEach(file => {
+      const newImage = URL.createObjectURL(file)
+      setFiles(prev=>[...prev,newImage])
+    } )
+   
   };
 
-  const handleDelete = (id) => {
-    const newFiles = [...files];
-    setFiles(newFiles.filter((file) => file.id !== id));
+  const handleDelete = (index) => {
+    console.log(index)
+    setFiles(files => files.filter((_,idx) => idx !== index));
   };
 
   const handleUpload = async () => {
@@ -81,11 +91,11 @@ export default function PreviewImages({ data }) {
       console.log(error);
     }
   };
-  
+  console.log(files)
   return (
     <>
       <Card sx={{ border: "2px dashed black",height:"100%", maxWidth:"540px",minHeight:"400px" }}>
-        {!files.length ? (
+        {!files?.length ? (
           <CardActionArea onClick={handleInput} sx={{height:"100%"}} >
             <CardContent sx={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"}}  >
               <AddPhotoAlternateIcon fontSize="large" />
@@ -100,9 +110,9 @@ export default function PreviewImages({ data }) {
                 cols={3}
                 rowHeight={164}
               >
-                {files.map((file, idx) => (
+                {files?.map((file, idx) => (
                   <ImageListItem key={idx}>
-                    <img src={file.preview} alt={file} loading="lazy" />
+                    <img src={file} alt={file} loading="lazy" />
                     <ImageListItemBar
                       sx={{
                         background:
@@ -115,7 +125,7 @@ export default function PreviewImages({ data }) {
                           sx={{ color: "white" }}
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleDelete(file.id);
+                            handleDelete(idx);
                           }}
                         >
                           <Clear />

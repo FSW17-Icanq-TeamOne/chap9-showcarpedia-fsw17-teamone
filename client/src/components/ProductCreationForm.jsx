@@ -52,7 +52,6 @@ export default function ProductCreationForm() {
 
   return (
     <>
-      {/* Form */}
       <Grid container  spacing={2}>
         {/* Picture */}
         <Grid item sm={1} lg={2}>

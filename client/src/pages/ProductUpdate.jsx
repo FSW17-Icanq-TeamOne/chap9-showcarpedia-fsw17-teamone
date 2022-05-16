@@ -9,21 +9,19 @@ export default function ProductUpdate() {
         <Grid container >
                 <Dashboard />
 
-            <Grid container display={'flex'} alignItems={'center'}>
-                <Grid marginLeft={'120px'} paddingTop={'30px'}>
-                    <Typography variant={'h5'} marginLeft={'200px'}>Product Update</Typography>
-                </Grid>
-
-            </Grid>
-        </Grid>
-
-        <Grid display={'flex'} justifyContent={'center'} marginTop={'50px'} marginLeft={'150px'}>
-            <Card>
+        <Grid item xs>
+            <Card  sx={{ minHeight: "calc(100vh - 64px)" ,height:"100%"}}>
                 <CardContent>
                     <ProductUpdateForm />
                 </CardContent>
             </Card>
         </Grid>
+           
+        </Grid>
+
+                {/* <Grid marginLeft={'120px'} paddingTop={'30px'}>
+                    <Typography variant={'h5'} marginLeft={'200px'}>Product Update</Typography>
+                </Grid> */}
     </>
     )
 }
