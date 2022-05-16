@@ -11,6 +11,7 @@ export default function ProductUpdateForm() {
 
     const navigate = useNavigate()
     
+    const getUrls = (url) => formik.setFieldValue("photoProducts", url);
 
 
     const [productData, setproductData] = useState({
@@ -82,7 +83,7 @@ export default function ProductUpdateForm() {
         </Grid>
         <Grid item xs={12} sm={5} lg={4}>
           {/* Image Viewer */}
-          <PreviewImages images={productData?.photoProducts}  />
+          <PreviewImages data={getUrls} images={productData?.photoProducts}  />
         </Grid>
         <Grid item xs={12} sm={5} lg={4}>
           <form onSubmit={formik.handleSubmit}>
