@@ -17,6 +17,7 @@ import { Favorite } from "@mui/icons-material";
 import { Fade } from "@mui/material";
 import {Link} from "react-router-dom"
 import { useEffect } from "react";
+import "../styles/Dashboard.css"
 export default function MainNavbar() {
   const [cookie, setCookie, removeCookie] = useCookies(["access_token"]);
   const [isToggle, setIsToggle] = useState(false);
@@ -114,7 +115,7 @@ export default function MainNavbar() {
                 localStorage.getItem("role") === "superAdmin") && (
                 <IconButton
                   aria-label="Account"
-                  onClick={() => window.location.assign("/#")}
+                  onClick={() => window.location.assign("/wishlist")}
                 >
                   <FavoriteBorderRoundedIcon />
                 </IconButton>
@@ -165,7 +166,7 @@ export default function MainNavbar() {
           elevation={2}
           sx={{
             zIndex: 2,
-            mt:2,
+            position:"absolute",
             width: "100%",
             height:"100vh"
           }}
@@ -190,7 +191,7 @@ export default function MainNavbar() {
             </ListItem>
 
             <ListItem>
-              <ListItemButton component={Link} to="/#">
+              <ListItemButton component={Link} to="/wishlist">
                 <ListItemIcon>
                   <Favorite />
                 </ListItemIcon>
