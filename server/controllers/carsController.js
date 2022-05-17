@@ -12,6 +12,7 @@ class carsController {
       description,
       photoProducts,
     } = req.body;
+
     const payloadCars = {
       title,
       brand,
@@ -21,7 +22,7 @@ class carsController {
       category,
       description,
       delete: false,
-      photoProducts,
+      photoProducts:[...photoProducts]
     };
     try {
       const cars = await Product.create(payloadCars);
@@ -35,7 +36,7 @@ class carsController {
         grade: cars.grade,
         category: cars.category,
         description: cars.description,
-        photoProducts: cars.photoProducts,
+        photoProducts:cars.photoProducts
       });
     } catch (error) {
       return res.status(500).json({
@@ -140,28 +141,27 @@ class carsController {
     }
   }
   static async findFilteredCar(req, res) {
-    const { mileages, brand, title, minYear, grade, category } = req.query;
+    const { maxMileages, brand, title, minYear, grade, category } = req.query;
     const query = {
       brand,
       title,
       category,
     };
 
-    const filteredQuery = Object.fromEntries(Object.entries(query).filter(([_, v]) => Boolean(v)));
-    console.log(filteredQuery)
+    const filteredQuery = Object.fromEntries(Object.entries(query).filter(([_, v]) => v != null));
     try {
-        
+        console.log(filteredQuery)
       const data = await Product.findAll({
         where:{
           ...filteredQuery,
           kiloMeter: {
-            [Op.gte]: Number(mileages) 
+            [Op.gt]: maxMileages ?? 0,
           },
           year: {
-            [Op.gte]: Number(minYear) 
+            [Op.gt]: minYear ?? 0,
           },
           grade: {
-            [Op.gte]: Number(grade) 
+            [Op.gt]: grade ?? 0,
           },
        }
       });
@@ -175,15 +175,15 @@ class carsController {
   static async getFilterData(req,res) {
     const list = require("list-of-cars")
     list.getListSync()
-    const brand = list.getCarMakes()
-    const category = list.getCarCategories()
+    const brands = list.getCarMakes()
+    const categories = list.getCarCategories()
     try{
       const year = await Product.findAll({
         attributes:["year"],
         group: "year",
         order:[["year","ASC"]]
       })
-      if(year) return res.status(200).json({category,brand,year})
+     return res.status(200).json({categories,brands,year})
     }
     catch(err){
       throw err

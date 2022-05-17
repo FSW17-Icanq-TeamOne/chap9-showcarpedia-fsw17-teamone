@@ -33,7 +33,6 @@ export default function Show({data}) {
           alt={data.title}
           sx={{
             width: "90%",
-            height:"250px",
             mx: "auto",
             mt: "10px",
             borderRadius: 2,
