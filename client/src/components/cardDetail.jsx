@@ -15,7 +15,7 @@ import {
     return (
       <Container>
         <Grid container columns={{ xs: 4, md: 12 }} spacing={2}>
-          <Grid item xs={4} md={12}>
+          <Grid item xs={4} md={8}>
             <CarouselDetail images={data.photoProducts} />
           </Grid>
           <Grid item xs={2} md={8}>
@@ -44,19 +44,14 @@ import {
               boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
             }}>
               <CardContent>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-evenly",
-                  }}
+                <Grid container
                 >
-                  <div>
+                  <Grid item>
                     <Speed fontSize="large" />
                     <Typography>{data.kiloMeter} km</Typography>
-                  </div>
+                  </Grid>
                   <Divider orientation="vertical" flexItem />
-                  <div>
+                  <Grid item>
                     <Typography
                       variant="h5"
                       textAlign={"center"}
@@ -65,8 +60,8 @@ import {
                       grade
                     </Typography>
                     <Rating value={Number(data.grade)} readOnly />
-                  </div>
-                </Box>
+                  </Grid>
+                </Grid>
                 <Divider />
                 <Stack mt={1}>
                   <Typography variant="h5" textAlign={"center"}>
