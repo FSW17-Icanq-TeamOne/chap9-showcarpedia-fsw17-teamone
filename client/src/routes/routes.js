@@ -6,7 +6,7 @@ const RegisterProfile = React.lazy(() => import('../pages/RegisterProfile'))
 
 const Home = React.lazy(() => import('../pages/HomePage'))
 const Collection = React.lazy(() => import('../pages/Collection'))
-//const DetailProduct = React.lazy(() => import('../pages/DetailProduct'))
+const FilterCollection = React.lazy(() => import("../pages/filterCollection"))
 const CollectionDetail = React.lazy(() => import('../pages/CollectionDetail'))
 
 const Profile = React.lazy(() => import('../pages/Profile'))
@@ -24,6 +24,7 @@ const ProductUpdate = React.lazy(() => import('../pages/ProductUpdate'))
 const routes = [
     { path: '/', element: <Home /> },
     { path: '/collection', element: <Collection /> },
+    { path: '/search', element: <FilterCollection /> },
     { path: '/collection/:id', element: <CollectionDetail />},
     
     { path: '/login', element: <Login /> },

@@ -28,7 +28,8 @@ export default function MainNavbar() {
 
   useEffect(() => {
    isToggle?document.body.style.overflow="hidden":document.body.style.overflow="unset"
- }, [isToggle ]);
+ }, [isToggle]);
+ 
   const handleToggle = () => setIsToggle((prev) => !prev);
 
   return (
@@ -42,7 +43,7 @@ export default function MainNavbar() {
         justifyContent={{ xs: "space-between" }}
       >
         <Grid item sm ml={2} >
-          <Typography>Showcarpedia</Typography>
+          <Typography component={Link} color="black" to={"/"} style={{textDecoration:"none"}}>Showcarpedia</Typography>
         </Grid>
         <Grid item md={5} sm={2}>
           <Grid
