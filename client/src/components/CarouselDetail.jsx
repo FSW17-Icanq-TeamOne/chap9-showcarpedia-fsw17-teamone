@@ -1,5 +1,3 @@
-import { useState } from "react"
-import { useEffect } from "react"
 import { Carousel } from "react-bootstrap"
 
 const CarouselDetail = ({ images }) => {
@@ -9,7 +7,7 @@ const CarouselDetail = ({ images }) => {
       <Carousel>
         {images.map((e, idx) => (
           <Carousel.Item key={idx}>
-            <img style={{ width: "100%" }} src={e} alt={e} />
+            <img style={{ width: "100%", maxHeight:"500px" }} src={e} alt={e} />
           </Carousel.Item>
         ))}
       </Carousel>
