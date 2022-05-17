@@ -5,6 +5,7 @@ import { MenuItem } from "@mui/material";
 import { Grid, Typography, Container, Button } from "@mui/material";
 import { useFormik } from "formik";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Filter() {
   const [brands, setBrands] = useState([]);
@@ -12,6 +13,7 @@ export default function Filter() {
   const [year, setYear] = useState([]);
   const mileages = ["1000", "5000", "10000", "20000", "50000"];
   const grades = ["1", "2", "3", "4", "5"];
+  const navigate = useNavigate()
 
   const fetchData = async () => {
     const response = await fetch("http://localhost:4000/v1/cars/make/", {
@@ -32,6 +34,8 @@ export default function Filter() {
     fetchData();
   }, []);
 
+
+
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -45,24 +49,13 @@ export default function Filter() {
       const year = Number(values.minYear);
       const grade = Number(values.grades);
       const mileages = Number(values.maxMileages);
-      const response = await fetch(
-        `http://localhost:4000/v1/cars/search?maxMileages=${mileages}&minYear=${year}&grade=${grade}&brand=${values.brand}&category=${values.category}`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
-      );
-      const data = await response.json();
-      console.log(data);
+
+      navigate(`/search?mileages=${mileages}&minYear=${year}&grade=${grade}&brand=${values.brand}&category=${values.category}`)
     },
   });
   return (
     <Container>
-      <Typography variant={"h5"} textAlign="center" marginBottom={3}>
+      <Typography variant={"h4"} color="gray" fontWeight="500" textAlign="center" marginBottom={3} marginTop={2}>
         Filter
       </Typography>
       <form onSubmit={formik.handleSubmit}>
@@ -176,7 +169,7 @@ export default function Filter() {
         <Grid display={"flex"} marginTop={"15px"} justifyContent="center">
           <Grid>
             <Button
-              onClick={formik.resetForm}
+            onClick={() => navigate("/collection")}
               sx={{
                 borderRadius: 30,
                 borderColor: "#2871CC",
