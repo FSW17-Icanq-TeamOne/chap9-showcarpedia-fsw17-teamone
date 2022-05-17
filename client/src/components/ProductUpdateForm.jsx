@@ -52,7 +52,7 @@ export default function ProductUpdateForm() {
         },
         onSubmit: value => {
             console.log(value, `Product is Created`)
-            fetch(`http://localhost:4000/v1/cars/update/${id[2]}`, {
+            fetch(`http://localhost:4000/v1/cars/update/${id}`, {
                 method: 'PUT',
                 headers: { 
                     Accept: 'application/json',
