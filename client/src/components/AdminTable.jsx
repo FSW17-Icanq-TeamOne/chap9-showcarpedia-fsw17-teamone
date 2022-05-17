@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import { Button, Grid } from '@mui/material';
+import { Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import { Paper } from '@mui/material';
 
 const columns = [
-    {field: 'id', headerName: 'ID', width: 50},
-    {field: 'username', headerName: 'Username', width: 150},
-    {field: 'email', headerName: 'Email', width: 200},
+    {field: 'id', headerName: 'ID', flex: 1},
+    {field: 'username', headerName: 'Username', flex: 1},
+    {field: 'email', headerName: 'Email', flex: 1},
     {
         field: '#edit', 
         headerName: '',
@@ -20,7 +23,7 @@ const columns = [
               </Button>
             );
         },
-        width: 75
+        flex: 1
     },
     {
         field: '#delete', 
@@ -53,7 +56,7 @@ const columns = [
               </Button>
             );
         },
-        width: 75
+        flex: 1
     } 
 ]
 
@@ -81,19 +84,37 @@ const ProductTable2 = () => {
     }, [])
     
     return(
-      <Grid container  spacing={2}>
-        <Grid item xs={12} sm={5} lg={4}>
-          <Grid sx={{height: 400, width: 605}}>
-              <DataGrid 
-                  rows={tableData}
-                  columns={columns}
-                  pageSize={5}
-                  rowsPerPageOptions={[5]}
-                  //checkboxSelection
-              />
-          </Grid>
+        <Grid container spacing={2}>
+           <Grid item sm={1} lg={2}>
         </Grid>
+      <Grid item xs={12} lg={8}>
+        <Grid container spacing={2}>
+          <Grid item xs>
+        <Typography variant={"h4"} textAlign="center">Admin List</Typography>
+          </Grid>
+        <Grid item xs={12}>
+        <DataGrid
+                autoHeight
+                rows={tableData}
+                columns={columns}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                //checkboxSelection
+            />
+        </Grid>
+        <Grid item xs={12}>
+        <Button variant="contained" href={"/admin/create/account"}>
+              Create Admin
+            </Button>
+        </Grid>
+        </Grid>
+      
+           
       </Grid>
+            
+             <Grid item sm={1} lg={2}>
+        </Grid>
+        </Grid>
     )
 }
 
