@@ -19,7 +19,7 @@ export default function FilterCollection() {
   const [data, setData] = useState([]);
 
   const query = useQuery();
-  const allQuery = useMemo(() => {
+  const allQuery =  useMemo(() => {
     return Object.fromEntries(query);
   }, [query]);
 
