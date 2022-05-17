@@ -81,15 +81,19 @@ const ProductTable2 = () => {
     }, [])
     
     return(
-        <Grid sx={{height: 400, width: 605}}>
-            <DataGrid 
-                rows={tableData}
-                columns={columns}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
-                //checkboxSelection
-            />
+      <Grid container  spacing={2}>
+        <Grid item xs={12} sm={5} lg={4}>
+          <Grid sx={{height: 400, width: 605}}>
+              <DataGrid 
+                  rows={tableData}
+                  columns={columns}
+                  pageSize={5}
+                  rowsPerPageOptions={[5]}
+                  //checkboxSelection
+              />
+          </Grid>
         </Grid>
+      </Grid>
     )
 }
 
