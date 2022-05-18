@@ -1,26 +1,24 @@
-import { Button, Grid, Typography } from "@mui/material";
-import MainNavbar from "../components/MainNavbar";
-import "../styles/Home.css";
-import Avatar from "@mui/material/Avatar";
-import BrandList from "../components/BrandList";
-import Carousel from "../components/CarouselContainer";
-import HomeFooter from "../components/HomeFooter";
-import { Container } from "@mui/material";
-import { Divider } from "@mui/material";
-import { Box } from "@mui/material";
+import { Button, Grid, Typography, Divider, Box, Avatar  } from "@mui/material";
+import MainNavbar from "../components/NavigationBar/MainNavbar";
+import BrandList from "../components/HomePage/BrandList";
+import Carousel from "../components/HomePage/Carousel/CarouselContainer";
+import HomePageFooter from "../components/HomePage/HomePageFooter";
+import "../styles/HomePage.css";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      {/* First Page */}
+      {/* Navbar */}
       <Grid>
         <MainNavbar />
       </Grid>
+
+      {/* Carousel */}
       <Grid>
         <Carousel />
       </Grid>
 
-      {/* Second Page */}
+      {/* About Us*/}
       <Grid
         container
         height={480}
@@ -60,12 +58,13 @@ export default function Home() {
         </Grid>
       </Grid>
       <Divider variant="middle" />
-      {/* Third Page */}
+
+      {/* Brand Lists */}
       <BrandList />
 
-      {/* Fourth Page */}
+      {/* Footer */}
       <Box bgcolor="#002A30" width="100vw">
-        <HomeFooter />
+        <HomePageFooter />
       </Box>
     </>
   );

@@ -10,7 +10,7 @@ import { useFormik } from "formik";
 import DashboardNavbar from "../components/DashboardNavbar";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Dashboard from "../components/Dashboard";
+import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
 
 export default function AdminRegisterAccount() {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ export default function AdminRegisterAccount() {
 
   return (
     <Grid container>
-      <Dashboard />
+      <DashboardAdmin />
       <Grid item xs>
         <Grid container spacing={2}>
           <Grid item sm={1} lg={2} />

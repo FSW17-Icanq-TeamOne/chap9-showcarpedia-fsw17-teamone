@@ -1,5 +1,5 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
-import Dashboard from "../components/Dashboard";
+import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
 
 import ProductUpdateForm from "../components/ProductUpdateForm";
 
@@ -7,7 +7,7 @@ export default function ProductUpdate() {
     return (
     <>
         <Grid container >
-                <Dashboard />
+                <DashboardAdmin />
 
         <Grid item xs>
             <Card  sx={{ minHeight: "calc(100vh - 64px)" ,height:"100%"}}>

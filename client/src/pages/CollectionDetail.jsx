@@ -1,4 +1,4 @@
-import MainNavbar from "../components/MainNavbar";
+import MainNavbar from "../components/NavigationBar/MainNavbar";
 import { Grid, Typography, Card } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";

@@ -1,25 +1,16 @@
-import { Grow } from "@mui/material";
-import React,{ useState } from "react";
-import { Button, Grid, Typography, Card, CardContent } from "@mui/material";
-import DashboardNavbar from "../components/DashboardNavbar";
-import AdminTable from "../components/AdminTable";
-import { AdminSidebar } from "../components/AdminDashboardSidebar";
-import Dashboard from "../components/Dashboard";
+import { Grid, Box} from "@mui/material";
+import AdminManagerTable from "../components/AdminManager/AdminManagerTable";
+import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
 
 export default function AdminList() {
-
   return (
     <Grid container>
-        <Dashboard />
+        <DashboardAdmin />
         <Grid item xs>
-        <Card sx={{ minHeight: "calc(100vh - 64px)" }}>
-          <CardContent>
-            <AdminTable />
-          </CardContent>
-        </Card>
+        <Box sx={{ minHeight: "calc(100vh - 64px)", m: 2 }}>
+            <AdminManagerTable />
+        </Box>
       </Grid>
-
-      
     </Grid>
   );
 }

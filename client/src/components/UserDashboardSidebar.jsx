@@ -1,4 +1,3 @@
-import { Grow } from "@material-ui/core";
 import {Home, AccountCircle, Favorite, Forum, ManageAccounts } from "@mui/icons-material";
 import { Paper } from "@mui/material";
 import { ListItem } from "@mui/material";
@@ -19,7 +18,7 @@ export default function UserDashboardSidebar() {
                 <ListItemIcon>
                   <Home />
                 </ListItemIcon>
-                <ListItemText primary="Home" sx={{display:{xs:"none", sm:"unset"}}} />
+                <ListItemText primary="Home Page" sx={{display:{xs:"none", sm:"unset"}}} />
               </ListItemButton>
             </Link>
           </ListItem>
@@ -34,7 +33,7 @@ export default function UserDashboardSidebar() {
             </Link>
           </ListItem>
           <ListItem disablePadding>
-            <Link to="/adminList">
+            <Link to="/admin-lists">
               <ListItemButton>
                 <ListItemIcon>
                   <Favorite />

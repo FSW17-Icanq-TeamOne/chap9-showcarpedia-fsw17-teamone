@@ -6,7 +6,7 @@ import {
 import { useState , useEffect } from "react";
 import Show from "../components/card";
 import Filter from "../components/Filter";
-import MainNavbar from "../components/MainNavbar";
+import MainNavbar from "../components/NavigationBar/MainNavbar";
 
 export default function Collection() {
  const [data,setData] = useState([])

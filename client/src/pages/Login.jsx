@@ -50,7 +50,7 @@ export default function LoginPage(){
             maxWidth: 345
         }}>
             <Grid container justifyContent={'flex-start'}>
-                <Typography variant='h4'>Sign In</Typography>
+                <Typography variant='h4'>Log In</Typography>
             </Grid>
 
             <Grid container justifyContent={'center'} marginTop={'10px'}>
@@ -102,7 +102,7 @@ export default function LoginPage(){
 
                             backgroundColor: 'orange',
                             color: 'white' 
-                        }} type="submit" >Login</Button>
+                        }} type="submit" >Log In</Button>
                     </Grid>
                     <Grid container sx={{
                         display: 'flex',
@@ -138,7 +138,7 @@ export default function LoginPage(){
                                 border: 1, 
                                 borderColor: 'black',
                                 
-                            }} href={'/registerAccount'}> Create Account</Button>
+                            }} href={'/create-account'}> Create Account</Button>
                         </Grid>
                 </Grid>
             </Grid>

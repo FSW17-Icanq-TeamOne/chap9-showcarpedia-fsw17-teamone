@@ -37,7 +37,7 @@ export default function DashboardNavbar({toggle}) {
       <Typography variant="h6" component={Link} to={"/"} sx={{ flexGrow: 1 }}>
         Showcarpedia
       </Typography>
-      <Button color="inherit">Login</Button>
+      <Button color="inherit">Log In</Button>
     </Toolbar>
   );
 }

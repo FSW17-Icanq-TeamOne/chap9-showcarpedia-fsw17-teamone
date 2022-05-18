@@ -1,11 +1,10 @@
 import { IconButton, Grid, Typography } from "@mui/material";
-import { makeStyles } from "@material-ui/core";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
-import "../styles/Dashboard.css";
+import "../../styles/Dashboard.css";
 import { useCookies } from "react-cookie";
 
 export default function MainNavbar() {
@@ -37,7 +36,7 @@ export default function MainNavbar() {
         >
           <Grid item>
             <Link to="/">
-              <Typography>Home</Typography>
+              <Typography>Home Page</Typography>
             </Link>
           </Grid>
           <Grid item>
@@ -61,7 +60,7 @@ export default function MainNavbar() {
             {localStorage.getItem("role") === "superAdmin" && (
               <IconButton
                 aria-label="Account"
-                onClick={() => window.location.assign("/adminList")}
+                onClick={() => window.location.assign("/admin-lists")}
               >
                 <SettingsIcon />
               </IconButton>
@@ -69,7 +68,7 @@ export default function MainNavbar() {
             {localStorage.getItem("role") === "admin" && (
               <IconButton
                 aria-label="Account"
-                onClick={() => window.location.assign("/productList")}
+                onClick={() => window.location.assign("/product-lists")}
               >
                 <SettingsIcon />
               </IconButton>
@@ -78,7 +77,7 @@ export default function MainNavbar() {
           <Grid item>
             {localStorage.getItem("role") === null && (
               <Link to="/login">
-                <Typography>Login</Typography>
+                <Typography>Log In</Typography>
               </Link>
             )}
             {(localStorage.getItem("role") === "user" ||

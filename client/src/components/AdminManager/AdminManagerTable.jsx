@@ -1,9 +1,6 @@
-import React, {useState, useEffect} from 'react'
 import { DataGrid } from '@mui/x-data-grid';
-import { Button, Grid } from '@mui/material';
-import { Typography } from '@mui/material';
-import { Box } from '@mui/material';
-import { Paper } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
+import React, {useState, useEffect} from 'react'
 
 const columns = [
     {field: 'id', headerName: 'ID', flex: 1},
@@ -68,7 +65,7 @@ const columns = [
 //     { id: 5, username: 'whiteBlood', email: 'brown_paper@mail.com'},
 // ]
 
-const ProductTable2 = () => {
+const AdminManagerTable = () => {
 
     const [tableData, setTableData] = useState([])
 
@@ -84,7 +81,7 @@ const ProductTable2 = () => {
     }, [])
     
     return(
-        <Grid container spacing={2}>
+        <Grid container >
            <Grid item sm={1} lg={2}>
         </Grid>
       <Grid item xs={12} lg={8}>
@@ -118,4 +115,4 @@ const ProductTable2 = () => {
     )
 }
 
-export default ProductTable2
+export default AdminManagerTable

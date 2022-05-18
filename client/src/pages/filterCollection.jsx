@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import Show from "../components/card";
 import Filter from "../components/Filter";
 import MainNavbar from "../components/MainNavbar";
-import "../styles/Home.css";
+import "../styles/HomePage.css";
 
 export default function FilterCollection() {
   function useQuery() {

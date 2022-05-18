@@ -66,7 +66,7 @@ export default function ProductUpdateForm() {
             .then((data) => {
             console.log(data, 'This is the Data')
             if (data.message === "Success"){
-                navigate("/productList")
+                navigate("/product-lists")
                 window.location.reload();
             }
             })

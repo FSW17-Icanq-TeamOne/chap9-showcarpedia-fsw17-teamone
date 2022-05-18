@@ -2,12 +2,12 @@ import { Typography } from "@mui/material";
 import { Card, CardContent, Grid } from "@mui/material";
 import React from "react";
 import ProductCreationForm from "../components/ProductCreationForm";
-import Dashboard from "../components/Dashboard";
+import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
 
 export default function ProductCreation() {
   return (
     <Grid container>
-      <Dashboard />
+      <DashboardAdmin />
       <Grid item xs>
         <Card sx={{ minHeight: "calc(100vh - 64px)" }}>
           <CardContent>

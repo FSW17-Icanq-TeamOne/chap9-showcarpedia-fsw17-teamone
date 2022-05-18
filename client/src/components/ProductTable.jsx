@@ -19,7 +19,7 @@ const columns = [
         <Button
           variant="contained"
           color="primary"
-          href={`/productUpdate/${cellValues.getValue(cellValues.id, "id")}`}
+          href={`/collection/edit/${cellValues.getValue(cellValues.id, "id")}`}
         >
           Edit
         </Button>
@@ -166,7 +166,7 @@ const ProductTable2 = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" href={"/product/create"}>
+            <Button variant="contained" href={"/collection/create"}>
               Create Product
             </Button>
           </Grid>

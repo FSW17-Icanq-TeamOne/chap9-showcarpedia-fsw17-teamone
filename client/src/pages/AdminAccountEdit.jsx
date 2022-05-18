@@ -9,7 +9,7 @@ import {
 import { useFormik } from "formik";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Dashboard from "../components/Dashboard";
+import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
 
 export default function AdminAccountEdit() {
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ export default function AdminAccountEdit() {
         .then((data) => {
           console.log(data, "This is the Data");
           if (data.message === "Success") {
-            navigate("/adminList");
+            navigate("/admin-lists");
           }
         })
         .catch((err) => {
@@ -67,7 +67,7 @@ export default function AdminAccountEdit() {
 
   return (
    <Grid container>
-      <Dashboard />
+      <DashboardAdmin />
       <Grid item xs>
         <Grid container spacing={2}>
           <Grid item sm={1} lg={2} />
