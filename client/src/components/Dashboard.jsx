@@ -1,25 +1,34 @@
-import { Menu } from "@mui/icons-material";
-import { Button } from "@mui/material";
-import { Grid } from "@mui/material";
-import { Toolbar } from "@mui/material";
-import { Grow } from "@mui/material";
-import { IconButton } from "@mui/material";
-import { Typography } from "@mui/material";
+import { AppBar, Container, IconButton, Box, Tooltip, Avatar, Grid, Toolbar, Grow, Typography, MenuItem, Menu } from "@mui/material";
+import { Menu as MenuIcon, DirectionsCar } from "@mui/icons-material";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { AdminSidebar } from "./AdminDashboardSidebar";
+// import { AppBarKu } from "./AppBar";
+import Link from '@mui/material/Link';
+
 
 export default function Dashboard() {
   const [cookie, setCookie, removeCookie] = useCookies("access_token");
-  const [istoggle, setIsToggle] = useState(false);
+  const [istoggle, setIsToggle] = useState(true);
   const handleToggle = () => {
     setIsToggle((prev) => !prev);
   };
+
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
   return (
     <>
-      <Grid item xs={12}>
-        <Toolbar sx={{ background: "orange", height: "64px" }}>
+      <AppBar position="static" sx={{ bgcolor: "orange" }}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
           <IconButton
             onClick={() => handleToggle()}
             size="large"
@@ -28,19 +37,78 @@ export default function Dashboard() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <Menu />
+            <MenuIcon />
           </IconButton>
+        {/* Desktop Mode */}
+          <DirectionsCar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Link href="/" style={{textDecoration: "none", color: "inherit"}} >
           <Typography
-            variant="h6"
-            component={Link}
-            to={"/"}
-            sx={{ flexGrow: 1 }}
+            sx={{
+              flexGrow: 1,
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontStyle: 'normal',
+              fontWeight: 'bold',
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
           >
-            Showcarpedia
+            SHOWCARPEDIA
           </Typography>
-          <Button color="inherit">Login</Button>
+          </Link>
+          
+        {/* Mobile Mode */}
+          <DirectionsCar sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Link href="/" style={{textDecoration: "none", color: "inherit"}} sx={{ flexGrow: 1}}>
+          <Typography
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              fontStyle: 'normal',
+              fontWeight: 'bold',
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            SHOWCARPEDIA
+          </Typography>
+          </Link>
+         
+
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
         </Toolbar>
-      </Grid>
+      </Container>
+    </AppBar>
       <Grid item xs={2} sx={{display:istoggle ? "unset" : "none"}}>
         <Grow in={istoggle}>
           <AdminSidebar />
