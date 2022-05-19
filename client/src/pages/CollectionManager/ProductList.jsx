@@ -1,8 +1,6 @@
-import { Grow } from "@mui/material";
-import React,{ useState } from "react";
-import { Button, Grid, Typography, Card, CardContent } from "@mui/material";
+import React from "react";
+import { Grid,  Box } from "@mui/material";
 import DashboardAdmin from "../../components/Dashboard/DashboardAdmin";
-
 import ProductTable from "../../components/CollectionManager/ProductTable";
 
 export default function ProductList() {
@@ -10,11 +8,11 @@ export default function ProductList() {
     <Grid container>
       <DashboardAdmin />
       <Grid item xs>
-        <Card sx={{ minHeight: "calc(100vh - 64px)" }}>
-          <CardContent>
-            <ProductTable />
-          </CardContent>
-        </Card>
+        <Box sx={{ minHeight: "calc(100vh - 64px)", m: 2 }}>
+          <Grid container display={'flex'} justifyContent={'center'} marginTop={'40px'}>
+              <ProductTable />
+          </Grid>
+        </Box>
       </Grid>
     </Grid>
   );

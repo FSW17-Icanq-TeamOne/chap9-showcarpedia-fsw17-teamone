@@ -8,7 +8,9 @@ export default function AdminList() {
         <DashboardAdmin />
         <Grid item xs>
         <Box sx={{ minHeight: "calc(100vh - 64px)", m: 2 }}>
+          <Grid container display={'flex'} justifyContent={'center'} marginTop={'40px'}>
             <AdminManagerTable />
+          </Grid>
         </Box>
       </Grid>
     </Grid>

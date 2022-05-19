@@ -1,7 +1,7 @@
 import { Button, Card, CardContent, Grid, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
-import DashboardNavbar from "../../components/Dashboard/DashboardNavbar";
-import UserDashboardSidebar from "../../components/Dashboard/UserDashboardSidebar";
+import DashboardUser from "../../components/Dashboard/DashboardUser";
+import { UserSidebar } from "../../components/Dashboard/DashboardSidebarUser";
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
 
@@ -59,16 +59,16 @@ export default function AccountSettings() {
     return (
         <>
         <Grid container={true} display={'flex'}>
-            <Grid marginRight={'220px'}>
-                <UserDashboardSidebar />
-            </Grid>
+            {/* <Grid marginRight={'220px'}>
+                <UserSidebar />
+            </Grid> */}
             <Grid container display={'flex'} alignItems={'center'}>
                 <Grid marginLeft={'120px'} paddingTop={'30px'} >
                     <Typography variant={'h5'} marginLeft={'200px'}>Profile</Typography>
                 </Grid>
 
                 <Grid ml={'auto'} >
-                    <DashboardNavbar />
+                    <DashboardUser />
                 </Grid>
             </Grid>
         </Grid>
