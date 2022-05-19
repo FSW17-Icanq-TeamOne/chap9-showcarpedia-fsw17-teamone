@@ -1,54 +1,70 @@
 import React from 'react';
 
-const Login = React.lazy(() => import('../pages/Login')) 
-const RegisterAccount = React.lazy(() => import('../pages/RegisterAccount')) 
-const RegisterProfile = React.lazy(() => import('../pages/RegisterProfile')) 
+// Home
+const HomePage = React.lazy(() => import('../pages/HomePage/HomePage'))
 
-const Home = React.lazy(() => import('../pages/HomePage'))
-const Collection = React.lazy(() => import('../pages/Collection'))
-const FilterCollection = React.lazy(() => import("../pages/filterCollection"))
-const CollectionDetail = React.lazy(() => import('../pages/CollectionDetail'))
+// Collection
+const Collection = React.lazy(() => import('../pages/Collection/Collection'))
+const CollectionDetail = React.lazy(() => import('../pages/Collection/CollectionDetail'))
+const CollectionFilter = React.lazy(() => import("../pages/Collection/CollectionFilter"))
 
-const Profile = React.lazy(() => import('../pages/Profile'))
-const ProfileEdit = React.lazy(() => import('../pages/ProfileEdit'))
-const AccountEdit = React.lazy(() => import('../pages/AccountEdit'))
+// Create Account
+const CreateAccount = React.lazy(() => import('../pages/CreateAccount/CreateAccount')) 
 
-const AdminList = React.lazy(() => import('../pages/AdminList'))
-const AdminAccountEdit = React.lazy(() => import('../pages/AdminAccountEdit'))
-const AdminRegisterAccount = React.lazy(() => import('../pages/AdminRegisterAccount'))
+// Login
+const Login = React.lazy(() => import('../pages/Login/Login')) 
 
-const ProductList = React.lazy(() => import('../pages/ProductList'))
-const ProductCreation = React.lazy(() => import('../pages/ProductCreation'))
-const ProductUpdate = React.lazy(() => import('../pages/ProductUpdate'))
+// Dashboard Admin
+// Admin Manager
+const AdminList = React.lazy(() => import('../pages/AdminManager/AdminList'))
+const AdminAccountEdit = React.lazy(() => import('../pages/AdminManager/AdminAccountEdit'))
+const AdminRegisterAccount = React.lazy(() => import('../pages/AdminManager/AdminRegisterAccount'))
+
+// Collection Manager
+const ProductList = React.lazy(() => import('../pages/CollectionManager/ProductList'))
+const ProductCreation = React.lazy(() => import('../pages/CollectionManager/ProductCreation'))
+const ProductUpdate = React.lazy(() => import('../pages/CollectionManager/ProductUpdate'))
+
+// Dashboard User
+// Profile
+const ProfileEdit = React.lazy(() => import('../pages/Profile/ProfileEdit'))
+
+// Account Settings
+const AccountSettings = React.lazy(() => import('../pages/AccountSettings/AccountSettings'))
 
 const Wishlist = React.lazy(()=> import("../pages/Wishlist"))
 
 const routes = [
-    { path: '/', element: <Home /> },
+    // Home
+    { path: '/', element: <HomePage /> },
+    
+    // Collection
     { path: '/collection', element: <Collection /> },
-    { path: '/search', element: <FilterCollection /> },
     { path: '/collection/:id', element: <CollectionDetail />},
+    { path: '/search', element: <CollectionFilter /> },
     
-    { path: '/login', element: <Login /> },
-    { path: '/registerAccount', element: <RegisterAccount /> },
-    { path: '/registerProfile', element: <RegisterProfile /> },
-    
-    { path: '/profile', element: <Profile /> },
-    { path: '/edit/profile', element: <ProfileEdit /> },
-    { path: '/edit/account', element: <AccountEdit /> },
+    // Create Account
+    { path: '/create-account', element: <CreateAccount /> },
 
-    { path: '/productList', element: <ProductList /> },
-    { path: '/productCreation', element: <ProductCreation /> },
-    
-    { path: '/adminList', element: <AdminList /> },
+    // Login
+    { path: '/login', element: <Login /> },
+
+    // Dashboard Admin
+    // Admin Manager
+    { path: '/admin-lists', element: <AdminList /> },
     { path: '/admin/edit/account/:id', element: <AdminAccountEdit /> },
     { path: '/admin/create/account', element: <AdminRegisterAccount /> },
-    { path: '/productCreation', element: <ProductCreation /> },
-    { path: '/product/create/', element: <ProductCreation /> },
-    { path: '/productUpdate/:id', element: <ProductUpdate /> },
+    
+    // Collection Manager
+    { path: '/product-lists', element: <ProductList /> },
+    { path: '/collection/create', element: <ProductCreation /> },
+    { path: '/collection/edit/:id', element: <ProductUpdate /> },
 
-    { path: '/wishlist', element: <Wishlist /> }
+    // Dashboard User
+    // Profile
+    { path: '/edit/profile', element: <ProfileEdit /> },
+    // Account Settings
+    { path: '/edit/account', element: <AccountSettings /> }
 ]
-
 
 export default routes
