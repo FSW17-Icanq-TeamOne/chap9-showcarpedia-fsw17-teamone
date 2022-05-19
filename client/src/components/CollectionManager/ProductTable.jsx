@@ -19,6 +19,8 @@ const columns = [
         <Button
           variant="contained"
           color="primary"
+          size="small"
+          style={{ textDecoration: "none", color: "white" }}
           href={`/collection/edit/${cellValues.getValue(cellValues.id, "id")}`}
         >
           Edit
@@ -35,6 +37,7 @@ const columns = [
         <Button
           variant="contained"
           color="error"
+          size="small"
           onClick={function () {
             fetch(
               `http://localhost:4000/v1/cars/delete/${cellValues.getValue(
@@ -134,7 +137,7 @@ const rows = [
   },
 ];
 
-const ProductTable2 = () => {
+const ProductTable = () => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
@@ -152,7 +155,7 @@ const ProductTable2 = () => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Typography variant={"h4"} textAlign="center">
-              Admin List
+              Product List
             </Typography>
           </Grid>
           <Grid item xs={12}>
@@ -166,7 +169,11 @@ const ProductTable2 = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" href={"/collection/create"}>
+            <Button 
+              variant="contained" 
+              href={"/collection/create"}
+              style={{ textDecoration: "none", color: "white" }}
+            >
               Create Product
             </Button>
           </Grid>
@@ -176,4 +183,4 @@ const ProductTable2 = () => {
   );
 };
 
-export default ProductTable2;
+export default ProductTable;

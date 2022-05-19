@@ -1,10 +1,9 @@
 import {
   Button,
-  Card,
-  CardContent,
   Grid,
   TextField,
   Typography,
+  Box,
 } from "@mui/material";
 import { useFormik } from "formik";
 import React, { useState, useEffect } from "react";
@@ -40,7 +39,6 @@ export default function AdminAccountEdit() {
       password: "",
     },
     onSubmit: (values) => {
-      //console.log(values, 'AccountUpdated')
       fetch(`http://localhost:4000/v1/admin/edit/${id[4]}`, {
         method: "PUT",
         headers: {
@@ -66,24 +64,27 @@ export default function AdminAccountEdit() {
   });
 
   return (
-   <Grid container>
+    <Grid container>
       <DashboardAdmin />
       <Grid item xs>
         <Grid container spacing={2}>
           <Grid item sm={1} lg={2} />
           <Grid item xs={12} sm={10} lg={8}>
-            <Card sx={{ minHeight: "calc(100vh - 64px)" }}>
-              <CardContent>
-                
+            <Box sx={{ minHeight: "calc(100vh - 64px)" }}>
                 <form onSubmit={formik.handleSubmit}>
-                  <Grid container columns={{xs:6,md:12}} spacing={{xs:3,sm:2}}>
+                  <Grid
+                    container
+                    columns={{ xs: 6, md: 12 }}
+                    spacing={{ xs: 3, sm: 2 }}
+                  >
                     <Grid item xs={6} md={12}>
-                    <Typography variant={"h4"} textAlign="center" mt={10}>
-                  Update Admin
-                </Typography>
+                      <Typography variant={"h4"} textAlign="center" mt={10}>
+                        Edit Admin Account
+                      </Typography>
                     </Grid>
 
                     <Grid item xs={1} md={4} />
+
                     <Grid item xs={4} md={4}>
                       <TextField
                         id="username"
@@ -101,9 +102,10 @@ export default function AdminAccountEdit() {
                         }
                       />
                     </Grid>
-                    <Grid item xs={1} md={4} />
 
                     <Grid item xs={1} md={4} />
+                    <Grid item xs={1} md={4} />
+
                     <Grid item xs={4} md={4}>
                       <TextField
                         id="email"
@@ -119,9 +121,10 @@ export default function AdminAccountEdit() {
                         helperText={formik.touched.email && formik.errors.email}
                       />
                     </Grid>
-                    <Grid item xs={1} md={4} />
 
                     <Grid item xs={1} md={4} />
+                    <Grid item xs={1} md={4} />
+
                     <Grid item xs={4} md={4}>
                       <TextField
                         id="password"
@@ -140,12 +143,13 @@ export default function AdminAccountEdit() {
                         }
                       />
                     </Grid>
-                    <Grid item xs={1} md={4} />
 
                     <Grid item xs={1} md={4} />
+                    <Grid item xs={1} md={4} />
+
                     <Grid item xs={4} md={4}>
                       <Button
-                      fullWidth
+                        fullWidth
                         type={"submit"}
                         sx={{
                           backgroundColor: "orange",
@@ -156,13 +160,13 @@ export default function AdminAccountEdit() {
                         Submit
                       </Button>
                     </Grid>
+
                     <Grid item xs={1} md={4} />
+                  
                   </Grid>
                 </form>
-              </CardContent>
-            </Card>
+            </Box>
           </Grid>
-          <Grid item sm={1} lg={2} />
         </Grid>
       </Grid>
     </Grid>

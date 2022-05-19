@@ -56,7 +56,7 @@ const routes = [
     { path: '/admin/create/account', element: <AdminRegisterAccount /> },
     
     // Collection Manager
-    { path: '/product-lists', element: <ProductList /> },
+    { path: '/collection-lists', element: <ProductList /> },
     { path: '/collection/create', element: <ProductCreation /> },
     { path: '/collection/edit/:id', element: <ProductUpdate /> },
 

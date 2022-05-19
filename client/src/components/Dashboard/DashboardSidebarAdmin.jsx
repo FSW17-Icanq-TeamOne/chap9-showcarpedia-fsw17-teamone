@@ -55,7 +55,7 @@ function DashboardSidebarAdmin() {
         )}
 
         <Link
-          href="/product-lists"
+          href="/collection-lists"
           style={{ textDecoration: "none", color: "black" }}
         >
           <ListItem disablePadding>
@@ -64,7 +64,7 @@ function DashboardSidebarAdmin() {
                 <Inventory />
               </ListItemIcon>
               <ListItemText
-                primary="Product Manager"
+                primary="Collection Manager"
                 sx={{ display: { xs: "none", sm: "unset" } }}
               />
             </ListItemButton>
