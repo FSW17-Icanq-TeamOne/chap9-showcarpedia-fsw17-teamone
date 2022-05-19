@@ -17,9 +17,8 @@ import { Home } from "@mui/icons-material";
 import { DirectionsCar } from "@mui/icons-material";
 import { Favorite } from "@mui/icons-material";
 import { Fade } from "@mui/material";
-import {Link} from "react-router-dom"
 import { useEffect } from "react";
-import "../styles/Dashboard.css"
+import "../../styles/Dashboard.css"
 export default function MainNavbar() {
   const [cookie, setCookie, removeCookie] = useCookies(["access_token"]);
   const [isToggle, setIsToggle] = useState(false);
@@ -35,7 +34,6 @@ export default function MainNavbar() {
   const handleToggle = () => setIsToggle((prev) => !prev);
 
   return (
-<<<<<<< HEAD:client/src/components/MainNavbar.jsx
     <>
       <Grid
         container
@@ -65,30 +63,6 @@ export default function MainNavbar() {
               <Typography component={Link} to={"/collection"} style={{textDecoration:"none"}} color="black">Collection</Typography>
             </Grid>
             {/* <Link to='#'><Typography>Contact Us</Typography></Link> */}
-=======
-    <Grid
-      container
-      columns={{ xs: 2, sm: 8, md: 12 }}
-      alignItems={"center"}
-      height={"10vh"}
-      maxHeight="64px"
-      justifyContent={{ xs: "space-between" }}
-    >
-      <Grid item sm ml={2}>
-        <Typography>Showcarpedia</Typography>
-      </Grid>
-      <Grid item md={5} sm={2}>
-        <Grid
-          container
-          justifyContent="center"
-          spacing={{ md: 2, sm: 1 }}
-          sx={{ display: { xs: "none", sm: "flex" } }}
-        >
-          <Grid item>
-            <Link to="/">
-              <Typography>Home Page</Typography>
-            </Link>
->>>>>>> 108d00d3131394b524f77f864a3a7a30a3f640a1:client/src/components/NavigationBar/MainNavbar.jsx
           </Grid>
         </Grid>
 
@@ -173,7 +147,6 @@ export default function MainNavbar() {
           mr={3}
           justifyContent="flex-end"
         >
-<<<<<<< HEAD:client/src/components/MainNavbar.jsx
           <>
             <input
               className="hamburgerButton"
@@ -187,72 +160,6 @@ export default function MainNavbar() {
               <span></span>
             </label>
           </>
-=======
-          <Grid item>
-            {localStorage.getItem("role") === "superAdmin" && (
-              <IconButton
-                aria-label="Account"
-                onClick={() => window.location.assign("/admin-lists")}
-              >
-                <SettingsIcon />
-              </IconButton>
-            )}
-            {localStorage.getItem("role") === "admin" && (
-              <IconButton
-                aria-label="Account"
-                onClick={() => window.location.assign("/product-lists")}
-              >
-                <SettingsIcon />
-              </IconButton>
-            )}
-          </Grid>
-          <Grid item>
-            {localStorage.getItem("role") === null && (
-              <Link to="/login">
-                <Typography>Log In</Typography>
-              </Link>
-            )}
-            {(localStorage.getItem("role") === "user" ||
-              localStorage.getItem("role") === "admin" ||
-              localStorage.getItem("role") === "superAdmin") && (
-              <IconButton
-                aria-label="Account"
-                onClick={() => window.location.assign("/edit/profile")}
-              >
-                <PersonIcon />
-              </IconButton>
-            )}
-          </Grid>
-
-          <Grid item>
-            {(localStorage.getItem("role") === "user" ||
-              localStorage.getItem("role") === "admin" ||
-              localStorage.getItem("role") === "superAdmin") && (
-              <IconButton
-                aria-label="Account"
-                onClick={() => window.location.assign("/#")}
-              >
-                <FavoriteBorderRoundedIcon />
-              </IconButton>
-            )}
-          </Grid>
-
-          <Grid item>
-            {(localStorage.getItem("role") === "user" ||
-              localStorage.getItem("role") === "admin" ||
-              localStorage.getItem("role") === "superAdmin") && (
-              <IconButton
-                aria-label="Account"
-                onClick={() => {
-                  removeAccessToken();
-                  window.location.assign("/login");
-                }}
-              >
-                <LogoutIcon />
-              </IconButton>
-            )}
-          </Grid>
->>>>>>> 108d00d3131394b524f77f864a3a7a30a3f640a1:client/src/components/NavigationBar/MainNavbar.jsx
         </Grid>
       </Grid>
       <Fade in={isToggle}>

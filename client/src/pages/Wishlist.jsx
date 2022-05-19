@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import { useState } from "react";
-import MainNavbar from "../components/MainNavbar";
+import MainNavbar from "../components/NavigationBar/MainNavbar";
 
 export default function Wishlist() {
     const [data,setData] = useState([])
