@@ -1,9 +1,9 @@
 import { Grow } from "@mui/material";
 import React,{ useState } from "react";
 import { Button, Grid, Typography, Card, CardContent } from "@mui/material";
-import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
+import DashboardAdmin from "../../components/Dashboard/DashboardAdmin";
 
-import ProductTable from "../components/ProductTable";
+import ProductTable from "../../components/CollectionManager/ProductTable";
 
 export default function ProductList() {
   return (

@@ -1,7 +1,7 @@
 import { Button, TextField, Grid, Typography } from "@mui/material";
 import { useFormik } from 'formik';
-import Navbar2 from "../components/Navbar2";
-import { loginValidationScheme } from '../utils/validationScheme'
+import SecondNavbar from "../../components/NavigationBar/SecondNavbar";
+import { loginValidationScheme } from '../../utils/validationScheme'
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage(){
@@ -42,7 +42,7 @@ export default function LoginPage(){
 
     return(
         <>
-        <Navbar2 />
+        <SecondNavbar />
         
         <Grid container display={'flex'} direction={'column'} sx={{
             alignItems: 'center',

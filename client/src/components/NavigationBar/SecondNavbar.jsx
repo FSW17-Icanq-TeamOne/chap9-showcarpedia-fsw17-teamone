@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
- export default function Navbar2 () {
+ export default function SecondNavbar () {
      return (
          <nav>
              <Grid 

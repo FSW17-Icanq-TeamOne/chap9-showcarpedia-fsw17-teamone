@@ -10,7 +10,7 @@ import {
 import { Clear } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { storage } from "../config/firebase";
+import { storage } from "../../config/firebase";
 import { LoadingButton } from "@mui/lab";
 import { Card, CardActionArea } from "@mui/material";
 import { useRef } from "react";

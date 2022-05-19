@@ -1,6 +1,6 @@
 import { Grid, Box} from "@mui/material";
-import AdminManagerTable from "../components/AdminManager/AdminManagerTable";
-import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
+import AdminManagerTable from "../../components/AdminManager/AdminManagerTable";
+import DashboardAdmin from "../../components/Dashboard/DashboardAdmin";
 
 export default function AdminList() {
   return (

@@ -3,11 +3,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import { useFormik } from "formik";
-import DashboardNavbar from "../components/DashboardNavbar";
-import UserDashboardSidebar from "../components/UserDashboardSidebar";
+import DashboardNavbar from "../../components/Dashboard/DashboardNavbar";
+import UserDashboardSidebar from "../../components/Dashboard/UserDashboardSidebar";
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
-import { storage } from "../config/firebase";
+import { storage } from "../../config/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { Grow } from "@mui/material";

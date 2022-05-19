@@ -1,11 +1,11 @@
 import { Button, Grid, TextField, Typography, } from "@mui/material";
 import { useFormik } from "formik";
-import '../App.css'
-import Navbar2 from "../components/Navbar2";
-import { accountRegistrationScheme } from "../utils/validationScheme";
+import '../../App.css'
+import SecondNavbar from "../../components/NavigationBar/SecondNavbar";
+import { accountRegistrationScheme } from "../../utils/validationScheme";
 import { useNavigate } from "react-router-dom";
 
-export default function RegisterAccount() {
+export default function CreateAccount() {
     const navigate = useNavigate()
 
     const formik = useFormik({
@@ -40,7 +40,7 @@ export default function RegisterAccount() {
     
     return (
         <>
-        <Navbar2 />
+        <SecondNavbar />
 
         <Grid container display={'flex'} direction={'column'} sx={{
             alignItems: 'center',

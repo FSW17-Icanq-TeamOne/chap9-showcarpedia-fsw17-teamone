@@ -1,8 +1,8 @@
-import MainNavbar from "../components/NavigationBar/MainNavbar";
+import MainNavbar from "../../components/NavigationBar/MainNavbar";
 import { Grid, Typography, Card } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Details from "../components/cardDetail";
+import Details from "../../components/Collection/cardDetail";
 
 export default function DetailProduct() {
   const { id } = useParams();

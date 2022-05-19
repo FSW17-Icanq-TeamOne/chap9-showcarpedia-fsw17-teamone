@@ -1,7 +1,7 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
-import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
+import DashboardAdmin from "../../components/Dashboard/DashboardAdmin";
 
-import ProductUpdateForm from "../components/ProductUpdateForm";
+import ProductUpdateForm from "../../components/CollectionManager/ProductUpdateForm";
 
 export default function ProductUpdate() {
     return (

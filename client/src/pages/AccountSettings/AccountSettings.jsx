@@ -1,11 +1,11 @@
 import { Button, Card, CardContent, Grid, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
-import DashboardNavbar from "../components/DashboardNavbar";
-import UserDashboardSidebar from "../components/UserDashboardSidebar";
+import DashboardNavbar from "../../components/Dashboard/DashboardNavbar";
+import UserDashboardSidebar from "../../components/Dashboard/UserDashboardSidebar";
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
 
-export default function AccountEdit() {
+export default function AccountSettings() {
     
     const navigate = useNavigate()
 

@@ -7,7 +7,7 @@ import {
   Grid,
   Divider,
 } from "@mui/material";
-import CarouselDetail from "../components/CarouselDetail";
+import CarouselDetail from "./CarouselDetail";
 import { Speed } from "@mui/icons-material";
 import { Rating } from "@mui/material";
 import { Stack } from "@mui/material";

@@ -4,9 +4,9 @@ import {
   Divider
 } from "@mui/material";
 import { useState , useEffect } from "react";
-import Show from "../components/card";
-import Filter from "../components/Filter";
-import MainNavbar from "../components/NavigationBar/MainNavbar";
+import Show from "../../components/Collection/card";
+import Filter from "../../components/Collection/Filter";
+import MainNavbar from "../../components/NavigationBar/MainNavbar";
 
 export default function Collection() {
  const [data,setData] = useState([])

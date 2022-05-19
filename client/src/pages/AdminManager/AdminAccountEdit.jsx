@@ -7,24 +7,42 @@ import {
   Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
-import DashboardNavbar from "../components/DashboardNavbar";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
+import DashboardAdmin from "../../components/Dashboard/DashboardAdmin";
 
-export default function AdminRegisterAccount() {
+export default function AdminAccountEdit() {
   const navigate = useNavigate();
+
+  const [accountData, setaccountData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  let locPath = window.location.pathname,
+    id = locPath.split("/");
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/v1/admin/edit/${id[4]}`, {
+      credentials: "include",
+    })
+      .then((data) => data.json())
+      .then((data) => setaccountData(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      username: "",
-      email: "",
+      username: accountData?.username,
+      email: accountData?.email,
       password: "",
     },
     onSubmit: (values) => {
-      fetch("http://localhost:4000/v1/admin/register", {
-        method: "POST",
+      //console.log(values, 'AccountUpdated')
+      fetch(`http://localhost:4000/v1/admin/edit/${id[4]}`, {
+        method: "PUT",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -38,7 +56,7 @@ export default function AdminRegisterAccount() {
         .then((data) => {
           console.log(data, "This is the Data");
           if (data.message === "Success") {
-            navigate("/adminList");
+            navigate("/admin-lists");
           }
         })
         .catch((err) => {
@@ -48,7 +66,7 @@ export default function AdminRegisterAccount() {
   });
 
   return (
-    <Grid container>
+   <Grid container>
       <DashboardAdmin />
       <Grid item xs>
         <Grid container spacing={2}>
@@ -61,7 +79,7 @@ export default function AdminRegisterAccount() {
                   <Grid container columns={{xs:6,md:12}} spacing={{xs:3,sm:2}}>
                     <Grid item xs={6} md={12}>
                     <Typography variant={"h4"} textAlign="center" mt={10}>
-                  Register Admin
+                  Update Admin
                 </Typography>
                     </Grid>
 

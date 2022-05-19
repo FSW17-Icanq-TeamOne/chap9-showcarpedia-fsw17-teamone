@@ -1,7 +1,7 @@
 import { Button, Grid } from "@mui/material";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useEffect, useState } from "react";
-import { storage } from '../config/firebase'
+import { storage } from '../../config/firebase'
 
 export default function MultipleImageUploader() {
     const [images, setImages] = useState([]);

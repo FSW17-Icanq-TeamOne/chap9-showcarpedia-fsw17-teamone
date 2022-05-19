@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import PreviewImages from "./PreviewImages";
-import { brands, grades, categories } from "../carMake";
+import { brands, grades, categories } from "../../utils/carMake";
 import { TextareaAutosize } from "@mui/material";
 import { useCallback } from "react";
 

@@ -4,12 +4,12 @@ import React from "react";
 import { useMemo } from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Show from "../components/card";
-import Filter from "../components/Filter";
-import MainNavbar from "../components/MainNavbar";
-import "../styles/HomePage.css";
+import Show from "../../components/Collection/card";
+import Filter from "../../components/Collection/Filter";
+import MainNavbar from "../../components/NavigationBar/MainNavbar";
+import "../../styles/HomePage.css";
 
-export default function FilterCollection() {
+export default function CollectionFilter() {
   function useQuery() {
     const { search } = useLocation();
 

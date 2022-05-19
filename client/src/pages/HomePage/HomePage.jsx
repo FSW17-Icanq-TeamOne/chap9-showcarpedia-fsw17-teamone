@@ -1,9 +1,9 @@
 import { Button, Grid, Typography, Divider, Box, Avatar  } from "@mui/material";
-import MainNavbar from "../components/NavigationBar/MainNavbar";
-import BrandList from "../components/HomePage/BrandList";
-import Carousel from "../components/HomePage/Carousel/CarouselContainer";
-import HomePageFooter from "../components/HomePage/HomePageFooter";
-import "../styles/HomePage.css";
+import MainNavbar from "../../components/NavigationBar/MainNavbar";
+import BrandList from "../../components/HomePage/BrandList";
+import Carousel from "../../components/HomePage/Carousel/CarouselContainer";
+import HomePageFooter from "../../components/HomePage/HomePageFooter";
+import "../../styles/HomePage.css";
 
 export default function HomePage() {
   return (

@@ -9,40 +9,21 @@ import {
 import { useFormik } from "formik";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import DashboardAdmin from "../components/Dashboard/DashboardAdmin";
+import DashboardAdmin from "../../components/Dashboard/DashboardAdmin";
 
-export default function AdminAccountEdit() {
+export default function AdminRegisterAccount() {
   const navigate = useNavigate();
-
-  const [accountData, setaccountData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
-
-  let locPath = window.location.pathname,
-    id = locPath.split("/");
-
-  useEffect(() => {
-    fetch(`http://localhost:4000/v1/admin/edit/${id[4]}`, {
-      credentials: "include",
-    })
-      .then((data) => data.json())
-      .then((data) => setaccountData(data))
-      .catch((err) => console.log(err));
-  }, []);
 
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      username: accountData?.username,
-      email: accountData?.email,
+      username: "",
+      email: "",
       password: "",
     },
     onSubmit: (values) => {
-      //console.log(values, 'AccountUpdated')
-      fetch(`http://localhost:4000/v1/admin/edit/${id[4]}`, {
-        method: "PUT",
+      fetch("http://localhost:4000/v1/admin/register", {
+        method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -56,7 +37,7 @@ export default function AdminAccountEdit() {
         .then((data) => {
           console.log(data, "This is the Data");
           if (data.message === "Success") {
-            navigate("/admin-lists");
+            navigate("/adminList");
           }
         })
         .catch((err) => {
@@ -66,7 +47,7 @@ export default function AdminAccountEdit() {
   });
 
   return (
-   <Grid container>
+    <Grid container>
       <DashboardAdmin />
       <Grid item xs>
         <Grid container spacing={2}>
@@ -79,7 +60,7 @@ export default function AdminAccountEdit() {
                   <Grid container columns={{xs:6,md:12}} spacing={{xs:3,sm:2}}>
                     <Grid item xs={6} md={12}>
                     <Typography variant={"h4"} textAlign="center" mt={10}>
-                  Update Admin
+                  Register Admin
                 </Typography>
                     </Grid>
 

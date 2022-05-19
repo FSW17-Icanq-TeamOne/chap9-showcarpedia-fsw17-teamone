@@ -1,36 +1,36 @@
 import React from 'react';
 
 // Home
-const HomePage = React.lazy(() => import('../pages/HomePage'))
+const HomePage = React.lazy(() => import('../pages/HomePage/HomePage'))
 
 // Collection
-const Collection = React.lazy(() => import('../pages/Collection'))
-const CollectionDetail = React.lazy(() => import('../pages/CollectionDetail'))
+const Collection = React.lazy(() => import('../pages/Collection/Collection'))
+const CollectionDetail = React.lazy(() => import('../pages/Collection/CollectionDetail'))
+const CollectionFilter = React.lazy(() => import("../pages/Collection/CollectionFilter"))
 
 // Create Account
-const CreateAccount = React.lazy(() => import('../pages/RegisterAccount')) 
-// const RegisterProfile = React.lazy(() => import('../pages/RegisterProfile')) 
+const CreateAccount = React.lazy(() => import('../pages/CreateAccount/CreateAccount')) 
 
 // Login
-const Login = React.lazy(() => import('../pages/Login')) 
+const Login = React.lazy(() => import('../pages/Login/Login')) 
 
 // Dashboard Admin
 // Admin Manager
-const AdminList = React.lazy(() => import('../pages/AdminList'))
-const AdminAccountEdit = React.lazy(() => import('../pages/AdminAccountEdit'))
-const AdminRegisterAccount = React.lazy(() => import('../pages/AdminRegisterAccount'))
+const AdminList = React.lazy(() => import('../pages/AdminManager/AdminList'))
+const AdminAccountEdit = React.lazy(() => import('../pages/AdminManager/AdminAccountEdit'))
+const AdminRegisterAccount = React.lazy(() => import('../pages/AdminManager/AdminRegisterAccount'))
 
 // Collection Manager
-const ProductList = React.lazy(() => import('../pages/ProductList'))
-const ProductCreation = React.lazy(() => import('../pages/ProductCreation'))
-const ProductUpdate = React.lazy(() => import('../pages/ProductUpdate'))
+const ProductList = React.lazy(() => import('../pages/CollectionManager/ProductList'))
+const ProductCreation = React.lazy(() => import('../pages/CollectionManager/ProductCreation'))
+const ProductUpdate = React.lazy(() => import('../pages/CollectionManager/ProductUpdate'))
 
 // Dashboard User
 // Profile
-const ProfileEdit = React.lazy(() => import('../pages/ProfileEdit'))
+const ProfileEdit = React.lazy(() => import('../pages/Profile/ProfileEdit'))
 
 // Account Settings
-const AccountEdit = React.lazy(() => import('../pages/AccountEdit'))
+const AccountSettings = React.lazy(() => import('../pages/AccountSettings/AccountSettings'))
 
 const routes = [
     // Home
@@ -39,6 +39,7 @@ const routes = [
     // Collection
     { path: '/collection', element: <Collection /> },
     { path: '/collection/:id', element: <CollectionDetail />},
+    { path: '/search', element: <CollectionFilter /> },
     
     // Create Account
     { path: '/create-account', element: <CreateAccount /> },
@@ -61,7 +62,7 @@ const routes = [
     // Profile
     { path: '/edit/profile', element: <ProfileEdit /> },
     // Account Settings
-    { path: '/edit/account', element: <AccountEdit /> }
+    { path: '/edit/account', element: <AccountSettings /> }
 ]
 
 export default routes

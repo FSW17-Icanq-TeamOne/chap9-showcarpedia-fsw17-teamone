@@ -6,7 +6,7 @@ import { ListItemIcon } from "@mui/material";
 import { ListItemButton } from "@mui/material";
 import { List } from "@mui/material";
 import { Link } from "react-router-dom";
-import '../styles/Dashboard.css'
+import '../../styles/Dashboard.css'
 
 export default function UserDashboardSidebar() {
     return(

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import PreviewImages from "./PreviewImages";
-import { brands, grades, categories } from "../carMake";
+import { brands, grades, categories } from "../../utils/carMake";
 
 export default function ProductCreationForm() {
   const getUrls = (url) => formik.setFieldValue("photoProducts", url);
