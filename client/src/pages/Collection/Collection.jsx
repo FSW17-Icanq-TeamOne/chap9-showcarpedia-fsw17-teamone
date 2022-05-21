@@ -10,7 +10,7 @@ import MainNavbar from "../../components/NavigationBar/MainNavbar";
 
 export default function Collection() {
  const [data,setData] = useState([])
- 
+ const [wishlistData,setWishlistData] = useState([])
  const fetchData = async () => {
   const response = await fetch("http://localhost:4000/v1/cars", {
       method: "GET",
@@ -24,9 +24,28 @@ export default function Collection() {
   setData(data)
  }
 
+ const fetchWishlistData = async () => {
+  const response = await fetch("http://localhost:4000/v1/wishlist", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    
+  });
+  const data = await response.json();
+  console.log(data)
+  setWishlistData(data?.map(datum => datum.Product))
+};
+
  useEffect(()=> {
    fetchData()
  },[])
+
+useEffect(()=>{
+  fetchWishlistData()
+},[])
 
   return (
     <>
@@ -49,7 +68,7 @@ export default function Collection() {
       >
         {data.map((datum, idx) => (
            <Grid item xs={4} sm={4} md={4} key={idx}>
-           <Show data={datum} />
+           <Show data={datum} wishlist={wishlistData.filter(data=>data.id === datum.id)} />
          </Grid>
         ))}
 

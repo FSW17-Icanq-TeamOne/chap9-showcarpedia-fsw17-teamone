@@ -35,130 +35,132 @@ export default function MainNavbar() {
 
   return (
     <>
-      <Grid
-        container
-        columns={{ xs: 2, sm: 8, md: 12 }}
-        alignItems={"center"}
-        height={"8vh"}
-        maxHeight="64px"
-        justifyContent={{ xs: "space-between" }}
-      >
-        <Grid item sm ml={2} >
-          <Typography>Showcarpedia</Typography>
-        </Grid>
-        <Grid item md={5} sm={2}>
-          <Grid
-            container
-            justifyContent="center"
-            spacing={{ md: 2, sm: 1 }}
-            sx={{ display: { xs: "none", sm: "flex" } }}
-          >
-            <Grid item >
-              <Typography style={{textDecoration:"none"}} color="black" component={Link} to={"/"}
-              >
-                Home
-              </Typography>
-            </Grid>
-            <Grid item  >
-              <Typography component={Link} to={"/collection"} style={{textDecoration:"none"}} color="black">Collection</Typography>
-            </Grid>
-            {/* <Link to='#'><Typography>Contact Us</Typography></Link> */}
-          </Grid>
-        </Grid>
-
-        <Grid item md={4} sm={3}>
-          <Grid
-            container
-            justifyContent={"flex-end"}
-            sx={{ display: { xs: "none", sm: "flex" } }}
-            spacing={{ md: 2 }}
-            mr={3}
-          >
-            <Grid item>
-              {localStorage.getItem("role") === "superAdmin" && (
-                <IconButton
-                  aria-label="Account"
-                  onClick={() => window.location.assign("/adminList")}
-                >
-                  <SettingsIcon />
-                </IconButton>
-              )}
-              {localStorage.getItem("role") === "admin" && (
-                <IconButton
-                  aria-label="Account"
-                  onClick={() => window.location.assign("/productList")}
-                >
-                  <SettingsIcon />
-                </IconButton>
-              )}
-            </Grid>
-            <Grid item>
-              {localStorage.getItem("role") === null && (
-                <Link to="/login">
-                  <Typography>Login</Typography>
-                </Link>
-              )}
-              {(localStorage.getItem("role") === "user" ||
-                localStorage.getItem("role") === "admin" ||
-                localStorage.getItem("role") === "superAdmin") && (
-                <IconButton
-                  aria-label="Account"
-                  onClick={() => window.location.assign("/edit/profile")}
-                >
-                  <PersonIcon />
-                </IconButton>
-              )}
-            </Grid>
-
-            <Grid item>
-              {(localStorage.getItem("role") === "user" ||
-                localStorage.getItem("role") === "admin" ||
-                localStorage.getItem("role") === "superAdmin") && (
-                <IconButton
-                  aria-label="Account"
-                  onClick={() => window.location.assign("/wishlist")}
-                >
-                  <FavoriteBorderRoundedIcon />
-                </IconButton>
-              )}
-            </Grid>
-
-            <Grid item>
-              {(localStorage.getItem("role") === "user" ||
-                localStorage.getItem("role") === "admin" ||
-                localStorage.getItem("role") === "superAdmin") && (
-                <IconButton
-                  aria-label="Account"
-                  onClick={() => {
-                    removeAccessToken();
-                    window.location.assign("/login");
-                  }}
-                >
-                  <LogoutIcon />
-                </IconButton>
-              )}
-            </Grid>
-          </Grid>
-        </Grid>
-
+     
+    <Grid
+      container
+      columns={{ xs: 2, sm: 8, md: 12 }}
+      alignItems={"center"}
+      height={"10vh"}
+      maxHeight="64px"
+      justifyContent={{ xs: "space-between" }}
+    >
+      <Grid item sm ml={2}>
+        <Typography>Showcarpedia</Typography>
+      </Grid>
+      <Grid item md={5} sm={2}>
         <Grid
-          item
-          sx={{ display: { xs: "flex", sm: "none" } }}
-          mr={3}
-          justifyContent="flex-end"
+          container
+          justifyContent="center"
+          spacing={{ md: 2, sm: 1 }}
+          sx={{ display: { xs: "none", sm: "flex" } }}
         >
-          <>
-            <input
-              className="hamburgerButton"
-              type="checkbox"
-              onClick={handleToggle}
-              id="nav-menu"
-            />
-            <label htmlFor="nav-menu" id="nav-icon">
-              <span></span>
-              <span></span>
-              <span></span>
-            </label>
+          <Grid item>
+            <Link to="/">
+              <Typography>Home Page</Typography>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link to="/collection">
+              <Typography>Collection</Typography>
+            </Link>
+          </Grid>
+          {/* <Link to='#'><Typography>Contact Us</Typography></Link> */}
+        </Grid>
+      </Grid>
+
+      <Grid item md={4} sm={3}>
+        <Grid
+          container
+          justifyContent={"flex-end"}
+          sx={{ display: { xs: "none", sm: "flex" } }}
+          spacing={{ md: 2 }}
+          mr={3}
+        >
+          <Grid item>
+            {localStorage.getItem("role") === "superAdmin" && (
+              <IconButton
+                aria-label="Account"
+                onClick={() => window.location.assign("/admin-lists")}
+              >
+                <SettingsIcon />
+              </IconButton>
+            )}
+            {localStorage.getItem("role") === "admin" && (
+              <IconButton
+                aria-label="Account"
+                onClick={() => window.location.assign("/product-lists")}
+              >
+                <SettingsIcon />
+              </IconButton>
+            )}
+          </Grid>
+          <Grid item>
+            {localStorage.getItem("role") === null && (
+              <Link to="/login">
+                <Typography>Log In</Typography>
+              </Link>
+            )}
+            {(localStorage.getItem("role") === "user" ||
+              localStorage.getItem("role") === "admin" ||
+              localStorage.getItem("role") === "superAdmin") && (
+              <IconButton
+                aria-label="Account"
+                onClick={() => window.location.assign("/edit/profile")}
+              >
+                <PersonIcon />
+              </IconButton>
+            )}
+          </Grid>
+
+          <Grid item>
+            {(localStorage.getItem("role") === "user" ||
+              localStorage.getItem("role") === "admin" ||
+              localStorage.getItem("role") === "superAdmin") && (
+              <IconButton
+                aria-label="Account"
+                onClick={() => window.location.assign("/wishlist")}
+              >
+                <FavoriteBorderRoundedIcon />
+              </IconButton>
+            )}
+          </Grid>
+
+          <Grid item>
+            {(localStorage.getItem("role") === "user" ||
+              localStorage.getItem("role") === "admin" ||
+              localStorage.getItem("role") === "superAdmin") && (
+              <IconButton
+                aria-label="Account"
+                onClick={() => {
+                  removeAccessToken();
+                  window.location.assign("/login");
+                }}
+              >
+                <LogoutIcon />
+              </IconButton>
+            )}
+          </Grid>
+        </Grid>
+      </Grid>
+
+      <Grid
+        item
+        sx={{ display: { xs: "flex", sm: "none" } }}
+        mr={3}
+        justifyContent="flex-end"
+      >
+        <>
+          <input
+            className="hamburgerButton"
+            type="checkbox"
+            onClick={(handleToggle)}
+            id="nav-menu"
+          />
+          <label htmlFor="nav-menu" id="nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
           </>
         </Grid>
       </Grid>
@@ -201,7 +203,7 @@ export default function MainNavbar() {
             </ListItem>
 
             <ListItem>
-              <ListItemButton component={Link} to="/adminList">
+              <ListItemButton component={Link} to="/admin-lists">
                 <ListItemIcon>
                   <SettingsIcon />
                 </ListItemIcon>

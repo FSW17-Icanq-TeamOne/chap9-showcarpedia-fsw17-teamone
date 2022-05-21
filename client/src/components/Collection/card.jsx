@@ -9,15 +9,78 @@ import {
 } from "@mui/material";
 import {Link} from "react-router-dom"
 import { FavoriteOutlined } from "@mui/icons-material";
-import { useState } from "react";
-export default function Show({data}) {
-  const [wishlist, setWishlist] = useState(false);
+import React, { useState } from "react";
+import { Snackbar } from "@mui/material";
+import { Close } from "@mui/icons-material";
+import { Alert } from "@mui/material";
+import { SnackbarContent } from "@mui/material";
+import { useEffect } from "react";
+export default function Show({data,wishlist}) {
+  const [isWishlist, setIsWishlist] = useState(false);
+  const [message, setMessage] = useState(null)
+const [isOpen,setIsOpen] = useState(false)
 
-  const handleWishlist = () => {
-    setWishlist((prev) => !prev);
+const handleClose = () => setIsOpen(false)
+
+const action = (
+<React.Fragment>
+
+   <IconButton
+  size="small"
+  aria-label="close"
+  color="inherit"
+  onClick={handleClose}
+>
+  <Close fontSize="small" />
+</IconButton>
+</React.Fragment>
+)
+useEffect(()=>{
+  if(wishlist){
+    setIsWishlist(true)
+  }
+},[])
+
+  const handleWishlist = async () => {
+    const response = await fetch('http://localhost:4000/v1/wishlist', {
+      method: 'post',
+      headers: { 
+          Accept: 'application/json',
+          "Content-Type": 'application/json',
+        },
+      credentials: "include",
+      body: JSON.stringify({ProductId:data.id})
+  })
+  const message = await response.json()
+  console.log(message)
+  switch (message) {
+    case "product has been added":
+      await fetch("http://localhost:4000/v1/wishlist/delete",{
+        method:"delete",
+        headers: { 
+          Accept: 'application/json',
+          "Content-Type": 'application/json',
+        },
+      credentials: "include",
+      body: JSON.stringify({ProductId:data.id})
+      })
+      setIsWishlist(prev=>!prev)
+      setMessage("success delete from wishlist")
+      setIsOpen(true)
+      break
+  
+    default:
+      setIsWishlist(prev=>!prev)  
+      setMessage(message)
+      setIsOpen(true)
+    break
+  }
+  
+   
   };
 
   return (
+    <>
     <Card
       sx={{
         borderRadius: 2,
@@ -29,8 +92,8 @@ export default function Show({data}) {
     >
         <CardMedia
           component={"img"}
-          image={data.photoProducts[0]} 
-          alt={data.title}
+          image={data?.photoProducts[0]} 
+          alt={data?.title}
           sx={{
             width: "90%",
             height:"250px",
@@ -46,9 +109,10 @@ export default function Show({data}) {
               justifyContent={"space-between"}
               alignItems={"center"}
             >
-              <Typography marginLeft={2} fontWeight="bold" fontSize={"2em"} >{data.title}</Typography>
+                  
+              <Typography marginLeft={2} fontWeight="bold" fontSize={"2em"} >{data?.title}</Typography>
               <IconButton onClick={handleWishlist}>
-                {wishlist ? (
+                {isWishlist ? (
                   <FavoriteOutlined sx={{ color: "red", transition: ".5s" }} />
                 ) : (
                   <FavoriteOutlined />
@@ -64,11 +128,11 @@ export default function Show({data}) {
             >
               <div className="model">
                 <Typography marginLeft={2} fontWeight="bold">Model Year</Typography>
-                <Typography marginLeft={2}>{data.year}</Typography>
+                <Typography marginLeft={2}>{data?.year}</Typography>
               </div>
               <div className="odometer">
                 <Typography marginRight={5} fontWeight="bold">Odometer</Typography>
-                <Typography marginRight={5}>{data.kiloMeter} km</Typography>
+                <Typography marginRight={5}>{data?.kiloMeter} km</Typography>
               </div>
             </Grid>
             <Grid display={"flex"} justifyContent={"center"} marginTop={5}>
@@ -92,5 +156,10 @@ export default function Show({data}) {
           </Grid>
         </CardContent>
     </Card>
+   <Snackbar  open={isOpen} message={message} onClose={handleClose} autoHideDuration={3000} action={action} anchorOrigin={{vertical:"top",horizontal:"right"}}>
+    <SnackbarContent sx={{backgroundColor:"#4E9A51"}} message={message} action={action}/>
+    </Snackbar>
+   
+    </>
   );
 }

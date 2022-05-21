@@ -32,7 +32,8 @@ const ProfileEdit = React.lazy(() => import('../pages/Profile/ProfileEdit'))
 // Account Settings
 const AccountSettings = React.lazy(() => import('../pages/AccountSettings/AccountSettings'))
 
-const Wishlist = React.lazy(()=> import("../pages/Wishlist"))
+//wishlist
+const Wishlist = React.lazy(()=> import("../pages/Wishlist/Wishlist"))
 
 const routes = [
     // Home
@@ -64,7 +65,10 @@ const routes = [
     // Profile
     { path: '/edit/profile', element: <ProfileEdit /> },
     // Account Settings
-    { path: '/edit/account', element: <AccountSettings /> }
+    { path: '/edit/account', element: <AccountSettings /> },
+
+    //wishlist
+    {path: '/wishlist', element: <Wishlist />}
 ]
 
 export default routes
