@@ -53,8 +53,10 @@ export default function Wishlist() {
             ))
           ):(
             <Grid item xs={12}>
-            <Typography variant="h4">you dont have any wishlist</Typography>
-            <Button component={Link} to='/collection'>find product here</Button>
+              <Grid container alignItems="center" justifyContent="center" flexDirection="column" gap={2}>
+            <Typography variant="h4">you dont have any wishlist :(</Typography>
+            <Button component={Link} to='/collection' variant="contained">find product</Button>
+              </Grid>
             </Grid>
           )}
           
