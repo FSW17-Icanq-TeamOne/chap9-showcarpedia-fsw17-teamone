@@ -21,6 +21,7 @@ export default function Collection() {
       credentials: "include",
     });
   const data = await response.json()
+
   setData(data)
  }
 
@@ -35,8 +36,9 @@ export default function Collection() {
     
   });
   const data = await response.json();
-  console.log(data)
-  setWishlistData(data?.map(datum => datum.Product))
+  if(Array.isArray(data)){
+    setWishlistData(data?.map(datum => datum.Product))
+  } 
 };
 
  useEffect(()=> {
@@ -68,7 +70,7 @@ useEffect(()=>{
       >
         {data.map((datum, idx) => (
            <Grid item xs={4} sm={4} md={4} key={idx}>
-           <Show data={datum} wishlist={wishlistData.filter(data=>data.id === datum.id)} />
+           <Show data={datum} wishlist={wishlistData?.find(data=>data.id === datum.id)} />
          </Grid>
         ))}
 

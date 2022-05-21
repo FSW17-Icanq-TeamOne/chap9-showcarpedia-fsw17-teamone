@@ -1,8 +1,10 @@
 import { Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import { Container } from "@mui/material";
 import { Grid } from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Show from "../../components/Collection/card";
 import MainNavbar from "../../components/NavigationBar/MainNavbar";
 
@@ -19,7 +21,9 @@ export default function Wishlist() {
       
     });
     const data = await response.json();
-    setData(data?.map(datum => datum.Product))
+    if(Array.isArray(data)){
+      setData(data?.map(datum => datum.Product))
+    } 
   };
 
   useEffect(() => {
@@ -41,11 +45,19 @@ export default function Wishlist() {
           <Typography variant="h4">Wishlist</Typography>
           <Typography>{data.length} item</Typography>
           </Grid>
-          {data.map((datum, idx) => (
-            <Grid item xs={4} sm={4} md={4} key={idx}>
-              <Show data={datum} wishlist={datum.id} />
+          {data.length?(
+            data.map((datum, idx) => (
+              <Grid item xs={4} sm={4} md={4} key={idx}>
+                <Show data={datum} wishlist={datum} />
+              </Grid>
+            ))
+          ):(
+            <Grid item xs={12}>
+            <Typography variant="h4">you dont have any wishlist</Typography>
+            <Button component={Link} to='/collection'>find product here</Button>
             </Grid>
-          ))}
+          )}
+          
         </Grid>
       </Container>
       </Grid>

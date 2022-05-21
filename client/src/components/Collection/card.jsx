@@ -12,7 +12,6 @@ import { FavoriteOutlined } from "@mui/icons-material";
 import React, { useState } from "react";
 import { Snackbar } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import { Alert } from "@mui/material";
 import { SnackbarContent } from "@mui/material";
 import { useEffect } from "react";
 export default function Show({data,wishlist}) {
@@ -36,8 +35,10 @@ const action = (
 </React.Fragment>
 )
 useEffect(()=>{
-  if(wishlist){
+  if(wishlist?.id === data.id){
     setIsWishlist(true)
+  } else{
+    setIsWishlist(false)
   }
 },[])
 
@@ -52,7 +53,6 @@ useEffect(()=>{
       body: JSON.stringify({ProductId:data.id})
   })
   const message = await response.json()
-  console.log(message)
   switch (message) {
     case "product has been added":
       await fetch("http://localhost:4000/v1/wishlist/delete",{
