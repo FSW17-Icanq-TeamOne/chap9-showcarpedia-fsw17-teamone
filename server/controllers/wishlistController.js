@@ -44,8 +44,8 @@ class wishlistController {
           },
         ],
       });
-      if (!data.length) res.json("please add new product");
-      res.status(200).json(data);
+      if (!data.length) return res.json("please add new product");
+     return res.status(200).json(data);
     } catch (error) {
       throw error;
     }
