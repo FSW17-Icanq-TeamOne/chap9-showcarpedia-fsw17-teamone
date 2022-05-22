@@ -15,8 +15,8 @@ const fetchData = async () => {
     });
     const data = await response.json();
     years = data.year.map((e) => e.year)
-    brands = data.brands.sort()
-    categories = data.categories.sort()
+    brands = data.brand.sort()
+    categories = data.category.sort()
   };
 
 fetchData()

@@ -46,7 +46,6 @@ export default function PreviewImages(props) {
 
   const handleChange = (e) => {
     const files = Array.from(e.target.files)
-    console.log(files)
     files.forEach((file) => {
       file.preview = URL.createObjectURL(file);
       setFiles((prev) => [...prev, file]);
@@ -128,7 +127,7 @@ export default function PreviewImages(props) {
                   <ImageList sx={{ height:480,paddingBottom:3}} rowHeight={180} cols={3}>
                     {files?.map((file, idx) => (
                       <ImageListItem key={idx}>
-                        <img src={file.preview?file.preview:file} alt={file} loading="lazy" height={"100%"} />
+                        <img src={file.preview??file} alt={file} loading="lazy" height={"100%"} />
                         <ImageListItemBar
                           sx={{
                             background:
